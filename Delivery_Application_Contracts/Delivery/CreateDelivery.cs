@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace Delivery_Application_Contracts.Delivery
 {
+    // This is the 'Create' object that will be injected
+    // into the methods of the 'IDeliveryApplication' interface.
     public class CreateDelivery
     {
         public DateTime DeliveryTime { get; set; }

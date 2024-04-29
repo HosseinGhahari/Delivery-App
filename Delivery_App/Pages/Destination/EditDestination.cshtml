@@ -4,15 +4,11 @@
 }
 
 
-@* <div class="col-12 mb-4">
-    @if (TempData["Exist"] != null || TempData["Error"] != null)
-    {
-        <div class="alert alert-danger">
-            @TempData["Exist"]
-            @TempData["Error"]
-        </div>
-    }
-</div> *@
+
+<!-- This code represents a form for editing a destination
+It includes fields for the destination name and price, 
+a hidden field for the destination id, and a submit button.
+The form data is bound to the Command object in the model. -->
 
 <form method="post">
     <div class="row">

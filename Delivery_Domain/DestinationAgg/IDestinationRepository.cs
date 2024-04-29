@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace Delivery_Domain.DestinationAgg
 {
+
+    // In this section, we establish the interface for the Destination Repository.
+    // The implementation of these interfaces is carried out in their respective
+    // repositories within the Infrastructure layer.
     public interface IDestinationRepository
     {
         Destination Get(int id);

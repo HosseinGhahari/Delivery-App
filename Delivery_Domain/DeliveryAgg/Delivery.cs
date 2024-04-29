@@ -7,6 +7,13 @@ using System.Threading.Tasks;
 
 namespace Delivery_Domain.DeliveryAgg
 {
+    // In this section, we define the necessary properties
+    // for our Delivery model. We also establish a constructor
+    // for the model and implement methods for editing and removal.
+
+    // As this model forms the 'N' part of the database relationship,
+    // it includes both 'DestinationID' and 'Destination' properties.
+
     public class Delivery
     {
         public int Id { get; set; }

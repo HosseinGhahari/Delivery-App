@@ -6,9 +6,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Collections.Specialized.BitVector32;
 
 namespace Delivery_Infrastructure.Context
 {
+    // In this section, we establish DbSet properties for our entities.
+    // Additionally, we utilize the assembly and the OnModelCreating
+    // method to enable our application to recognize all our model mappings.
+
     public class DeliveryContext : DbContext
     {
         public DbSet<Delivery> Delivery { get; set; }

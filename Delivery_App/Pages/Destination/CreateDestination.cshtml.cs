@@ -6,6 +6,7 @@ namespace Delivery_App.Pages.Destination
 {
     public class CreateDestinationModel : PageModel
     {
+        // This is the command object that will be used to create a new destination.
         public CreateDestination command { get; set; }
 
         private readonly IDestinationApplication _destinationApplication;
@@ -13,6 +14,20 @@ namespace Delivery_App.Pages.Destination
         {
             _destinationApplication = destinationApplication;
         }
+
+
+
+        // this post method It takes a CreateDestination command object
+        // as a parameter, which contains the data from the form submission.
+
+        // also hecks if a destination with the same name already exists.
+        // If it does, it sets a TempData message and redirects back to
+        // the CreateDestination page.
+
+        // checks if the ModelState is valid, meaning all form data
+        // is valid according to validation rules.
+        // If it is, it calls the Create method on the destination
+        // application service and redirects to the Index page.
 
         public RedirectToPageResult OnPost(CreateDestination command) 
         {
