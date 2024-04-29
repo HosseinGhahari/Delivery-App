@@ -1,0 +1,33 @@
+﻿@page
+@model Delivery_App.Pages.Destination.IndexModel
+@{
+}
+
+
+
+<div class="text-center">
+    <h1 class="display-4">لیست مقصدها</h1>
+    <p><a asp-page="./CreateDestination" class="btn btn-success">ایجاد کنید</a>.</p>
+
+    <table class="table table-responsive table-bordered table-striped" dir="rtl">
+        <thead>
+            <tr>
+                <td>مقصد</td>
+                <td>قیمت</td>
+                <td>عملیات</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var item in Model.Destinations)
+            {
+                <tr>
+                    <th>@item.DestinationName</th>
+                    <th>@item.Price</th>
+                    <th><a asp-page="./EditDestination" asp-route-id="@item.Id">ویرایش</a></th>
+                </tr>
+            }    
+        </tbody>
+    </table>
+
+
+</div>

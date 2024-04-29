@@ -1,0 +1,50 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v7.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v7.0": {
+      "Delivery_Application/1.0.0": {
+        "dependencies": {
+          "Delivery_Application_Contracts": "1.0.0",
+          "Delivery_Domain": "1.0.0"
+        },
+        "runtime": {
+          "Delivery_Application.dll": {}
+        }
+      },
+      "Delivery_Application_Contracts/1.0.0": {
+        "runtime": {
+          "Delivery_Application_Contracts.dll": {}
+        }
+      },
+      "Delivery_Domain/1.0.0": {
+        "dependencies": {
+          "Delivery_Application_Contracts": "1.0.0"
+        },
+        "runtime": {
+          "Delivery_Domain.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Delivery_Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Delivery_Application_Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Delivery_Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

@@ -1,0 +1,33 @@
+﻿@page
+@model Delivery_App.Pages.Destination.CreateDestinationModel
+@{
+}
+
+
+<div class="col-12 mb-4">
+    @if (TempData["Exist"] != null || TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Exist"]
+            @TempData["Error"]
+        </div>
+    }
+</div>
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-12 form-group mb-3">
+            <label for="destinationName">نام مقصد</label>
+            <input class="form-control" name="destinationName" type="text" id="destinationName" />
+            <span asp-validation-for="@Model.command.DestinationName" class="alert-danger"></span>
+        </div>
+        <div class="col-md-12 form-group mb-3">
+            <label for="price">قیمت</label>
+            <input class="form-control" name="price" type="text" id="price" />
+            <span asp-validation-for="@Model.command.Price" class="alert-danger"></span>
+        </div>
+        <div class="col-md-12 mt-3">
+            <button type="submit" class="btn btn-success">ثبت کردن</button>
+        </div>
+    </div>
+</form>

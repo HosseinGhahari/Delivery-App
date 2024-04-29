@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Delivery_Application_Contracts\Delivery_Application_Contracts.csproj" />
+    <ProjectReference Include="..\Delivery_Domain\Delivery_Domain.csproj" />
+  </ItemGroup>
+
+</Project>

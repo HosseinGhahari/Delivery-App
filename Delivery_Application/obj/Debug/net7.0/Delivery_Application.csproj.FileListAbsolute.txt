@@ -1,0 +1,17 @@
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\bin\Debug\net7.0\Delivery_Application.deps.json
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\bin\Debug\net7.0\Delivery_Application.dll
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\bin\Debug\net7.0\Delivery_Application.pdb
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\bin\Debug\net7.0\Delivery_Application_Contracts.dll
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\bin\Debug\net7.0\Delivery_Domain.dll
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\bin\Debug\net7.0\Delivery_Application_Contracts.pdb
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\bin\Debug\net7.0\Delivery_Domain.pdb
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\obj\Debug\net7.0\Delivery_Application.csproj.AssemblyReference.cache
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\obj\Debug\net7.0\Delivery_Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\obj\Debug\net7.0\Delivery_Application.AssemblyInfoInputs.cache
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\obj\Debug\net7.0\Delivery_Application.AssemblyInfo.cs
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\obj\Debug\net7.0\Delivery_Application.csproj.CoreCompileInputs.cache
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\obj\Debug\net7.0\Delivery_Application.csproj.CopyComplete
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\obj\Debug\net7.0\Delivery_Application.dll
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\obj\Debug\net7.0\refint\Delivery_Application.dll
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\obj\Debug\net7.0\Delivery_Application.pdb
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application\obj\Debug\net7.0\ref\Delivery_Application.dll

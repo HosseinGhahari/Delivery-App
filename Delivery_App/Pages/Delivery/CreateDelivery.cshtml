@@ -1,0 +1,26 @@
+﻿@page
+@model Delivery_App.Pages.Delivery.CreateDeliveryModel
+@{
+}
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-12 form-group  mb-3">
+            <label for="deliverytime" class="mb-2">تاریخ</label>
+            <input class="form-control" name="persiantime" type="datetime" id="persiantime" value="@Model.persiantime" />
+        </div>
+        <div class="col-md-12 form-group  mb-3">
+            <label for="categoryid" class="mb-2">گروه</label>
+            <select asp-items="@Model.destinations" name="destinationid" id="destinationid" class="form-control">
+                <option value="0">مقصد مورد نظر را انتخاب کنید</option>
+            </select>
+        </div>
+        <div class="col-md-12 form-group mb-3">
+            <label for="ispaid" class="m-2">پرداخت شد</label>
+            <input name="ispaid" type="checkbox" id="ispaid" value="true" />
+        </div>
+        <div class="col-md-12 mt-3">
+            <button type="submit" class="btn btn-success">ثبت کردن</button>
+        </div>
+    </div>
+</form>
