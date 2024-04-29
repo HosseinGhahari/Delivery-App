@@ -31,7 +31,13 @@ namespace Delivery_App.Pages.Delivery
         // the date and persiantime properties.
         public void OnGet() 
         {
-            destinations = new SelectList(_destinationApplication.GetAll(), "Id", "DestinationName");
+            destinations = new SelectList(_destinationApplication.GetAll()
+            .Select(x => new
+            {
+                x.Id,
+                Description = x.DestinationName + " *** " + x.Price + " تومان"
+
+            }), "Id", "Description");
 
             date = DateTime.Now;
             persiantime = _deliveryApplication.ToPersiandate(date);
