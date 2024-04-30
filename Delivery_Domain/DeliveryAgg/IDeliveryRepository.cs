@@ -13,6 +13,9 @@ namespace Delivery_Domain.DeliveryAgg
     public interface IDeliveryRepository
     {
         void Create(Delivery createDelivery);
+        List<DeliveryViewModel> GetAll();
+        DateTime toGregoriandate(string persiandate);
+        string ToPersiandate(DateTime Gregoriandate);
         void SaveChanges();
     }
 }

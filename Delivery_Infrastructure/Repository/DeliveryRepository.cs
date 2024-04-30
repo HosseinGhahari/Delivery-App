@@ -2,8 +2,10 @@
 using Delivery_Domain.DeliveryAgg;
 using Delivery_Domain.DestinationAgg;
 using Delivery_Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,7 +18,10 @@ namespace Delivery_Infrastructure.Repository
 
     public class DeliveryRepository : IDeliveryRepository
     {
+        private static PersianCalendar pc = new PersianCalendar();
+
         private readonly DeliveryContext _context;
+
         public DeliveryRepository(DeliveryContext deliveryContext)
         {
             _context = deliveryContext;
@@ -30,11 +35,71 @@ namespace Delivery_Infrastructure.Repository
             SaveChanges();
         }
 
+        
+        // This method retrieves all data and converts the date to Persian date. 
+        // We perform a projection to get all the data. However, we have a date
+        // conversion operation in this process. To make the query work, we first
+        // retrieve the data without performing the date conversion. 
+        // Once we have our data, then we proceed with the date conversion.
+        public List<DeliveryViewModel> GetAll()
+        {
+            var deliveries = _context.Delivery.Include(x => x.Destination).ToList();
+
+            var query = deliveries.Select(x => new DeliveryViewModel
+            {
+                Id = x.Id,
+                DeliveryTime = x.DeliveryTime,
+                PersianDeliveryTime = ToPersiandate(x.DeliveryTime),
+                IsPaid = x.IsPaid,
+                Price = x.Destination.Price,
+                Destination = x.Destination.DestinationName,
+            }); ;
+
+            return query.OrderByDescending(x => x.Id).ToList();
+        }
+
+
+
+
+        // Converts a Persian date string to a Gregorian date
+        public DateTime toGregoriandate(string persianDate)
+        {
+            var dateParts = persianDate.Split('/');
+            if (dateParts.Length != 3)
+            {
+                throw new FormatException("Invalid date format. Expected format: yyyy/MM/dd");
+            }
+
+            // Additional format checks
+            if (dateParts[0].Length != 4 || dateParts[1].Length > 2 || dateParts[2].Length > 2)
+            {
+                throw new FormatException("Invalid date format. Expected format: yyyy/MM/dd");
+            }
+
+            int year = Convert.ToInt32(dateParts[0]);
+            int month = Convert.ToInt32(dateParts[1]);
+            int day = Convert.ToInt32(dateParts[2]);
+
+            DateTime gregorianDate = pc.ToDateTime(year, month, day, 0, 0, 0, 0);
+            return gregorianDate;
+        }
+
+
+        // Converts a Gregorian date to a Persian date string
+        public string ToPersiandate(DateTime Gregoriandate)
+        {
+            PersianCalendar pc = new PersianCalendar();
+            string persianDate = string.Format("{0}/{1}/{2}",
+            pc.GetYear(Gregoriandate), pc.GetMonth(Gregoriandate), pc.GetDayOfMonth(Gregoriandate));
+            return persianDate;
+        }
+
 
         // This method Save the Changes in databasse 
         public void SaveChanges()
         {
             _context.SaveChanges();
         }
+
     }
 }

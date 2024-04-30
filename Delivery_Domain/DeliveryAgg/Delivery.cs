@@ -22,6 +22,7 @@ namespace Delivery_Domain.DeliveryAgg
         public bool IsRemoved { get; set; }
         public int DestinationId { get; set; }
         public Destination Destination { get; set; }
+
         public Delivery()
         {
             

@@ -14,7 +14,7 @@ namespace Delivery_Application_Contracts.Delivery
     public interface IDeliveryApplication
     {
         void Create(CreateDelivery command);
-        DateTime toGregoriandate(string persiandate);
-        string ToPersiandate(DateTime Gregoriandate);
+        List<DeliveryViewModel> GetAll();
+
     }
 }
