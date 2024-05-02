@@ -43,8 +43,7 @@ namespace Delivery_Infrastructure.Repository
         // Once we have our data, then we proceed with the date conversion.
         public List<DeliveryViewModel> GetAll()
         {
-            var deliveries = _context.Delivery.Include(x => x.Destination).ToList();
-
+            var deliveries = _context.Delivery.Include(x => x.Destination).ToList(); 
             var query = deliveries.Select(x => new DeliveryViewModel
             {
                 Id = x.Id,

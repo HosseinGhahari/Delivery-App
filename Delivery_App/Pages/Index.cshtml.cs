@@ -7,6 +7,8 @@ namespace Delivery_App.Pages
 {
     public class IndexModel : PageModel
     {
+
+
         // here we easily Injecting DeliveryApplication interface
         // to fetch all database records and display them in the view.
 
@@ -17,8 +19,9 @@ namespace Delivery_App.Pages
         {
             _deliveryApplication = deliveryApplication;
         }
-        public void OnGet()
+        public void OnGet(DeliveryViewModel delivery)
         {
+            
             Deliveries = _deliveryApplication.GetAll();
         }
     }

@@ -29,7 +29,14 @@
                     <th>@item.Destination</th>
                     <th>@item.Price</th>
                     <th>@item.PersianDeliveryTime</th>
-                    <th>@item.IsPaid</th>
+                    @if(@item.IsPaid == true)
+                    {
+                    <th class="alert-success">پرداخت شد</th>
+                    }
+                    else
+                    {
+                    <th class="alert-danger">پرداخت نشد</th>
+                    }  
                     <th><a asp-page="./EditDestination" asp-route-id="Id">ویرایش</a></th>
                 </tr>
             }
