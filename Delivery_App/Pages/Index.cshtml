@@ -19,7 +19,8 @@
                 <td>هزینه</td>
                 <td>تاریخ</td>
                 <td>وضعیت پرداخت</td>
-                <td>عملیات</td>
+                <td>عملیات ویرایش</td>
+                <td>عملیات حذف</td>
             </tr>
         </thead>
         <tbody>
@@ -36,8 +37,9 @@
                     else
                     {
                     <th class="alert-danger">پرداخت نشد</th>
-                    }  
-                    <th><a asp-page="./EditDestination" asp-route-id="Id">ویرایش</a></th>
+                    }
+                    <th><a asp-page="./Delivery/EditDelivery" asp-route-id="@item.Id">ویرایش</a></th>
+                    <th><a class="link-danger" asp-page="./EditDestination" asp-route-id="Id">حذف</a></th>
                 </tr>
             }
 

@@ -37,12 +37,34 @@ namespace Delivery_Application
             _deliveryRepository.SaveChanges();
         }
 
+        // Edits an existing Delivery with the given command.
+        // Retrieves the Delivery from the repository using its id.
+        // If the Delivery doesn't exist, throws an exception.
+        // If it does, edits the destination and saves the changes to the repository.
+        // also we edit destination from destination table using DestinationId
+
+        public void Edit(EditDelivery command)
+        {
+            var delivery = _deliveryRepository.Get(command.Id);
+
+            if (delivery == null)
+                throw new Exception();
+
+            delivery.Edit(command.IsPaid ,command.DestinationId, command.DeliveryTime);
+            _deliveryRepository.SaveChanges();
+        }
+
         // Get All Delivery Values 
         public List<DeliveryViewModel> GetAll()
         {
            return _deliveryRepository.GetAll();
         }
 
-
+        // Retrieves the details of a destination for editing.
+        // The destination is identified by its id.
+        public EditDelivery GetEditDetailes(int id)
+        {
+           return _deliveryRepository.GetEditDetailes(id);
+        }
     }
 }

@@ -15,6 +15,8 @@ namespace Delivery_Application_Contracts.Delivery
     {
         void Create(CreateDelivery command);
         List<DeliveryViewModel> GetAll();
+        EditDelivery GetEditDetailes(int id);
+        void Edit(EditDelivery command);
 
     }
 }

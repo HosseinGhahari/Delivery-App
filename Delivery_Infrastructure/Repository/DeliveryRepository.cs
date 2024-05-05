@@ -52,7 +52,7 @@ namespace Delivery_Infrastructure.Repository
                 IsPaid = x.IsPaid,
                 Price = x.Destination.Price,
                 Destination = x.Destination.DestinationName,
-            }); ;
+            });
 
             return query.OrderByDescending(x => x.Id).ToList();
         }
@@ -93,11 +93,36 @@ namespace Delivery_Infrastructure.Repository
             return persianDate;
         }
 
+        // This method is utilized for obtaining the
+        // details of our object for editing purposes.
+        // It retrieves the current state of the object,
+        // but does not directly apply any edits. 
+        public EditDelivery GetEditDetailes(int id)
+        {
+            return _context.Delivery.Include(x =>x.Destination).Select(x => new EditDelivery
+            {
+                Id = x.Id,
+                DeliveryTime = x.DeliveryTime,
+                IsPaid = x.IsPaid,
+                DestinationName = x.Destination.DestinationName,
+                DestinationId = x.DestinationId
+                           
+            }).FirstOrDefault(x => x.Id == id);
+        }
 
         // This method Save the Changes in databasse 
         public void SaveChanges()
         {
             _context.SaveChanges();
+        }
+
+
+        // This method retrieves a Delivery object by its unique identifier (Id).
+        // It searches the Delivery DbSet for the first entry that matches the provided Id.
+        // If no matching entry is found, it returns null. 
+        public Delivery Get(int id)
+        {
+            return _context.Delivery.FirstOrDefault(x => x.Id == id);
         }
 
     }
