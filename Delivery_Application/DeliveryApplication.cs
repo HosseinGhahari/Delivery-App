@@ -66,5 +66,20 @@ namespace Delivery_Application
         {
            return _deliveryRepository.GetEditDetailes(id);
         }
+
+
+        // This method removes a delivery record by its ID. 
+        // It retrieves the record, marks it as removed,
+        // and saves the changes in the repository.
+        public void Remove(int id)
+        {
+            var delivery = _deliveryRepository.Get(id);
+
+            if (delivery == null)
+                throw new Exception();
+
+            delivery.Remove();
+            _deliveryRepository.SaveChanges();
+        }
     }
 }

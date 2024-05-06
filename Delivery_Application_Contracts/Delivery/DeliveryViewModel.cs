@@ -12,6 +12,7 @@ namespace Delivery_Application_Contracts.Delivery
         public DateTime DeliveryTime { get; set; }
         public string PersianDeliveryTime { get; set; }
         public bool IsPaid { get; set; }
+        public bool IsRemoved { get; set; }
         public double Price { get; set; }
         public string Destination { get; set; }
 

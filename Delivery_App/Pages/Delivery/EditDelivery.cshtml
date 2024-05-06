@@ -3,6 +3,18 @@
 @{
 }
 
+
+<!--
+This is a form in an ASP.NET Core Razor view for editing an existing delivery record.
+The form includes fields for delivery time, destination, and payment status.
+If there is an error message stored in TempData with the key "Datefailed", 
+it will be displayed at the top of the form.The form data, representing 
+the updated delivery record, will be sent to the server using the HTTP 
+POST method when the form is submitted.
+-->
+
+
+
 <div class="col-12 mb-4">
     @if (TempData["Datefailed"] != null)
     {

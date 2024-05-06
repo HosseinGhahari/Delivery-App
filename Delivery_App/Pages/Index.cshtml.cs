@@ -19,10 +19,20 @@ namespace Delivery_App.Pages
         {
             _deliveryApplication = deliveryApplication;
         }
+
+        // This Method store all the Deliveries
         public void OnGet(DeliveryViewModel delivery)
-        {
-            
+        {           
             Deliveries = _deliveryApplication.GetAll();
+        }
+
+        // This method handles the request to remove a delivery
+        // record by its ID. After removal, it redirects the user
+        // to the Index page.
+        public IActionResult OnGetRemove(int id)
+        {
+            _deliveryApplication.Remove(id);
+            return RedirectToPage("./Index");
         }
     }
 }
