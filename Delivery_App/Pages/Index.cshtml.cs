@@ -5,9 +5,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Delivery_App.Pages
 {
-    public class IndexModel : PageModel
+    public class IndexModel : BasePageModel
     {
-
 
         // here we easily Injecting DeliveryApplication interface
         // to fetch all database records and display them in the view.
@@ -15,14 +14,20 @@ namespace Delivery_App.Pages
         public List<DeliveryViewModel> Deliveries { get; set; }
         private readonly IDeliveryApplication _deliveryApplication;
 
-        public IndexModel(IDeliveryApplication deliveryApplication )
+
+        // The reason that we inherit from base(deliveryApplication) is to
+        // ensure that the BasePageModel’s properties and methods, including
+        // the initialization of PaidPrice and NotPaidPrice, are available
+        // and properly set up in IndexModel.
+
+        public IndexModel(IDeliveryApplication deliveryApplication ) : base( deliveryApplication )
         {
             _deliveryApplication = deliveryApplication;
         }
 
         // This Method store all the Deliveries
-        public void OnGet(DeliveryViewModel delivery)
-        {           
+        public void OnGet()
+        {
             Deliveries = _deliveryApplication.GetAll();
         }
 

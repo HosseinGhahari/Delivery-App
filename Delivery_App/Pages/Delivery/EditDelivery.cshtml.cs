@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 
 namespace Delivery_App.Pages.Delivery
 {
-    public class EditDeliveryModel : PageModel
+    public class EditDeliveryModel : BasePageModel
     {   
         
         // This property is bound to the input field for the Persian date in the form.
@@ -29,12 +29,20 @@ namespace Delivery_App.Pages.Delivery
 
 
         // These fields hold references to the application services
-        // and repositories that are used in this page.
-        // and constructor initializes the application services and repositories.
+        // and repositories that are used in this page. and constructor
+        // initializes the application services and repositories.
+
+        // The reason that we inherit from base(deliveryApplication) is to
+        // ensure that the BasePageModel’s properties and methods, including
+        // the initialization of PaidPrice and NotPaidPrice, are available
+        // and properly set up in IndexModel.
+
         private readonly IDeliveryApplication _deliveryApplication;
         private readonly IDestinationApplication _destinationApplication;
         private readonly IDeliveryRepository _deliveryRepository;
-        public EditDeliveryModel(IDeliveryApplication deliveryApplication , IDestinationApplication destinationApplication , IDeliveryRepository deliveryRepository)
+        public EditDeliveryModel(IDeliveryApplication deliveryApplication 
+            , IDestinationApplication destinationApplication ,
+            IDeliveryRepository deliveryRepository) : base(deliveryApplication)
         {
             _deliveryApplication = deliveryApplication;
             _destinationApplication = destinationApplication;

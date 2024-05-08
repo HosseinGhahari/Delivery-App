@@ -9,10 +9,9 @@ using System.Text.RegularExpressions;
 
 namespace Delivery_App.Pages.Delivery
 {
-    public class CreateDeliveryModel : PageModel
+    public class CreateDeliveryModel : BasePageModel
     {
         // These are public properties that will be used in the Razor view.
-
         public SelectList destinations;
         public DateTime date;
 
@@ -22,12 +21,18 @@ namespace Delivery_App.Pages.Delivery
         [BindProperty]
         public string persiantime { get; set; }
 
+
+        // The reason that we inherit from base(deliveryApplication) is to
+        // ensure that the BasePageModel’s properties and methods, including
+        // the initialization of PaidPrice and NotPaidPrice, are available
+        // and properly set up in IndexModel.
+
         private readonly IDeliveryApplication _deliveryApplication;
         private readonly IDestinationApplication _destinationApplication;
         private readonly IDeliveryRepository _deliveryRepository;
         public CreateDeliveryModel(IDeliveryApplication deliveryApplication 
             ,IDestinationApplication destinationApplication
-            ,IDeliveryRepository deliveryRepository)
+            ,IDeliveryRepository deliveryRepository) : base(deliveryApplication)    
         {
             _deliveryApplication = deliveryApplication;
             _destinationApplication = destinationApplication;

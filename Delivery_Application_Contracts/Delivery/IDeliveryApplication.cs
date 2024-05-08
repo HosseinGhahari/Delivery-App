@@ -18,6 +18,8 @@ namespace Delivery_Application_Contracts.Delivery
         List<DeliveryViewModel> GetAll();
         EditDelivery GetEditDetailes(int id);
         void Edit(EditDelivery command);
+        double GetPaidPrice();
+        double GetNotPaidPrice();
 
     }
 }

@@ -4,13 +4,20 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace Delivery_App.Pages.Destination
 {
-    public class EditDestinationModel : PageModel
+    public class EditDestinationModel : BasePageModel
     {
         // This is the command object that will be used to edit a destination.
         public EditDestination Command;
 
+
+        // here we inject our destinationapplication and we inherit the 
+        // constructor from the base() because we don't have any dependency
+        // for destination in our basePageModel so we use parameterless
+        // constructor to take data (PaidPrice & NotPaidPrice) from
+        // that basepage and display it
+
         private readonly IDestinationApplication _destinationApplication;
-        public EditDestinationModel(IDestinationApplication destinationApplication)
+        public EditDestinationModel(IDestinationApplication destinationApplication) : base()
         {
             _destinationApplication = destinationApplication;
         }

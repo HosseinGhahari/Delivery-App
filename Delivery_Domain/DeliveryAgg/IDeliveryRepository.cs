@@ -19,6 +19,8 @@ namespace Delivery_Domain.DeliveryAgg
         EditDelivery GetEditDetailes(int id);
         DateTime toGregoriandate(string persiandate);
         string ToPersiandate(DateTime Gregoriandate);
+        double GetPaidPrice();
+        double GetNotPaidPrice();
         void SaveChanges();
     }
 }

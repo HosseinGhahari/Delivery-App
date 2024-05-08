@@ -42,7 +42,6 @@ namespace Delivery_Application
         // If the Delivery doesn't exist, throws an exception.
         // If it does, edits the destination and saves the changes to the repository.
         // also we edit destination from destination table using DestinationId
-
         public void Edit(EditDelivery command)
         {
             var delivery = _deliveryRepository.Get(command.Id);
@@ -67,6 +66,21 @@ namespace Delivery_Application
            return _deliveryRepository.GetEditDetailes(id);
         }
 
+        // here in our application layer we retrieves the 
+        // all the paid from delivery and for that it uses 
+        // method of the Delivery Repository
+        public double GetNotPaidPrice()
+        {
+            return _deliveryRepository.GetNotPaidPrice();
+        }
+
+        // here in our application layer we retrieves the 
+        // all the Notpaid prices from delivery and for that it uses 
+        // method of the Delivery Repository
+        public double GetPaidPrice()
+        {
+           return _deliveryRepository.GetPaidPrice();
+        }
 
         // This method removes a delivery record by its ID. 
         // It retrieves the record, marks it as removed,

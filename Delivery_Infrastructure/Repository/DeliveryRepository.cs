@@ -27,15 +27,13 @@ namespace Delivery_Infrastructure.Repository
             _context = deliveryContext;
         }
 
-
         // This method create a new Destination object 
         public void Create(Delivery createDelivery)
         {
             _context.Delivery.Add(createDelivery);
             SaveChanges();
         }
-
-        
+      
         // This method retrieves all data and converts the date to Persian date. 
         // We perform a projection to get all the data. However, we have a date
         // conversion operation in this process. To make the query work, we first
@@ -56,9 +54,6 @@ namespace Delivery_Infrastructure.Repository
 
             return query.OrderByDescending(x => x.Id).ToList();
         }
-
-
-
 
         // Converts a Persian date string to a Gregorian date
         public DateTime toGregoriandate(string persianDate)
@@ -82,7 +77,6 @@ namespace Delivery_Infrastructure.Repository
             DateTime gregorianDate = pc.ToDateTime(year, month, day, 0, 0, 0, 0);
             return gregorianDate;
         }
-
 
         // Converts a Gregorian date to a Persian date string
         public string ToPersiandate(DateTime Gregoriandate)
@@ -116,7 +110,6 @@ namespace Delivery_Infrastructure.Repository
             _context.SaveChanges();
         }
 
-
         // This method retrieves a Delivery object by its unique identifier (Id).
         // It searches the Delivery DbSet for the first entry that matches the provided Id.
         // If no matching entry is found, it returns null. 
@@ -125,5 +118,26 @@ namespace Delivery_Infrastructure.Repository
             return _context.Delivery.FirstOrDefault(x => x.Id == id);
         }
 
+        // This method, GetPaidPrice(), is responsible for calculating
+        // and returning the total price of all deliveries that have
+        // been paid for and are not removed from the system.
+        public double GetPaidPrice()
+        {
+            return _context.Delivery
+                .Include(x =>x.Destination)
+                .Where(x =>x.IsRemoved == false && x.IsPaid == true)
+                .Sum(x =>x.Destination.Price);
+        }
+
+        // This method, GetNotPaidPrice(), is responsible for calculating
+        // and returning the total price of all deliveries that have not
+        // been paid for and are not removed from the system.
+        public double GetNotPaidPrice()
+        {
+            return _context.Delivery
+                .Include(x =>x.Destination)
+                .Where(x => x.IsRemoved == false && x.IsPaid == false)
+                .Sum(x => x.Destination.Price);
+        }
     }
 }
