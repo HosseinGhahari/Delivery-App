@@ -11,10 +11,10 @@ It’s a fun blend of work, learning, and practical application!</p>
 <p>✅ - Please Make Sure You Have Installed Sql Server On Your Machine 🖥</p>
 
 <h2>Features</h2> 
-<p style="font-size:16px;">🔹Destination Management : The application allows for easy management of destinations, each with its own unique pricing.</p>
+<p style="font-size:16px;">🔹Destination Management : The application allows for easy management of destinations <br> each with its own unique pricing.</p>
 <p style="font-size:16px;">🔹Payment Status : Users have the ability to track whether payments have been made or are still pending.</p>
-<p style="font-size:16px;">🔹Update and Delete Operations : The application provides a user-friendly interface for updating and deleting records as needed.</p>
-<p style="font-size:16px;">🔹Financial Overview : Users can view outstanding payments and track overall income for a comprehensive financial overview.</p>
+<p style="font-size:16px;">🔹Update and Delete Operations : The application provides a user-friendly interface for <br> updating and deleting records as needed.</p>
+<p style="font-size:16px;">🔹Financial Overview : Users can view outstanding payments and track overall income <br> for a comprehensive financial overview.</p>
 <p style="font-size:16px;">🔹And More Soon ...</p>
 
 
