@@ -15,6 +15,7 @@ namespace Delivery_Domain.DeliveryAgg
     {
         void Create(Delivery createDelivery);
         List<DeliveryViewModel> GetAll();
+        List<Delivery> GetPayments();
         Delivery Get(int id);
         EditDelivery GetEditDetailes(int id);
         DateTime toGregoriandate(string persiandate);

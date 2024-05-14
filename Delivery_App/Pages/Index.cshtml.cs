@@ -39,5 +39,14 @@ namespace Delivery_App.Pages
             _deliveryApplication.Remove(id);
             return RedirectToPage("./Index");
         }
+
+        // POST action to mark unpaid deliveries as paid and redirect to Index.
+        // this action handel the checkout opreation for client also this handler
+        // is on layout page in shared folder
+        public IActionResult OnPostMarkAllAsPaid()
+        {
+            _deliveryApplication.MarkAllAsPaid();
+            return RedirectToPage("./Index");
+        }
     }
 }

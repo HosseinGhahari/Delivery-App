@@ -25,27 +25,26 @@ namespace Delivery_Domain.DeliveryAgg
 
         public Delivery()
         {
-            
-        }
-        public Delivery(bool isPaid, int destinationId , DateTime date) 
-        {  
-            IsPaid = isPaid;
-            DestinationId = destinationId;
-            DeliveryTime = date;
-        }
 
-        public void Edit(bool isPaid, int destinationId , DateTime date)
+        }
+        public Delivery(bool isPaid, int destinationId, DateTime date)
         {
             IsPaid = isPaid;
             DestinationId = destinationId;
             DeliveryTime = date;
         }
 
+        public void Edit(bool isPaid, int destinationId, DateTime date)
+        {
+            IsPaid = isPaid;
+            DestinationId = destinationId;
+            DeliveryTime = date;
+        }
 
         public void Remove()
         {
             IsRemoved = true;
         }
-    }
 
+    }
 }

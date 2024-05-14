@@ -20,6 +20,7 @@ namespace Delivery_Application_Contracts.Delivery
         void Edit(EditDelivery command);
         double GetPaidPrice();
         double GetNotPaidPrice();
+        void MarkAllAsPaid();
 
     }
 }

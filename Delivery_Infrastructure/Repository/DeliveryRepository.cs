@@ -55,6 +55,17 @@ namespace Delivery_Infrastructure.Repository
             return query.OrderByDescending(x => x.Id).ToList();
         }
 
+        // This method is designed to retrieve all the 'Delivery'
+        // records from the database where the 'IsPaid' property
+        // is false and the 'IsRemoved' property is also false. 
+        // we use this query in application layer to do the Checkout 
+        public List<Delivery> GetPayments()
+        {
+            return _context.Delivery
+                .Where(x =>x.IsPaid == false && x.IsRemoved == false)
+                .ToList();
+        }
+
         // Converts a Persian date string to a Gregorian date
         public DateTime toGregoriandate(string persianDate)
         {
@@ -139,5 +150,7 @@ namespace Delivery_Infrastructure.Repository
                 .Where(x => x.IsRemoved == false && x.IsPaid == false)
                 .Sum(x => x.Destination.Price);
         }
+
+
     }
 }
