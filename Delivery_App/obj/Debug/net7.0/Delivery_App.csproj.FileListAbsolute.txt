@@ -81,3 +81,7 @@ C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\De
 C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net7.0\Delivery_App.pdb
 C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net7.0\Delivery_App.genruntimeconfig.cache
 C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net7.0\ref\Delivery_App.dll
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net7.0\Castle.Core.dll
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net7.0\LazZiya.TagHelpers.dll
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net7.0\Microsoft.EntityFrameworkCore.Proxies.dll
+C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net7.0\Delivery_App.MvcApplicationPartsAssemblyInfo.cs

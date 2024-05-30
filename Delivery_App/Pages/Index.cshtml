@@ -42,9 +42,16 @@
                     <th><a class="link-danger" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id">حذف</a></th>
                 </tr>
             }
-
         </tbody>
     </table>
 
+    <!--
+           The 'paging' tag helper generates a pagination control. It uses model
+           properties to determine the total records, page size, and current page.
+     -->
+
+    <paging dir="ltr" class="pagination mt-5" Total-records="@Model.TotalDeliveries" show-total-pages="false"
+            show-total-records="false" page-size="@Model.PageSize" page-no="@Model.CurrentPage">
+    </paging>
 
 </div>

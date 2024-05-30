@@ -7,12 +7,14 @@ namespace Delivery_App.Pages
 {
     public class IndexModel : BasePageModel
     {
+        // variables that hold needed amounts for pagination
+        public int TotalDeliveries { get; set; }
+        public int CurrentPage { get; set; }
+        public int PageSize { get; set; }
 
         // here we easily Injecting DeliveryApplication interface
         // to fetch all database records and display them in the view.
-
         public List<DeliveryViewModel> Deliveries { get; set; }
-        private readonly IDeliveryApplication _deliveryApplication;
 
 
         // The reason that we inherit from base(deliveryApplication) is to
@@ -20,15 +22,26 @@ namespace Delivery_App.Pages
         // the initialization of PaidPrice and NotPaidPrice, are available
         // and properly set up in IndexModel.
 
+        private readonly IDeliveryApplication _deliveryApplication;
         public IndexModel(IDeliveryApplication deliveryApplication ) : base( deliveryApplication )
         {
             _deliveryApplication = deliveryApplication;
         }
 
-        // This Method store all the Deliveries
-        public void OnGet()
+
+        // The OnGet method manages pagination for delivery records.
+        // It calculates the total count, determines the records for
+        // the current page, and assigns them to the Deliveries property.
+        public void OnGet(int p = 1 , int s = 20)
         {
-            Deliveries = _deliveryApplication.GetAll();
+            PageSize = s;
+            CurrentPage = p;
+
+            var allDeliveries = _deliveryApplication.GetAll();
+            TotalDeliveries = allDeliveries.Count;
+
+            int skipCount = (CurrentPage - 1) * PageSize;
+            Deliveries = allDeliveries.Skip(skipCount).Take(PageSize).ToList();
         }
 
         // This method handles the request to remove a delivery
