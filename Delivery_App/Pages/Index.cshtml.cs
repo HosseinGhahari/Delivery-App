@@ -2,6 +2,7 @@
 using Delivery_Domain.DeliveryAgg;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Text.RegularExpressions;
 
 namespace Delivery_App.Pages
 {
@@ -15,6 +16,13 @@ namespace Delivery_App.Pages
         // here we easily Injecting DeliveryApplication interface
         // to fetch all database records and display them in the view.
         public List<DeliveryViewModel> Deliveries { get; set; }
+
+        // This 'Search' property is used to hold the search term provided
+        // by the user for search operations in the application. 
+        // The 'SupportsGet' attribute indicates that this property
+        // can also be populated from query string values in a HTTP GET request.
+        [BindProperty(SupportsGet = true)]
+        public string Search { get; set; }
 
 
         // The reason that we inherit from base(deliveryApplication) is to
@@ -37,12 +45,15 @@ namespace Delivery_App.Pages
             PageSize = s;
             CurrentPage = p;
 
-            var allDeliveries = _deliveryApplication.GetAll();
+            var allDeliveries = _deliveryApplication.Search(Search);
             TotalDeliveries = allDeliveries.Count;
 
             int skipCount = (CurrentPage - 1) * PageSize;
             Deliveries = allDeliveries.Skip(skipCount).Take(PageSize).ToList();
+
+            ViewData["Search"] = Search;
         }
+
 
         // This method handles the request to remove a delivery
         // record by its ID. After removal, it redirects the user

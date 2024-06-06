@@ -70,23 +70,60 @@ namespace Delivery_Infrastructure.Repository
         public DateTime toGregoriandate(string persianDate)
         {
             var dateParts = persianDate.Split('/');
-            if (dateParts.Length != 3)
+
+            int year = 1;
+            int month = 1;
+            int day = 1;
+
+            if (dateParts.Length > 0)
             {
-                throw new FormatException("Invalid date format. Expected format: yyyy/MM/dd");
+                year = Convert.ToInt32(dateParts[0]);
             }
 
-            // Additional format checks
-            if (dateParts[0].Length != 4 || dateParts[1].Length > 2 || dateParts[2].Length > 2)
+            if (dateParts.Length > 1)
             {
-                throw new FormatException("Invalid date format. Expected format: yyyy/MM/dd");
+                month = Convert.ToInt32(dateParts[1]);
             }
 
-            int year = Convert.ToInt32(dateParts[0]);
-            int month = Convert.ToInt32(dateParts[1]);
-            int day = Convert.ToInt32(dateParts[2]);
+            if (dateParts.Length > 2)
+            {
+                day = Convert.ToInt32(dateParts[2]);
+            }
 
             DateTime gregorianDate = pc.ToDateTime(year, month, day, 0, 0, 0, 0);
             return gregorianDate;
+        }
+
+        // This method converts a Persian date string to a Gregorian date.
+        // Unlike typical conversion methods, this one is designed to be
+        // error-tolerant. If the input format is incorrect, it won't throw
+        // an error. This makes it particularly useful for search operations
+        // where the input format may vary.
+        public DateTime? toGregoriandateForSearch(string persianDate)
+        {
+            var dateParts = persianDate.Split('/');
+
+            if (dateParts.Length != 3)
+                return null;
+
+            if (!int.TryParse(dateParts[0], out int year))
+                return null;
+
+            if (!int.TryParse(dateParts[1], out int month))
+                return null;
+
+            if (!int.TryParse(dateParts[2], out int day))
+                return null;
+
+            try
+            {
+                DateTime gregorianDate = pc.ToDateTime(year, month, day, 0, 0, 0, 0);
+                return gregorianDate;
+            }
+            catch
+            {
+                return null;
+            }
         }
 
         // Converts a Gregorian date to a Persian date string
@@ -150,6 +187,46 @@ namespace Delivery_Infrastructure.Repository
                 .Where(x => x.IsRemoved == false && x.IsPaid == false)
                 .Sum(x => x.Destination.Price);
         }
+
+        // The 'Search' method filters deliveries based on a search string.
+        // If the search string is a valid Persian date, it filters by date.
+        // If not, it assumes the search string is a destination name and filters by that.
+        // It returns a list of 'DeliveryViewModel' objects based on the filtered deliveries.
+        public List<DeliveryViewModel> Search(string search)
+        {
+            var deliveries = _context.Delivery
+                .Include(x => x.Destination)
+                .Where(x => x.IsRemoved == false);
+
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                DateTime? ConvertDate = toGregoriandateForSearch(search);
+
+                if (ConvertDate != null)
+                {
+                    deliveries = deliveries.Where(x => x.DeliveryTime == ConvertDate);
+                }
+                else
+                {
+                    deliveries = deliveries.Where(x => x.Destination.DestinationName.Contains(search));
+                }
+            }
+
+            var deliveryList = deliveries.ToList();
+
+            var query = deliveryList.Select(x => new DeliveryViewModel
+            {
+                Id = x.Id,
+                DeliveryTime = x.DeliveryTime,
+                PersianDeliveryTime = ToPersiandate(x.DeliveryTime),
+                IsPaid = x.IsPaid,
+                Price = x.Destination.Price,
+                Destination = x.Destination.DestinationName,
+            });
+
+            return query.ToList();
+        }
+
 
 
     }

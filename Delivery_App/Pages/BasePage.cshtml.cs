@@ -22,7 +22,6 @@ namespace Delivery_App.Pages
         [ViewData]
         public string NotPaidPrice { get; set; }
 
-
         // This is a constructor that takes an IDeliveryApplication object as a parameter.
         // It initializes the _deliveryApplication field and sets the PaidPrice and NotPaidPrice properties.
         // It also sets the static PriceHolder's PaidPrice and NotPaidPrice properties.

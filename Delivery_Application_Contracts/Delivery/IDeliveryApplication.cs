@@ -21,6 +21,6 @@ namespace Delivery_Application_Contracts.Delivery
         double GetPaidPrice();
         double GetNotPaidPrice();
         void MarkAllAsPaid();
-
+        List<DeliveryViewModel> Search(string Command);
     }
 }

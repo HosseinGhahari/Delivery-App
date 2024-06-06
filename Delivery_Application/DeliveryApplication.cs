@@ -109,5 +109,11 @@ namespace Delivery_Application
             delivery.Remove();
             _deliveryRepository.SaveChanges();
         }
+
+        public List<DeliveryViewModel> Search(string Command)
+        {
+           return _deliveryRepository.Search(Command);
+        }
+
     }
 }
