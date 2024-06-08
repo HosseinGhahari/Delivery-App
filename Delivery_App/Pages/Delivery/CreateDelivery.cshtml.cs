@@ -1,6 +1,7 @@
 ﻿using Delivery_Application_Contracts.Delivery;
 using Delivery_Application_Contracts.Destination;
 using Delivery_Domain.DeliveryAgg;
+using Delivery_Infrastructure.DateConversionService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -30,13 +31,16 @@ namespace Delivery_App.Pages.Delivery
         private readonly IDeliveryApplication _deliveryApplication;
         private readonly IDestinationApplication _destinationApplication;
         private readonly IDeliveryRepository _deliveryRepository;
+        private readonly IDateConversionService _deliveryConversionService;
         public CreateDeliveryModel(IDeliveryApplication deliveryApplication 
             ,IDestinationApplication destinationApplication
-            ,IDeliveryRepository deliveryRepository) : base(deliveryApplication)    
+            ,IDeliveryRepository deliveryRepository
+            ,IDateConversionService dateConversionService) : base(deliveryApplication)    
         {
             _deliveryApplication = deliveryApplication;
             _destinationApplication = destinationApplication;
             _deliveryRepository = deliveryRepository;
+            _deliveryConversionService = dateConversionService;
         }
 
 
@@ -58,7 +62,7 @@ namespace Delivery_App.Pages.Delivery
             }), "Id", "Description");
 
             date = DateTime.Now;
-            persiantime = _deliveryRepository.ToPersiandate(date);
+            persiantime = _deliveryConversionService.ToPersiandate(date);
 
         }
 
@@ -75,7 +79,7 @@ namespace Delivery_App.Pages.Delivery
 
             if (regex.IsMatch(persiantime))
             {
-                createDelivery.DeliveryTime = _deliveryRepository.toGregoriandate(persiantime);
+                createDelivery.DeliveryTime = _deliveryConversionService.toGregoriandate(persiantime);
             }
             else
             {

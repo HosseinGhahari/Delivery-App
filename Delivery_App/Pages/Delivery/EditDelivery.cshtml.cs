@@ -1,6 +1,7 @@
 ﻿using Delivery_Application_Contracts.Delivery;
 using Delivery_Application_Contracts.Destination;
 using Delivery_Domain.DeliveryAgg;
+using Delivery_Infrastructure.DateConversionService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -40,13 +41,17 @@ namespace Delivery_App.Pages.Delivery
         private readonly IDeliveryApplication _deliveryApplication;
         private readonly IDestinationApplication _destinationApplication;
         private readonly IDeliveryRepository _deliveryRepository;
+        private readonly IDateConversionService _deliveryConversionService;
+
         public EditDeliveryModel(IDeliveryApplication deliveryApplication 
             , IDestinationApplication destinationApplication ,
-            IDeliveryRepository deliveryRepository) : base(deliveryApplication)
+            IDeliveryRepository deliveryRepository
+            ,IDateConversionService dateConversionService) : base(deliveryApplication)
         {
             _deliveryApplication = deliveryApplication;
             _destinationApplication = destinationApplication;
             _deliveryRepository = deliveryRepository;
+            _deliveryConversionService = dateConversionService;
         }
 
 
@@ -70,7 +75,7 @@ namespace Delivery_App.Pages.Delivery
             if (command != null && command.DeliveryTime != null)
             {
                 date = command.DeliveryTime;
-                persiantime = _deliveryRepository.ToPersiandate(date);
+                persiantime = _deliveryConversionService.ToPersiandate(date);
                 TempData["OriginalPersianDate"] = persiantime as string;
             }
             else
@@ -95,10 +100,9 @@ namespace Delivery_App.Pages.Delivery
                 return RedirectToPage(new { id = command.Id });
             }
 
-            command.DeliveryTime = _deliveryRepository.toGregoriandate(persiantime);
+            command.DeliveryTime = _deliveryConversionService.toGregoriandate(persiantime);
             _deliveryApplication.Edit(command);
             return RedirectToPage("/Index");
-
 
         }
     }

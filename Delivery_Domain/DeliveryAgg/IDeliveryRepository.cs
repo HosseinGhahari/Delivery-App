@@ -18,9 +18,6 @@ namespace Delivery_Domain.DeliveryAgg
         List<Delivery> GetPayments();
         Delivery Get(int id);
         EditDelivery GetEditDetailes(int id);
-        DateTime toGregoriandate(string persiandate);
-        DateTime? toGregoriandateForSearch(string persiandate);
-        string ToPersiandate(DateTime Gregoriandate);
         double GetPaidPrice();
         double GetNotPaidPrice();
         void SaveChanges();

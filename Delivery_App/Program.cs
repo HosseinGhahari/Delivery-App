@@ -4,6 +4,7 @@ using Delivery_Application_Contracts.Destination;
 using Delivery_Domain.DeliveryAgg;
 using Delivery_Domain.DestinationAgg;
 using Delivery_Infrastructure.Context;
+using Delivery_Infrastructure.DateConversionService;
 using Delivery_Infrastructure.Repository;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,6 +17,7 @@ builder.Services.AddTransient<IDestinationRepository,DestinationRepository>();
 builder.Services.AddTransient<IDestinationApplication,DestinationApplication>();
 builder.Services.AddTransient<IDeliveryRepository,DeliveryRepository>();
 builder.Services.AddTransient<IDeliveryApplication,DeliveryApplication>();
+builder.Services.AddTransient<IDateConversionService,DateConversionService>();
 
 
 builder.Services.AddDbContext<DeliveryContext>(options =>
