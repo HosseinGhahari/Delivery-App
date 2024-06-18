@@ -80,5 +80,27 @@ namespace Delivery_Infrastructure.DateConversionService
             pc.GetYear(Gregoriandate), pc.GetMonth(Gregoriandate), pc.GetDayOfMonth(Gregoriandate));
             return persianDate;
         }
+
+        // Converts a Gregorian date to first day of the persian month
+        public string GetFirstDayOfPersianMonth(string persianDateString)
+        {
+            var parts = persianDateString.Split('/');
+            int persianYear = int.Parse(parts[0]);
+            int persianMonth = int.Parse(parts[1]);
+
+            return $"{persianYear}/{persianMonth:D2}/01";
+        }
+
+        // Converts a Gregorian date to last day of the persian month
+        public string GetLastDayOfPersianMonth(string persianDateString)
+        {
+            var parts = persianDateString.Split('/');
+            int persianYear = int.Parse(parts[0]);
+            int persianMonth = int.Parse(parts[1]);
+            PersianCalendar pc = new PersianCalendar();
+            int lastDay = pc.GetDaysInMonth(persianYear, persianMonth);
+
+            return $"{persianYear}/{persianMonth:D2}/{lastDay:D2}";
+        }
     }
 }

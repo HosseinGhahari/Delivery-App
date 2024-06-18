@@ -22,5 +22,7 @@ namespace Delivery_Domain.DeliveryAgg
         double GetNotPaidPrice();
         void SaveChanges();
         List<DeliveryViewModel> Search(string search);
+        List<InComeViewModel> GetInCome();
+
     }
 }

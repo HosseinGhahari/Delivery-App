@@ -1,0 +1,29 @@
+﻿@page
+@model Delivery_App.Pages.InCome.IndexModel
+@{
+}
+
+
+<div dir="ltr" class="text-center">
+    <h1 class="display-4 m-5">درآمد ماهانه</h1>
+
+    <table class="table table-responsive table-bordered table-striped" dir="rtl">
+        <thead>
+            <tr>
+                <td>مبلغ</td>
+                <td>پایان تاریخ</td>
+                <td>شروع تاریخ</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.InCome)
+            {
+                <tr>
+                    <th>تومان @item.InCome</th>
+                    <th>@item.LastDayOfMonth</th>
+                    <th>@item.FirstDayOfMonth</th>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

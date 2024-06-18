@@ -66,6 +66,12 @@ namespace Delivery_Application
            return _deliveryRepository.GetEditDetailes(id);
         }
 
+        // Retrieves the montly income
+        public List<InComeViewModel> GetInCome()
+        {
+           return _deliveryRepository.GetInCome();
+        }
+
         // here in our application layer we retrieves the 
         // all the paid from delivery and for that it uses 
         // method of the Delivery Repository

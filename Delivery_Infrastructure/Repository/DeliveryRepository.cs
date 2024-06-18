@@ -4,6 +4,7 @@ using Delivery_Domain.DestinationAgg;
 using Delivery_Infrastructure.Context;
 using Delivery_Infrastructure.DateConversionService;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -160,7 +161,36 @@ namespace Delivery_Infrastructure.Repository
             return query.ToList();
         }
 
+        // This method calculates monthly income from paid deliveries
+        // that have not been removed.It projects delivery data to include
+        // Persian date strings and prices, groups them by the first day
+        // of the Persian month,and aggregates the total income for each
+        // month into a list of InComeViewModel objects.
+        public List<InComeViewModel> GetInCome()
+        {
+            var delivery = _context.Delivery
+            .Include(x => x.Destination)
+            .Where(x => x.IsRemoved == false && x.IsPaid == true)
+            .OrderByDescending(x => x.Id)
+            .AsEnumerable()
 
+            .Select(x => new
+            {
+                PersianDateString = _dateConversionService.ToPersiandate(x.DeliveryTime),
+                Price = x.Destination.Price
+            })
 
+            .GroupBy(x => _dateConversionService.GetFirstDayOfPersianMonth(x.PersianDateString.Substring(0, 8))) 
+            .Select(g => new InComeViewModel
+            {
+                 FirstDayOfMonth = (g.Key),
+                 LastDayOfMonth = _dateConversionService.GetLastDayOfPersianMonth(g.Key),
+                 InCome = g.Sum(x => x.Price)
+
+            }).ToList();
+
+            return delivery;
+
+        }
     }
 }

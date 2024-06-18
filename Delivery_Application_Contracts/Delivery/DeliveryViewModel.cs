@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Delivery_Application_Contracts.Delivery
 {
+
+    // DeliveryViewModel represents a model for holding
+    // detailed information about a delivery.
     public class DeliveryViewModel
     {
         public int Id { get; set; }

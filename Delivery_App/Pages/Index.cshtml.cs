@@ -49,7 +49,7 @@ namespace Delivery_App.Pages
             TotalDeliveries = allDeliveries.Count;
 
             int skipCount = (CurrentPage - 1) * PageSize;
-            Deliveries = allDeliveries.Skip(skipCount).Take(PageSize).ToList();
+            Deliveries = allDeliveries.Skip(skipCount).Take(PageSize).OrderByDescending(x =>x.Id).ToList();
 
             ViewData["Search"] = Search;
         }

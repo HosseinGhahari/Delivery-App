@@ -13,5 +13,7 @@ namespace Delivery_Infrastructure.DateConversionService
         DateTime toGregoriandate(string persiandate);
         DateTime? toGregoriandateForSearch(string persiandate);
         string ToPersiandate(DateTime Gregoriandate);
+        string GetFirstDayOfPersianMonth(string persianDateString);
+        string GetLastDayOfPersianMonth(string persianDateString);
     }
 }
