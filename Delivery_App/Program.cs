@@ -26,6 +26,15 @@ options.UseSqlServer(builder.Configuration
 
 var app = builder.Build();
 
+// Creates or ensures the existence of the MainContext database.
+using(var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    var context = services.GetRequiredService<DeliveryContext>();
+    context.Database.EnsureCreated();
+}
+
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {

@@ -1,0 +1,194 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{76FAC245-3520-4255-A360-D90C6308C0F5}|Delivery_App\\Delivery_App.csproj|c:\\my work\\1 - programming\\3- c# learning\\1-practise and learning\\asp.net core\\delivery_app\\delivery_app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76FAC245-3520-4255-A360-D90C6308C0F5}|Delivery_App\\Delivery_App.csproj|solutionrelative:delivery_app\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{16426C2A-BA64-4E96-A7BC-DC18C87B6DE9}|Delivery_Application\\Delivery_Application.csproj|c:\\my work\\1 - programming\\3- c# learning\\1-practise and learning\\asp.net core\\delivery_app\\delivery_application\\deliveryapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{16426C2A-BA64-4E96-A7BC-DC18C87B6DE9}|Delivery_Application\\Delivery_Application.csproj|solutionrelative:delivery_application\\deliveryapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{937A8A31-C61B-44E9-9FBC-52302EB645D2}|Delivery_Domain\\Delivery_Domain.csproj|c:\\my work\\1 - programming\\3- c# learning\\1-practise and learning\\asp.net core\\delivery_app\\delivery_domain\\deliveryagg\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{937A8A31-C61B-44E9-9FBC-52302EB645D2}|Delivery_Domain\\Delivery_Domain.csproj|solutionrelative:delivery_domain\\deliveryagg\\delivery.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{937A8A31-C61B-44E9-9FBC-52302EB645D2}|Delivery_Domain\\Delivery_Domain.csproj|c:\\my work\\1 - programming\\3- c# learning\\1-practise and learning\\asp.net core\\delivery_app\\delivery_domain\\deliveryagg\\ideliveryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{937A8A31-C61B-44E9-9FBC-52302EB645D2}|Delivery_Domain\\Delivery_Domain.csproj|solutionrelative:delivery_domain\\deliveryagg\\ideliveryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D396B77-5BC9-474C-91EA-146F9430112B}|Delivery_Infrastructure\\Delivery_Infrastructure.csproj|c:\\my work\\1 - programming\\3- c# learning\\1-practise and learning\\asp.net core\\delivery_app\\delivery_infrastructure\\repository\\deliveryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D396B77-5BC9-474C-91EA-146F9430112B}|Delivery_Infrastructure\\Delivery_Infrastructure.csproj|solutionrelative:delivery_infrastructure\\repository\\deliveryrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76FAC245-3520-4255-A360-D90C6308C0F5}|Delivery_App\\Delivery_App.csproj|c:\\my work\\1 - programming\\3- c# learning\\1-practise and learning\\asp.net core\\delivery_app\\delivery_app\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{76FAC245-3520-4255-A360-D90C6308C0F5}|Delivery_App\\Delivery_App.csproj|solutionrelative:delivery_app\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D396B77-5BC9-474C-91EA-146F9430112B}|Delivery_Infrastructure\\Delivery_Infrastructure.csproj|c:\\my work\\1 - programming\\3- c# learning\\1-practise and learning\\asp.net core\\delivery_app\\delivery_infrastructure\\context\\deliverycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D396B77-5BC9-474C-91EA-146F9430112B}|Delivery_Infrastructure\\Delivery_Infrastructure.csproj|solutionrelative:delivery_infrastructure\\context\\deliverycontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{4D396B77-5BC9-474C-91EA-146F9430112B}|Delivery_Infrastructure\\Delivery_Infrastructure.csproj|c:\\my work\\1 - programming\\3- c# learning\\1-practise and learning\\asp.net core\\delivery_app\\delivery_infrastructure\\mapping\\deliverymapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{4D396B77-5BC9-474C-91EA-146F9430112B}|Delivery_Infrastructure\\Delivery_Infrastructure.csproj|solutionrelative:delivery_infrastructure\\mapping\\deliverymapping.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{937A8A31-C61B-44E9-9FBC-52302EB645D2}|Delivery_Domain\\Delivery_Domain.csproj|c:\\my work\\1 - programming\\3- c# learning\\1-practise and learning\\asp.net core\\delivery_app\\delivery_domain\\destinationagg\\destination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{937A8A31-C61B-44E9-9FBC-52302EB645D2}|Delivery_Domain\\Delivery_Domain.csproj|solutionrelative:delivery_domain\\destinationagg\\destination.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7A537E4A-4A3A-4987-9269-2DA00F139BB8}|Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj|c:\\my work\\1 - programming\\3- c# learning\\1-practise and learning\\asp.net core\\delivery_app\\delivery_application_contracts\\delivery\\ideliveryapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7A537E4A-4A3A-4987-9269-2DA00F139BB8}|Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj|solutionrelative:delivery_application_contracts\\delivery\\ideliveryapplication.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 7,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DeliveryApplication.cs",
+              "DocumentMoniker": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\DeliveryApplication.cs",
+              "RelativeDocumentMoniker": "Delivery_Application\\DeliveryApplication.cs",
+              "ToolTip": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\DeliveryApplication.cs",
+              "RelativeToolTip": "Delivery_Application\\DeliveryApplication.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-01T08:42:10.687Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DeliveryRepository.cs",
+              "DocumentMoniker": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Repository\\DeliveryRepository.cs",
+              "RelativeDocumentMoniker": "Delivery_Infrastructure\\Repository\\DeliveryRepository.cs",
+              "ToolTip": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Repository\\DeliveryRepository.cs",
+              "RelativeToolTip": "Delivery_Infrastructure\\Repository\\DeliveryRepository.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAAGcAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T07:13:36.694Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IDeliveryRepository.cs",
+              "DocumentMoniker": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\DeliveryAgg\\IDeliveryRepository.cs",
+              "RelativeDocumentMoniker": "Delivery_Domain\\DeliveryAgg\\IDeliveryRepository.cs",
+              "ToolTip": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\DeliveryAgg\\IDeliveryRepository.cs",
+              "RelativeToolTip": "Delivery_Domain\\DeliveryAgg\\IDeliveryRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-24T06:58:43.224Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\appsettings.json",
+              "RelativeDocumentMoniker": "Delivery_App\\appsettings.json",
+              "ToolTip": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\appsettings.json",
+              "RelativeToolTip": "Delivery_App\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-23T15:29:15.404Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\Program.cs",
+              "RelativeDocumentMoniker": "Delivery_App\\Program.cs",
+              "ToolTip": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\Program.cs",
+              "RelativeToolTip": "Delivery_App\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T15:27:44.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DeliveryContext.cs",
+              "DocumentMoniker": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Context\\DeliveryContext.cs",
+              "RelativeDocumentMoniker": "Delivery_Infrastructure\\Context\\DeliveryContext.cs",
+              "ToolTip": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Context\\DeliveryContext.cs",
+              "RelativeToolTip": "Delivery_Infrastructure\\Context\\DeliveryContext.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABsAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T12:54:01.285Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Delivery.cs",
+              "DocumentMoniker": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\DeliveryAgg\\Delivery.cs",
+              "RelativeDocumentMoniker": "Delivery_Domain\\DeliveryAgg\\Delivery.cs",
+              "ToolTip": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\DeliveryAgg\\Delivery.cs",
+              "RelativeToolTip": "Delivery_Domain\\DeliveryAgg\\Delivery.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAACMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T09:05:35.432Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DeliveryMapping.cs",
+              "DocumentMoniker": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Mapping\\DeliveryMapping.cs",
+              "RelativeDocumentMoniker": "Delivery_Infrastructure\\Mapping\\DeliveryMapping.cs",
+              "ToolTip": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Mapping\\DeliveryMapping.cs",
+              "RelativeToolTip": "Delivery_Infrastructure\\Mapping\\DeliveryMapping.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T12:52:54.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Destination.cs",
+              "DocumentMoniker": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\DestinationAgg\\Destination.cs",
+              "RelativeDocumentMoniker": "Delivery_Domain\\DestinationAgg\\Destination.cs",
+              "ToolTip": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\DestinationAgg\\Destination.cs",
+              "RelativeToolTip": "Delivery_Domain\\DestinationAgg\\Destination.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-23T09:05:39.764Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IDeliveryApplication.cs",
+              "DocumentMoniker": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery\\IDeliveryApplication.cs",
+              "RelativeDocumentMoniker": "Delivery_Application_Contracts\\Delivery\\IDeliveryApplication.cs",
+              "ToolTip": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery\\IDeliveryApplication.cs",
+              "RelativeToolTip": "Delivery_Application_Contracts\\Delivery\\IDeliveryApplication.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-18T08:49:56.446Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

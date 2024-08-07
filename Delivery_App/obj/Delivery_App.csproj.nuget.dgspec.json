@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\Delivery_App.csproj": {}
+    "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\Delivery_App.csproj": {}
   },
   "projects": {
-    "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\Delivery_Application.csproj": {
+    "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\Delivery_Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\Delivery_Application.csproj",
+        "projectUniqueName": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\Delivery_Application.csproj",
         "projectName": "Delivery_Application",
-        "projectPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\Delivery_Application.csproj",
+        "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\Delivery_Application.csproj",
         "packagesPath": "C:\\Users\\Hossein Ghahari\\.nuget\\packages\\",
-        "outputPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\obj\\",
+        "outputPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -33,11 +33,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj": {
-                "projectPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj"
+              "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj": {
+                "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj"
               },
-              "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj": {
-                "projectPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj"
+              "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj": {
+                "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj"
               }
             }
           }
@@ -46,6 +46,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -67,18 +72,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj": {
+    "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj",
+        "projectUniqueName": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj",
         "projectName": "Delivery_Application_Contracts",
-        "projectPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj",
+        "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj",
         "packagesPath": "C:\\Users\\Hossein Ghahari\\.nuget\\packages\\",
-        "outputPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\obj\\",
+        "outputPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -106,6 +111,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -127,18 +137,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\Delivery_App.csproj": {
+    "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\Delivery_App.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\Delivery_App.csproj",
+        "projectUniqueName": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\Delivery_App.csproj",
         "projectName": "Delivery_App",
-        "projectPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\Delivery_App.csproj",
+        "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\Delivery_App.csproj",
         "packagesPath": "C:\\Users\\Hossein Ghahari\\.nuget\\packages\\",
-        "outputPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\obj\\",
+        "outputPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_App\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -160,11 +170,11 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\Delivery_Application.csproj": {
-                "projectPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\Delivery_Application.csproj"
+              "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\Delivery_Application.csproj": {
+                "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application\\Delivery_Application.csproj"
               },
-              "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj": {
-                "projectPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj"
+              "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj": {
+                "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj"
               }
             }
           }
@@ -173,6 +183,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -205,18 +220,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj": {
+    "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj",
+        "projectUniqueName": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj",
         "projectName": "Delivery_Domain",
-        "projectPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj",
+        "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj",
         "packagesPath": "C:\\Users\\Hossein Ghahari\\.nuget\\packages\\",
-        "outputPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\obj\\",
+        "outputPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -238,8 +253,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj": {
-                "projectPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj"
+              "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj": {
+                "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Application_Contracts\\Delivery_Application_Contracts.csproj"
               }
             }
           }
@@ -248,6 +263,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -269,18 +289,18 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj": {
+    "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj",
+        "projectUniqueName": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj",
         "projectName": "Delivery_Infrastructure",
-        "projectPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj",
+        "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj",
         "packagesPath": "C:\\Users\\Hossein Ghahari\\.nuget\\packages\\",
-        "outputPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\obj\\",
+        "outputPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -302,8 +322,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj": {
-                "projectPath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj"
+              "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj": {
+                "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Domain\\Delivery_Domain.csproj"
               }
             }
           }
@@ -312,6 +332,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -363,7 +388,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }

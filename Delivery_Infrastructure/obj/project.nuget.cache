@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ckqo+tQ25ih8HRdYnaJq+kyJ7unkYqMZ90B6IAlmWfQB+R2rPfa7HnUw6R1qJkuEQ2hwxmoF+pOX5B5/c++NWQ==",
+  "dgSpecHash": "2R9VEIAtqko=",
   "success": true,
-  "projectFilePath": "C:\\My Work\\2- Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj",
+  "projectFilePath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\Delivery_Infrastructure\\Delivery_Infrastructure.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Hossein Ghahari\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Hossein Ghahari\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
