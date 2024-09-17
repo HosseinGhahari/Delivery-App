@@ -9,3 +9,15 @@ C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\De
 C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\refint\Delivery_Application_Contracts.dll
 C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\Delivery_Application_Contracts.pdb
 C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\ref\Delivery_Application_Contracts.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\bin\Debug\net7.0\Delivery_Application_Contracts.deps.json
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\bin\Debug\net7.0\Delivery_Application_Contracts.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\bin\Debug\net7.0\Delivery_Application_Contracts.pdb
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\Delivery_Application_Contracts.GeneratedMSBuildEditorConfig.editorconfig
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\Delivery_Application_Contracts.AssemblyInfoInputs.cache
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\Delivery_Application_Contracts.AssemblyInfo.cs
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\Delivery_Application_Contracts.csproj.CoreCompileInputs.cache
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\Delivery_Application_Contracts.sourcelink.json
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\Delivery_Application_Contracts.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\refint\Delivery_Application_Contracts.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\Delivery_Application_Contracts.pdb
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Application_Contracts\obj\Debug\net7.0\ref\Delivery_Application_Contracts.dll

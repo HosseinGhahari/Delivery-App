@@ -17,3 +17,23 @@ C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\De
 C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery_Infrastructure.pdb
 C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery_Infrastructure.genruntimeconfig.cache
 C:\My Work\2- Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\ref\Delivery_Infrastructure.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\bin\Debug\net7.0\Delivery_Infrastructure.deps.json
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\bin\Debug\net7.0\Delivery_Infrastructure.runtimeconfig.json
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\bin\Debug\net7.0\Delivery_Infrastructure.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\bin\Debug\net7.0\Delivery_Infrastructure.pdb
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\bin\Debug\net7.0\Delivery_Application_Contracts.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\bin\Debug\net7.0\Delivery_Domain.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\bin\Debug\net7.0\Delivery_Domain.pdb
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\bin\Debug\net7.0\Delivery_Application_Contracts.pdb
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery_Infrastructure.csproj.AssemblyReference.cache
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery_Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery_Infrastructure.AssemblyInfoInputs.cache
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery_Infrastructure.AssemblyInfo.cs
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery_Infrastructure.csproj.CoreCompileInputs.cache
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery_Infrastructure.sourcelink.json
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery.C6657851.Up2Date
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery_Infrastructure.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\refint\Delivery_Infrastructure.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery_Infrastructure.pdb
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\Delivery_Infrastructure.genruntimeconfig.cache
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Infrastructure\obj\Debug\net7.0\ref\Delivery_Infrastructure.dll
