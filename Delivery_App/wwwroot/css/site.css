@@ -20,3 +20,17 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.fade-out {
+    animation: fadeOut 1s forwards; /* 5 seconds to fade out */
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}

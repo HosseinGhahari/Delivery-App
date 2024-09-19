@@ -27,6 +27,11 @@ namespace Delivery_Infrastructure.Mapping
                 .HasOne(x => x.Destination)
                 .WithMany(x => x.Deliveries)
                 .HasForeignKey(x => x.DestinationId);
+
+            builder
+                .HasOne(x => x.User)
+                .WithMany(x => x.Deliveries)
+                .HasForeignKey(x => x.UserId);
         }
     }
 }

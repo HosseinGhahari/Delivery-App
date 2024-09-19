@@ -36,17 +36,17 @@ namespace Delivery_App.Pages.Destination
         // If it is, it calls the Create method on the destination
         // application service and redirects to the Index page.
 
-        public RedirectToPageResult OnPost(CreateDestination command) 
+        public async Task<IActionResult> OnPostAsync(CreateDestination command)
         {
-            if(_destinationApplication.Exist(command.DestinationName))
+            if (await _destinationApplication.ExistAsync(command.DestinationName))
             {
                 TempData["Exist"] = "مقصد مورد نظر تکراری میباشد";
                 return RedirectToPage();
             }
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                _destinationApplication.Create(command);
+                await _destinationApplication.CreateAsync(command);
                 return RedirectToPage("./Index");
             }
 

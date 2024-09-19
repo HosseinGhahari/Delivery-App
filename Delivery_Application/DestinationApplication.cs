@@ -27,37 +27,37 @@ namespace Delivery_Application
         // If it does, throws an exception.
         // If not, creates a new destination and adds it to the repository.
         // Finally, saves the changes to the repository.
-        public void Create(CreateDestination command)
+        public async Task CreateAsync(CreateDestination command)
         {
-            if (_destinationRepository.Exist(command.DestinationName))
+            if (await _destinationRepository.ExistAsync(command.DestinationName))
                 throw new Exception("Destination Already Exists");
 
             var destination = new Destination(command.DestinationName, command.Price);
-            _destinationRepository.Create(destination);
-            _destinationRepository.SaveChanges();
+            await _destinationRepository.CreateAsync(destination);
+            await _destinationRepository.SaveChangesAsync();
         }
 
 
         // Retrieves the details of a destination for editing.
         // The destination is identified by its id.
-        public EditDestination GetEditDetailes(int id)
+        public async Task<EditDestination> GetEditDetailsAsync(int id)
         {
-            return _destinationRepository.GetEditDetailes(id);
+            return await _destinationRepository.GetEditDetailsAsync(id);
         }
 
 
         // Checks if a destination with the given name exists in
         // the repository Returns true if it exists, false otherwise.
-        public bool Exist(string name)
+        public async Task<bool> ExistAsync(string name)
         {
-            return _destinationRepository.Exist(name);
+            return await _destinationRepository.ExistAsync(name);
         }
 
 
         // Retrieves all destinations from the repository.
-        public List<DestinationViewModel> GetAll()
+        public async Task<List<DestinationViewModel>> GetAllAsync()
         {
-            return _destinationRepository.GetAll();
+            return await _destinationRepository.GetAllAsync();
         }
 
 
@@ -65,15 +65,15 @@ namespace Delivery_Application
         // Retrieves the destination from the repository using its id.
         // If the destination doesn't exist, throws an exception.
         // If it does, edits the destination and saves the changes to the repository.
-        public void Edit(EditDestination command)
+        public async Task EditAsync(EditDestination command)
         {
-            var destination = _destinationRepository.Get(command.Id);
+            var destination = await _destinationRepository.GetAsync(command.Id);
 
             if (destination == null)
-                throw new Exception();
+                throw new Exception("Destination not found");
 
             destination.Edit(command.DestinationName, command.Price);
-            _destinationRepository.SaveChanges();       
+            await _destinationRepository.SaveChangesAsync();
         }
 
     }

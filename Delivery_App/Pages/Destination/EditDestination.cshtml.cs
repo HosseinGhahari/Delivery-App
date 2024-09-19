@@ -26,19 +26,30 @@ namespace Delivery_App.Pages.Destination
         // made to the EditDestination page. It takes an id as a parameter,
         // which is the id of the destination to be edited. It retrieves the
         // details of the destination to be edited and assigns it to the Command object.
-        public void OnGet(int id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-           Command = _destinationApplication.GetEditDetailes(id);
+            Command = await _destinationApplication.GetEditDetailsAsync(id);
+            if (Command == null)
+            {
+                return RedirectToPage("./NotFound"); 
+            }
+            return Page();
         }
+
 
         // This post method takes an EditDestination command object as
         // a parameter, which contains the data from the form submission.
         // It calls the Edit method on the destination application service
         // to update the destination in the data store. After updating
         // the destination, it redirects to the Index page.
-        public RedirectToPageResult OnPost(EditDestination command)
+        public async Task<IActionResult> OnPostAsync(EditDestination command)
         {
-            _destinationApplication.Edit(command);
+            if (!ModelState.IsValid)
+            {
+                return Page(); 
+            }
+
+            await _destinationApplication.EditAsync(command);
             return RedirectToPage("./Index");
         }
 

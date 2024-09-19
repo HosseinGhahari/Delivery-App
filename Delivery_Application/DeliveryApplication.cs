@@ -30,11 +30,11 @@ namespace Delivery_Application
 
         // Creates a new delivery with the given command,
         // adds it to the repository, and saves the changes
-        public void Create(CreateDelivery command)
+        public async Task CreateAsync(CreateDelivery command)
         {
-            var delivery = new Delivery(command.IsPaid,command.DestinationId , command.DeliveryTime);
-            _deliveryRepository.Create(delivery);
-            _deliveryRepository.SaveChanges();
+            var delivery = new Delivery(command.IsPaid, command.DestinationId, command.DeliveryTime , command.UserId);
+            await _deliveryRepository.CreateAsync(delivery);
+            await _deliveryRepository.SaveChangesAsync();
         }
 
         // Edits an existing Delivery with the given command.
@@ -42,83 +42,83 @@ namespace Delivery_Application
         // If the Delivery doesn't exist, throws an exception.
         // If it does, edits the destination and saves the changes to the repository.
         // also we edit destination from destination table using DestinationId
-        public void Edit(EditDelivery command)
+        public async Task EditAsync(EditDelivery command)
         {
-            var delivery = _deliveryRepository.Get(command.Id);
+            var delivery = await _deliveryRepository.GetAsync(command.Id);
 
             if (delivery == null)
-                throw new Exception();
+                throw new Exception("Delivery not found");
 
-            delivery.Edit(command.IsPaid ,command.DestinationId, command.DeliveryTime);
-            _deliveryRepository.SaveChanges();
+            delivery.Edit(command.IsPaid, command.DestinationId, command.DeliveryTime);
+            await _deliveryRepository.SaveChangesAsync();
         }
 
         // Get All Delivery Values 
-        public List<DeliveryViewModel> GetAll()
+        public async Task<List<DeliveryViewModel>> GetAllAsync()
         {
-           return _deliveryRepository.GetAll();
+            return await _deliveryRepository.GetAllAsync();
         }
 
         // Retrieves the details of a destination for editing.
         // The destination is identified by its id.
-        public EditDelivery GetEditDetailes(int id)
+        public async Task<EditDelivery> GetEditDetailsAsync(int id)
         {
-           return _deliveryRepository.GetEditDetailes(id);
+            return await _deliveryRepository.GetEditDetailsAsync(id);
         }
 
         // Retrieves the montly income
-        public List<InComeViewModel> GetInCome()
+        public async Task<List<InComeViewModel>> GetInComeAsync()
         {
-           return _deliveryRepository.GetInCome();
+            return await _deliveryRepository.GetInComeAsync();
         }
 
         // here in our application layer we retrieves the 
         // all the paid from delivery and for that it uses 
         // method of the Delivery Repository
-        public double GetNotPaidPrice()
+        public async Task<double> GetNotPaidPriceAsync()
         {
-            return _deliveryRepository.GetNotPaidPrice();
+            return await _deliveryRepository.GetNotPaidPriceAsync();
         }
 
         // here in our application layer we retrieves the 
         // all the Notpaid prices from delivery and for that it uses 
         // method of the Delivery Repository
-        public double GetPaidPrice()
+        public async Task<double> GetPaidPriceAsync()
         {
-           return _deliveryRepository.GetPaidPrice();
+            return await _deliveryRepository.GetPaidPriceAsync();
         }
 
         // This method iterates through all delivery records that have
         // not been paid and are not marked as removed. It updates the
         // 'IsPaid' status of each qualifying delivery to true, effectively
         // processing the payment. This is typically called during the checkout process.
-        public void MarkAllAsPaid()
+        public async Task MarkAllAsPaidAsync()
         {
-            var delivery = _deliveryRepository.GetPayments();
-            foreach(var item in delivery)
+            var deliveries = await _deliveryRepository.GetPaymentsAsync();
+            foreach (var item in deliveries)
             {
                 item.IsPaid = true;
             }
-            _deliveryRepository.SaveChanges();
+            await _deliveryRepository.SaveChangesAsync();
         }
 
         // This method removes a delivery record by its ID. 
         // It retrieves the record, marks it as removed,
         // and saves the changes in the repository.
-        public void Remove(int id)
+        public async Task RemoveAsync(int id)
         {
-            var delivery = _deliveryRepository.Get(id);
+            var delivery = await _deliveryRepository.GetAsync(id);
 
             if (delivery == null)
-                throw new Exception();
+                throw new Exception("Delivery not found");
 
             delivery.Remove();
-            _deliveryRepository.SaveChanges();
+            await _deliveryRepository.SaveChangesAsync();
         }
 
-        public List<DeliveryViewModel> Search(string Command)
+        public async Task<List<DeliveryViewModel>> SearchAsync(string command)
         {
-           return _deliveryRepository.Search(Command);
+            return await _deliveryRepository.SearchAsync(command);
         }
 
     }

@@ -13,16 +13,16 @@ namespace Delivery_Domain.DeliveryAgg
 
     public interface IDeliveryRepository
     {
-        void Create(Delivery createDelivery);
-        List<DeliveryViewModel> GetAll();
-        List<Delivery> GetPayments();
-        Delivery Get(int id);
-        EditDelivery GetEditDetailes(int id);
-        double GetPaidPrice();
-        double GetNotPaidPrice();
-        void SaveChanges();
-        List<DeliveryViewModel> Search(string search);
-        List<InComeViewModel> GetInCome();
-
+        Task CreateAsync(Delivery createDelivery);
+        Task<List<DeliveryViewModel>> GetAllAsync();
+        Task<List<Delivery>> GetPaymentsAsync();
+        Task<Delivery> GetAsync(int id);
+        Task<EditDelivery> GetEditDetailsAsync(int id);
+        Task<double> GetPaidPriceAsync();
+        Task<double> GetNotPaidPriceAsync();
+        Task SaveChangesAsync();
+        Task<List<DeliveryViewModel>> SearchAsync(string search);
+        Task<List<InComeViewModel>> GetInComeAsync();
     }
+
 }

@@ -2,7 +2,9 @@ C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\D
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Domain\bin\Debug\net8.0\Delivery_Domain.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Domain\bin\Debug\net8.0\Delivery_Domain.pdb
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Domain\bin\Debug\net8.0\Delivery_Application_Contracts.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Domain\bin\Debug\net8.0\FrameWork.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Domain\bin\Debug\net8.0\Delivery_Application_Contracts.pdb
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Domain\bin\Debug\net8.0\FrameWork.pdb
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Domain\obj\Debug\net8.0\Delivery_Domain.csproj.AssemblyReference.cache
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Domain\obj\Debug\net8.0\Delivery_Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_Domain\obj\Debug\net8.0\Delivery_Domain.AssemblyInfoInputs.cache

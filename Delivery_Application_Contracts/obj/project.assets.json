@@ -1,11 +1,30 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {}
+    "net8.0": {
+      "FrameWork/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "compile": {
+          "bin/placeholder/FrameWork.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/FrameWork.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "FrameWork/1.0.0": {
+      "type": "project",
+      "path": "../FrameWork/FrameWork.csproj",
+      "msbuildProject": "../FrameWork/FrameWork.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net8.0": []
+    "net8.0": [
+      "FrameWork >= 1.0.0"
+    ]
   },
   "packageFolders": {
     "C:\\Users\\Hossein Ghahari\\.nuget\\packages\\": {},
@@ -39,7 +58,11 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\FrameWork\\FrameWork.csproj": {
+              "projectPath": "C:\\My Work\\1 - Programming\\3- C# Learning\\1-Practise And Learning\\Asp.net core\\Delivery_App\\FrameWork\\FrameWork.csproj"
+            }
+          }
         }
       },
       "warningProperties": {

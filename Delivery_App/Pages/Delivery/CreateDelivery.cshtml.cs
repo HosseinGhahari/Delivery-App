@@ -1,12 +1,15 @@
 ﻿using Delivery_Application_Contracts.Delivery;
 using Delivery_Application_Contracts.Destination;
 using Delivery_Domain.DeliveryAgg;
+using Delivery_Domain.DestinationAgg;
 using Delivery_Infrastructure.DateConversionService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Globalization;
+using System.Security.Claims;
 using System.Text.RegularExpressions;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Delivery_App.Pages.Delivery
 {
@@ -35,7 +38,7 @@ namespace Delivery_App.Pages.Delivery
         public CreateDeliveryModel(IDeliveryApplication deliveryApplication 
             ,IDestinationApplication destinationApplication
             ,IDeliveryRepository deliveryRepository
-            ,IDateConversionService dateConversionService) : base(deliveryApplication)    
+            ,IDateConversionService dateConversionService) : base()    
         {
             _deliveryApplication = deliveryApplication;
             _destinationApplication = destinationApplication;
@@ -51,19 +54,18 @@ namespace Delivery_App.Pages.Delivery
         // The resulting collection of anonymous objects is used to
         // create a SelectList, which is often used for dropdown lists in views.
         // Also Convert the current date and time to a Persian date string
-        public void OnGet() 
+        public async Task OnGetAsync()
         {
-            destinations = new SelectList(_destinationApplication.GetAll()
-            .Select(x => new
-            {
-                x.Id,
-                Description = x.DestinationName + " *** " + x.Price + " تومان"
-                
-            }), "Id", "Description");
+            var destinationsList = await _destinationApplication.GetAllAsync();
+            destinations = new SelectList(destinationsList
+                .Select(x => new
+                {
+                    x.Id,
+                    Description = x.DestinationName + " *** " + x.Price + " تومان"
+                }), "Id", "Description");
 
             date = DateTime.Now;
             persiantime = _deliveryConversionService.ToPersiandate(date);
-
         }
 
         // It takes a CreateDelivery object and a boolean
@@ -73,28 +75,27 @@ namespace Delivery_App.Pages.Delivery
         // is valid, and then calls the Create method on the delivery
         // application service. After creating the delivery,
         // it redirects to the index page
-        public RedirectToPageResult OnPost(CreateDelivery createDelivery , bool ispaid = false) 
+        public async Task<IActionResult> OnPostAsync(CreateDelivery createDelivery, bool isPaid = false)
         {
-            createDelivery.IsPaid = ispaid;
-
+            createDelivery.IsPaid = isPaid;
+            createDelivery.UserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             if (regex.IsMatch(persiantime))
             {
                 createDelivery.DeliveryTime = _deliveryConversionService.toGregoriandate(persiantime);
             }
             else
             {
-                TempData["DateError"] = "لطفا تاریخ  را به درستی وارد کنید";
+                TempData["DateError"] = "لطفا تاریخ را به درستی وارد کنید";
                 return RedirectToPage();
             }
-
-
+        
             if (createDelivery.DestinationId == 0)
             {
                 TempData["DestinationError"] = "لطفا مقصد خود را به درستی وارد کنید";
                 return RedirectToPage();
             }
 
-            _deliveryApplication.Create(createDelivery);
+            await _deliveryApplication.CreateAsync(createDelivery);
             return RedirectToPage("/Index");
         }
 

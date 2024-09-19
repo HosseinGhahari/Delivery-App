@@ -32,16 +32,18 @@ namespace Delivery_App.Pages
         {
             _deliveryApplication = deliveryApplication;
 
-            double PPrice = _deliveryApplication.GetPaidPrice();
+        }
+        public async Task InitializePricesAsync()
+        {
+            double PPrice = await _deliveryApplication.GetPaidPriceAsync();
             PaidPrice = Convert.ToString(PPrice.Toman());
 
-            double NPPrice = _deliveryApplication.GetNotPaidPrice();
+            double NPPrice = await _deliveryApplication.GetNotPaidPriceAsync();
             NotPaidPrice = Convert.ToString(NPPrice.Toman());
 
             PriceHolder.PaidPrice = PaidPrice;
             PriceHolder.NotPaidPrice = NotPaidPrice;
         }
-
         // The parameterless constructor is used to initialize PaidPrice and NotPaidPrice
         // with the values from the static PriceHolder class. This is necessary because
         // other pages that inherit from BasePageModel may use this constructor, and we

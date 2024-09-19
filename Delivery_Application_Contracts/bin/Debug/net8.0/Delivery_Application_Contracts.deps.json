@@ -7,14 +7,27 @@
   "targets": {
     ".NETCoreApp,Version=v8.0": {
       "Delivery_Application_Contracts/1.0.0": {
+        "dependencies": {
+          "FrameWork": "1.0.0"
+        },
         "runtime": {
           "Delivery_Application_Contracts.dll": {}
+        }
+      },
+      "FrameWork/1.0.0": {
+        "runtime": {
+          "FrameWork.dll": {}
         }
       }
     }
   },
   "libraries": {
     "Delivery_Application_Contracts/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "FrameWork/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

@@ -61,29 +61,36 @@ namespace Delivery_App.Pages.Delivery
         // which is a dictionary used for preserving data between controller actions.
         // also save the persian date in tempdata to have it displayed after redirect
 
-        public void OnGet(int id)
+        public async Task<IActionResult> OnGetAsync(int id)
         {
-            command = _deliveryApplication.GetEditDetailes(id);
+            command = await _deliveryApplication.GetEditDetailsAsync(id); // Make sure to implement async versions in the Application layer
+            if (command == null)
+            {
+                return NotFound(); // Handle the case where the delivery is not found
+            }
+
             TempData["CommandId"] = command.Id;
 
-            destinations = new SelectList(_destinationApplication.GetAll().Select(x => new
+            var destinationsData = await _destinationApplication.GetAllAsync(); // Ensure this method is async in the Application layer
+            destinations = new SelectList(destinationsData.Select(x => new
             {
                 x.Id,
-                Description = x.DestinationName + " *** " + x.Price + " تومان"
+                Description = $"{x.DestinationName} *** {x.Price} تومان"
             }), "Id", "Description");
 
-            if (command != null && command.DeliveryTime != null)
+            if (command.DeliveryTime != null)
             {
                 date = command.DeliveryTime;
                 persiantime = _deliveryConversionService.ToPersiandate(date);
-                TempData["OriginalPersianDate"] = persiantime as string;
+                TempData["OriginalPersianDate"] = persiantime;
             }
             else
             {
                 persiantime = TempData["OriginalPersianDate"] as string;
-                RedirectToPage(new { id = TempData["CommandId"] });
+                return RedirectToPage(new { id = TempData["CommandId"] });
             }
 
+            return Page(); // Return the page result
         }
 
 
@@ -91,19 +98,17 @@ namespace Delivery_App.Pages.Delivery
         // input, updates the delivery data, and redirects to the Index page.
         // also we pass the id that we saved to do the edit if validation failed 
 
-        public RedirectToPageResult OnPost(EditDelivery command)
+        public async Task<IActionResult> OnPostAsync(EditDelivery command)
         {
-
             if (!regex.IsMatch(persiantime))
             {
-                TempData["Datefailed"] = "لطفا تاریخ  را به درستی وارد کنید";
+                TempData["Datefailed"] = "لطفا تاریخ را به درستی وارد کنید";
                 return RedirectToPage(new { id = command.Id });
             }
 
             command.DeliveryTime = _deliveryConversionService.toGregoriandate(persiantime);
-            _deliveryApplication.Edit(command);
+            await _deliveryApplication.EditAsync(command); 
             return RedirectToPage("/Index");
-
         }
     }
 }

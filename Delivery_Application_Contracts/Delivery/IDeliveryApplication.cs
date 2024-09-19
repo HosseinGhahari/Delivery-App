@@ -13,15 +13,15 @@ namespace Delivery_Application_Contracts.Delivery
     // also we take our dependencies from classes in this layer
     public interface IDeliveryApplication
     {
-        void Create(CreateDelivery command);
-        void Remove(int id);
-        List<DeliveryViewModel> GetAll();
-        EditDelivery GetEditDetailes(int id);
-        void Edit(EditDelivery command);
-        double GetPaidPrice();
-        double GetNotPaidPrice();
-        void MarkAllAsPaid();
-        List<DeliveryViewModel> Search(string Command);
-        List<InComeViewModel> GetInCome();
+        Task CreateAsync(CreateDelivery command);
+        Task RemoveAsync(int id);
+        Task<List<DeliveryViewModel>> GetAllAsync();
+        Task<EditDelivery> GetEditDetailsAsync(int id);
+        Task EditAsync(EditDelivery command);
+        Task<double> GetPaidPriceAsync();
+        Task<double> GetNotPaidPriceAsync();
+        Task MarkAllAsPaidAsync();
+        Task<List<DeliveryViewModel>> SearchAsync(string command);
+        Task<List<InComeViewModel>> GetInComeAsync();
     }
 }

@@ -18,6 +18,18 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/My Work/1 - Programming/3- C\# Learning/1-Practise And Learning/Asp.net core/Delivery_App/Delivery_App/Pages/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/My Work/1 - Programming/3- C\# Learning/1-Practise And Learning/Asp.net core/Delivery_App/Delivery_App/Pages/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/My Work/1 - Programming/3- C\# Learning/1-Practise And Learning/Asp.net core/Delivery_App/Delivery_App/Pages/Auth/Welcome.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQXV0aFxXZWxjb21lLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/My Work/1 - Programming/3- C\# Learning/1-Practise And Learning/Asp.net core/Delivery_App/Delivery_App/Pages/BasePage.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQmFzZVBhZ2UuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 

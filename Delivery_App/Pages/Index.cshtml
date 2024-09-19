@@ -39,7 +39,7 @@
                     <th class="alert-danger">پرداخت نشد</th>
                     }
                     <th><a asp-page="./Delivery/EditDelivery" asp-route-id="@item.Id">ویرایش</a></th>
-                    <th><a class="link-danger" asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id">حذف</a></th>
+                    <th><a class="link-danger" asp-page="./Index" asp-page-handler="RemoveAsync" asp-route-id="@item.Id">حذف</a></th>
                 </tr>
             }
         </tbody>

@@ -1,0 +1,34 @@
+﻿@page
+@model Delivery_App.Pages.Auth.WelcomeModel
+@{
+    ViewData["Title"] = "خوش آمدید";
+}
+@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Delivery_App</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Delivery_App.styles.css" asp-append-version="true" />
+</head>
+
+<div class="d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <div class="text-center">
+        <h1 class="mb-4">به اپلیکیشن ما خوش آمدید</h1>
+        <p class="mb-5">لطفا ورود یا ثبت نام کنید</p>
+        <div>
+            <a class="btn btn-primary btn-lg mx-2" asp-page="/Auth/Login">ورود</a>
+            <a class="btn btn-secondary btn-lg mx-2" asp-page="/Auth/Register">ثبت نام</a>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>

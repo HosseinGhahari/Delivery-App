@@ -24,9 +24,9 @@ namespace Delivery_App.Pages.Destination
         {
             _destinationApplication = destinationApplication;
         }
-        public void OnGet()
+        public async Task OnGetAsync()
         {
-            Destinations = _destinationApplication.GetAll();
+            Destinations = await _destinationApplication.GetAllAsync();
         }
     }
 }

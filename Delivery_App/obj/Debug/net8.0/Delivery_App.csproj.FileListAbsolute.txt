@@ -11,6 +11,9 @@ C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\D
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Castle.Core.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Humanizer.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\LazZiya.TagHelpers.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
@@ -24,6 +27,9 @@ C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\D
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Extensions.Identity.Core.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Extensions.Identity.Stores.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Identity.Client.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
@@ -118,10 +124,12 @@ C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\D
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Delivery_Application_Contracts.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Delivery_Domain.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Delivery_Infrastructure.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\FrameWork.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Delivery_Application.pdb
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Delivery_Infrastructure.pdb
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Delivery_Application_Contracts.pdb
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Delivery_Domain.pdb
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\FrameWork.pdb
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.csproj.AssemblyReference.cache
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.GeneratedMSBuildEditorConfig.editorconfig
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.AssemblyInfoInputs.cache

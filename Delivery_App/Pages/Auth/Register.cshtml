@@ -1,0 +1,74 @@
+﻿@page
+@model Delivery_App.Pages.Auth.RegisterModel
+@{
+    ViewData["Title"] = "ورود";
+}
+@{
+    Layout = null;
+}
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Delivery_App</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Delivery_App.styles.css" asp-append-version="true" />
+</head>
+
+
+<div class="d-flex flex-column justify-content-center align-items-center min-vh-100">
+    <div class="col-12 d-flex justify-content-center">
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div id="errorAlert" class="alert alert-danger text-center">
+                @TempData["ErrorMessage"]
+            </div>
+        }
+    </div>
+    <div class="w-100" style="max-width: 400px;">
+        <h1 class="text-center mb-4">ثبت نام</h1>
+
+        <form method="post">
+            <div class="form-group mb-3">
+                <label asp-for="RegisterUser.UserName" class="form-label">نام کاربری</label>
+                <input asp-for="RegisterUser.UserName" class="form-control" />
+                <span asp-validation-for="RegisterUser.UserName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="RegisterUser.Password" class="form-label">رمز عبور</label>
+                <input asp-for="RegisterUser.Password" class="form-control" type="password" />
+                <span asp-validation-for="RegisterUser.Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mb-3">
+                <label asp-for="RegisterUser.ConfirmPassword" class="form-label">تکرار رمز عبور</label>
+                <input asp-for="RegisterUser.ConfirmPassword" class="form-control" type="password" />
+                <span asp-validation-for="RegisterUser.ConfirmPassword" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100">ثبت نام</button>
+        </form>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+<script>
+    window.onload = function () {
+        const errorAlert = document.getElementById('errorAlert');
+        if (errorAlert) {
+            // Wait for 4 seconds, then add the 'fade-out' class and remove the element after the fade
+            setTimeout(function () {
+                errorAlert.classList.add('fade-out');
+                setTimeout(function () {
+                    errorAlert.remove();
+                }, 500); // 500ms = 0.5 seconds for the fade effect
+            }, 4000); // 4000ms = 4 seconds delay before fading out
+        }
+    };
+</script>

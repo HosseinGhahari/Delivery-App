@@ -15,11 +15,10 @@ namespace Delivery_Application_Contracts.Destination
     // also we take our dependencies from classes in this layer
     public interface IDestinationApplication
     {
-        void Create(CreateDestination command);
-        void Edit(EditDestination command);
-        bool Exist(string name);
-        List<DestinationViewModel> GetAll();
-        EditDestination GetEditDetailes(int id);
-       
+        Task CreateAsync(CreateDestination command);
+        Task EditAsync(EditDestination command);
+        Task<bool> ExistAsync(string name);
+        Task<List<DestinationViewModel>> GetAllAsync();
+        Task<EditDestination> GetEditDetailsAsync(int id);
     }
 }

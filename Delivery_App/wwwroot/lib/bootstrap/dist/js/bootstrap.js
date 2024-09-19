@@ -55,6 +55,19 @@
    */
 
 
+    window.onload = function () {
+        const errorAlert = document.getElementById('errorAlert');
+        if (errorAlert) {
+            // Wait for 4 seconds, then add the 'fade-out' class and remove the element after the fade
+            setTimeout(function () {
+                errorAlert.classList.add('fade-out');
+                setTimeout(function () {
+                    errorAlert.remove();
+                }, 500); // 500ms = 0.5 seconds for the fade effect
+            }, 4000); // 4000ms = 4 seconds delay before fading out
+        }
+    };
+
   const getUID = prefix => {
     do {
       prefix += Math.floor(Math.random() * MAX_UID);

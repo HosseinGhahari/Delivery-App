@@ -13,11 +13,12 @@ namespace Delivery_Domain.DestinationAgg
     // repositories within the Infrastructure layer.
     public interface IDestinationRepository
     {
-        Destination Get(int id);
-        void Create(Destination destination);
-        bool Exist(string name);
-        List<DestinationViewModel> GetAll();
-        EditDestination GetEditDetailes(int id);
-        void SaveChanges();
+        Task<Destination> GetAsync(int id);
+        Task CreateAsync(Destination destination);
+        Task<bool> ExistAsync(string name);
+        Task<List<DestinationViewModel>> GetAllAsync();
+        Task<EditDestination> GetEditDetailsAsync(int id);
+        Task SaveChangesAsync();
     }
+
 }

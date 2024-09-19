@@ -1,4 +1,5 @@
-﻿using Delivery_Domain.DestinationAgg;
+﻿using Delivery_Domain.AuthAgg;
+using Delivery_Domain.DestinationAgg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,16 +23,19 @@ namespace Delivery_Domain.DeliveryAgg
         public bool IsRemoved { get; set; }
         public int DestinationId { get; set; }
         public Destination Destination { get; set; }
+        public string UserId { get; set; }
+        public User User { get; set; }
 
         public Delivery()
         {
 
         }
-        public Delivery(bool isPaid, int destinationId, DateTime date)
+        public Delivery(bool isPaid, int destinationId, DateTime date , string userid)
         {
             IsPaid = isPaid;
             DestinationId = destinationId;
             DeliveryTime = date;
+            UserId = userid;
         }
 
         public void Edit(bool isPaid, int destinationId, DateTime date)

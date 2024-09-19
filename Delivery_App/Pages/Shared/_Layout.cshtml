@@ -1,5 +1,4 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" dir="rtl">
 <head>
     <meta charset="utf-8" />
@@ -40,17 +39,16 @@
                         <li class="nav-item">
                             <form asp-page-handler="MarkAllAsPaid" method="post">
                                 <button type="submit" onclick="return confirm(' آیا از تسویه حساب کامل مطمئن هستید ؟');" class="nav-link text-dark @{
-                                    if (ViewContext.RouteData.Values["page"].ToString() != "/Index") 
+                                    if (ViewContext.RouteData.Values["page"].ToString() != "/Index")
                                     {
                                         <text>disabled-button</text>
                                     }
                                     }" style="background:none!important; border:none; cursor: pointer; line-height: inherit;"
-                                    @{
-                                    if (ViewContext.RouteData.Values["page"].ToString() != "/Index")
-                                    {
-                                        <text>disabled</text>
+                                        @{ if (ViewContext.RouteData.Values["page"].ToString() != "/Index") { <text> disabled</text>
                                     }
-                                }>تسویه حساب</button>
+                                }>
+                                    تسویه حساب
+                                </button>
                             </form>
                         </li>
                         <li class="nav-item align-content-center">
@@ -59,12 +57,25 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-page="/InCome/Index">درآمد</a>
                         </li>
+                        <li class="nav-item align-content-center">
+                            <a> | </a>
+                        </li>
+                        <li class="nav-item">
+                            <form asp-page-handler="Logout" method="post">
+                                <button type="submit" class="nav-link text-dark btn btn-link nav-link text-dark"
+                                        style="background:none; border:none; padding:0; font-size: inherit; line-height: inherit; padding: 0.5rem 1rem; display: inline-block;">
+                                    خروج
+                                </button>
+                            </form>
+                        </li>
+
+
 
                         <!--handel the search opreation-->
                         <form method="get" class="mx-auto" id="searchForm">
                             <div class="input-group m-auto" style="width: 200px;">
-                                <input type="search" class="form-control" name="Search" 
-                                placeholder="جستجو" id="searchInput" value="@ViewData["Search"]" />
+                                <input type="search" class="form-control" name="Search"
+                                       placeholder="جستجو" id="searchInput" value="@ViewData["Search"]" />
                             </div>
                         </form>
 

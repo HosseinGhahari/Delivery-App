@@ -1,5 +1,7 @@
-﻿using Delivery_Domain.DeliveryAgg;
+﻿using Delivery_Domain.AuthAgg;
+using Delivery_Domain.DeliveryAgg;
 using Delivery_Domain.DestinationAgg;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -14,7 +16,7 @@ namespace Delivery_Infrastructure.Context
     // Additionally, we utilize the assembly and the OnModelCreating
     // method to enable our application to recognize all our model mappings.
 
-    public class DeliveryContext : DbContext
+    public class DeliveryContext : IdentityDbContext
     {
         public DbSet<Delivery> Delivery { get; set; }
         public DbSet<Destination> Destination { get; set; }

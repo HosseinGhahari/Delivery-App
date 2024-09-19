@@ -1,6 +1,7 @@
 ﻿using Delivery_Application_Contracts.Destination;
 using Delivery_Domain.DestinationAgg;
 using Delivery_Infrastructure.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,19 +24,19 @@ namespace Delivery_Infrastructure.Repository
             _context = deliveryContext;
         }
 
-        
+
         // this method get a Destination object by its id for future use
-        public Destination Get(int id)
+        public async Task<Destination> GetAsync(int id)
         {
-           return _context.Destination.FirstOrDefault(x => x.Id == id);
+            return await _context.Destination.FirstOrDefaultAsync(x => x.Id == id);
         }
 
 
         // This method create a new Destination object 
-        public void Create(Destination destination)
+        public async Task CreateAsync(Destination destination)
         {
-            _context.Destination.Add(destination);
-            SaveChanges();
+            await _context.Destination.AddAsync(destination);
+            await SaveChangesAsync();
         }
 
 
@@ -43,43 +44,45 @@ namespace Delivery_Infrastructure.Repository
         // details of our object for editing purposes.
         // It retrieves the current state of the object,
         // but does not directly apply any edits.
-        public EditDestination GetEditDetailes(int id)
+        public async Task<EditDestination> GetEditDetailsAsync(int id)
         {
-            return _context.Destination.Select(x => new EditDestination
-            {
-                Id = x.Id,
-                DestinationName = x.DestinationName,
-                Price = x.Price,
-
-            }).FirstOrDefault(x => x.Id == id);
+            return await _context.Destination
+                .Select(x => new EditDestination
+                {
+                    Id = x.Id,
+                    DestinationName = x.DestinationName,
+                    Price = x.Price,
+                })
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
 
         // This method is utilized to verify whether a given
         // 'destinationName' exists in the database.
-        public bool Exist(string name)
+        public async Task<bool> ExistAsync(string name)
         {
-            return _context.Destination.Any(x => x.DestinationName == name);
+            return await _context.Destination.AnyAsync(x => x.DestinationName == name);
         }
 
 
         //This method get all Destination objects from database
-        public List<DestinationViewModel> GetAll()
+        public async Task<List<DestinationViewModel>> GetAllAsync()
         {
-            return _context.Destination.Select(x => new DestinationViewModel()
-            {
-                Id = x.Id,
-                DestinationName = x.DestinationName,
-                Price = x.Price,
-                
-            }).ToList();
+            return await _context.Destination
+                .Select(x => new DestinationViewModel
+                {
+                    Id = x.Id,
+                    DestinationName = x.DestinationName,
+                    Price = x.Price,
+                })
+                .ToListAsync();
         }
 
 
         // This method Save the Changes in databasse 
-        public void SaveChanges()
+        public async Task SaveChangesAsync()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
     }

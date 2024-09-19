@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Delivery_Application_Contracts\Delivery_Application_Contracts.csproj" />
     <ProjectReference Include="..\Delivery_Domain\Delivery_Domain.csproj" />
   </ItemGroup>

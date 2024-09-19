@@ -20,7 +20,7 @@ namespace Delivery_Infrastructure.Repository
 
     public class DeliveryRepository : IDeliveryRepository
     {
-
+            
         private readonly DeliveryContext _context;
         private readonly IDateConversionService _dateConversionService;
 
@@ -31,26 +31,30 @@ namespace Delivery_Infrastructure.Repository
         }
 
         // This method create a new Destination object 
-        public void Create(Delivery createDelivery)
+        public async Task CreateAsync(Delivery createDelivery)
         {
-            _context.Delivery.Add(createDelivery);
-            SaveChanges();
+            await _context.Delivery.AddAsync(createDelivery);
+            await SaveChangesAsync();
         }
-      
+
         // This method retrieves all data and converts the date to Persian date. 
         // We perform a projection to get all the data. However, we have a date
         // conversion operation in this process. To make the query work, we first
         // retrieve the data without performing the date conversion. 
         // Once we have our data, then we proceed with the date conversion.
-        public List<DeliveryViewModel> GetAll()
+        public async Task<List<DeliveryViewModel>> GetAllAsync()
         {
-            var deliveries = _context.Delivery.Include(x => x.Destination).Where(x =>x.IsRemoved == false).ToList(); 
+            var deliveries = await _context.Delivery
+                .Include(x => x.Destination)
+                .Where(x => !x.IsRemoved)
+                .ToListAsync();
+
             var query = deliveries.Select(x => new DeliveryViewModel
             {
                 Id = x.Id,
                 DeliveryTime = x.DeliveryTime,
                 PersianDeliveryTime = _dateConversionService.ToPersiandate(x.DeliveryTime),
-                IsPaid = x.IsPaid,          
+                IsPaid = x.IsPaid,
                 Price = x.Destination.Price,
                 Destination = x.Destination.DestinationName,
             });
@@ -62,135 +66,137 @@ namespace Delivery_Infrastructure.Repository
         // records from the database where the 'IsPaid' property
         // is false and the 'IsRemoved' property is also false. 
         // we use this query in application layer to do the Checkout 
-        public List<Delivery> GetPayments()
+        public async Task<List<Delivery>> GetPaymentsAsync()
         {
-            return _context.Delivery
-                .Where(x =>x.IsPaid == false && x.IsRemoved == false)
-                .ToList();
+            return await _context.Delivery
+                .Where(x => !x.IsPaid && !x.IsRemoved)
+                .ToListAsync();
         }
 
         // This method is utilized for obtaining the
         // details of our object for editing purposes.
         // It retrieves the current state of the object,
         // but does not directly apply any edits. 
-        public EditDelivery GetEditDetailes(int id)
+        public async Task<EditDelivery> GetEditDetailsAsync(int id)
         {
-            return _context.Delivery.Include(x =>x.Destination).Select(x => new EditDelivery
-            {
-                Id = x.Id,
-                DeliveryTime = x.DeliveryTime,
-                IsPaid = x.IsPaid,
-                DestinationName = x.Destination.DestinationName,
-                DestinationId = x.DestinationId
-                           
-            }).FirstOrDefault(x => x.Id == id);
+            return await _context.Delivery
+                .Include(x => x.Destination)
+                .Where(x => x.Id == id)
+                .Select(x => new EditDelivery
+                {
+                    Id = x.Id,
+                    DeliveryTime = x.DeliveryTime,
+                    IsPaid = x.IsPaid,
+                    DestinationName = x.Destination.DestinationName,
+                    DestinationId = x.DestinationId,
+                })
+                .FirstOrDefaultAsync();
         }
 
         // This method Save the Changes in databasse 
-        public void SaveChanges()
+        public async Task SaveChangesAsync()
         {
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
         // This method retrieves a Delivery object by its unique identifier (Id).
         // It searches the Delivery DbSet for the first entry that matches the provided Id.
         // If no matching entry is found, it returns null. 
-        public Delivery Get(int id)
+        public async Task<Delivery> GetAsync(int id)
         {
-            return _context.Delivery.FirstOrDefault(x => x.Id == id);
+            return await _context.Delivery.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         // This method, GetPaidPrice(), is responsible for calculating
         // and returning the total price of all deliveries that have
         // been paid for and are not removed from the system.
-        public double GetPaidPrice()
+        public async Task<double> GetPaidPriceAsync()
         {
-            return _context.Delivery
-                .Include(x =>x.Destination)
-                .Where(x =>x.IsRemoved == false && x.IsPaid == true)
-                .Sum(x =>x.Destination.Price);
+            return await _context.Delivery
+                .Include(x => x.Destination)
+                .Where(x => !x.IsRemoved && x.IsPaid)
+                .SumAsync(x => x.Destination.Price);
         }
 
         // This method, GetNotPaidPrice(), is responsible for calculating
         // and returning the total price of all deliveries that have not
         // been paid for and are not removed from the system.
-        public double GetNotPaidPrice()
+        public async Task<double> GetNotPaidPriceAsync()
         {
-            return _context.Delivery
-                .Include(x =>x.Destination)
-                .Where(x => x.IsRemoved == false && x.IsPaid == false)
-                .Sum(x => x.Destination.Price);
+            return await _context.Delivery
+                .Include(x => x.Destination)
+                .Where(x => !x.IsRemoved && !x.IsPaid)
+                .SumAsync(x => x.Destination.Price);
         }
 
         // The 'Search' method filters deliveries based on a search string.
         // If the search string is a valid Persian date, it filters by date.
         // If not, it assumes the search string is a destination name and filters by that.
         // It returns a list of 'DeliveryViewModel' objects based on the filtered deliveries.
-        public List<DeliveryViewModel> Search(string search)
+        public async Task<List<DeliveryViewModel>> SearchAsync(string search)
+    {
+        var deliveries = _context.Delivery
+            .Include(x => x.Destination)
+            .Where(x => !x.IsRemoved);
+
+        if (!string.IsNullOrWhiteSpace(search))
         {
-            var deliveries = _context.Delivery
-                .Include(x => x.Destination)
-                .Where(x => x.IsRemoved == false);
+            DateTime? convertDate = _dateConversionService.toGregoriandateForSearch(search);
 
-            if (!string.IsNullOrWhiteSpace(search))
+            if (convertDate != null)
             {
-                DateTime? ConvertDate = _dateConversionService.toGregoriandateForSearch(search);
-
-                if (ConvertDate != null)
-                {
-                    deliveries = deliveries.Where(x => x.DeliveryTime == ConvertDate);
-                }
-                else
-                {
-                    deliveries = deliveries.Where(x => x.Destination.DestinationName.Contains(search));
-                }
+                deliveries = deliveries.Where(x => x.DeliveryTime == convertDate);
             }
-
-            var deliveryList = deliveries.ToList();
-
-            var query = deliveryList.Select(x => new DeliveryViewModel
+            else
             {
-                Id = x.Id,
-                DeliveryTime = x.DeliveryTime,
-                PersianDeliveryTime = _dateConversionService.ToPersiandate(x.DeliveryTime),
-                IsPaid = x.IsPaid,
-                Price = x.Destination.Price,
-                Destination = x.Destination.DestinationName,
-            });
-
-            return query.ToList();
+                deliveries = deliveries.Where(x => x.Destination.DestinationName.Contains(search));
+            }
         }
+
+        var deliveryList = await deliveries.ToListAsync();
+
+        var query = deliveryList.Select(x => new DeliveryViewModel
+        {
+            Id = x.Id,
+            DeliveryTime = x.DeliveryTime,
+            PersianDeliveryTime = _dateConversionService.ToPersiandate(x.DeliveryTime),
+            IsPaid = x.IsPaid,
+            Price = x.Destination.Price,
+            Destination = x.Destination.DestinationName,
+        });
+
+        return query.ToList();
+    }
 
         // This method calculates monthly income from paid deliveries
         // that have not been removed.It projects delivery data to include
         // Persian date strings and prices, groups them by the first day
         // of the Persian month,and aggregates the total income for each
         // month into a list of InComeViewModel objects.
-        public List<InComeViewModel> GetInCome()
+        public async Task<List<InComeViewModel>> GetInComeAsync()
         {
-            var delivery = _context.Delivery
-            .Include(x => x.Destination)
-            .Where(x => x.IsRemoved == false && x.IsPaid == true)
-            .OrderByDescending(x => x.Id)
-            .AsEnumerable()
+            var deliveries = await _context.Delivery
+                .Include(x => x.Destination)
+                .Where(x => !x.IsRemoved && x.IsPaid)
+                .OrderByDescending(x => x.Id)
+                .Select(x => new
+                {
+                    PersianDateString = _dateConversionService.ToPersiandate(x.DeliveryTime),
+                    Price = x.Destination.Price
+                })
+                .ToListAsync();
 
-            .Select(x => new
-            {
-                PersianDateString = _dateConversionService.ToPersiandate(x.DeliveryTime),
-                Price = x.Destination.Price
-            })
+            var income = deliveries
+                .GroupBy(x => _dateConversionService.GetFirstDayOfPersianMonth(x.PersianDateString.Substring(0, 8)))
+                .Select(g => new InComeViewModel
+                {
+                    FirstDayOfMonth = g.Key,
+                    LastDayOfMonth = _dateConversionService.GetLastDayOfPersianMonth(g.Key),
+                    InCome = g.Sum(x => x.Price)
+                })
+                .ToList();
 
-            .GroupBy(x => _dateConversionService.GetFirstDayOfPersianMonth(x.PersianDateString.Substring(0, 8))) 
-            .Select(g => new InComeViewModel
-            {
-                 FirstDayOfMonth = (g.Key),
-                 LastDayOfMonth = _dateConversionService.GetLastDayOfPersianMonth(g.Key),
-                 InCome = g.Sum(x => x.Price)
-
-            }).ToList();
-
-            return delivery;
-
+            return income;
         }
     }
 }
