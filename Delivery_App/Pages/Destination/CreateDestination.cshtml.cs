@@ -1,4 +1,6 @@
 ﻿using Delivery_Application_Contracts.Destination;
+using Delivery_Domain.AuthAgg;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -17,9 +19,11 @@ namespace Delivery_App.Pages.Destination
         // that basepage and display it
 
         private readonly IDestinationApplication _destinationApplication;
-        public CreateDestinationModel(IDestinationApplication destinationApplication) : base()
+        private readonly UserManager<User> _userManager;
+        public CreateDestinationModel(IDestinationApplication destinationApplication, UserManager<User> userManager) : base()
         {
             _destinationApplication = destinationApplication;
+            _userManager = userManager;
         }
 
 
@@ -38,6 +42,15 @@ namespace Delivery_App.Pages.Destination
 
         public async Task<IActionResult> OnPostAsync(CreateDestination command)
         {
+            var userId = _userManager.GetUserId(User);
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                TempData["Error"] = "کاربر احراز هویت نشده است.";
+                return RedirectToPage("/Account/Login");
+            }
+            command.UserId = userId;
+            ModelState.Remove("UserId");
+
             if (await _destinationApplication.ExistAsync(command.DestinationName))
             {
                 TempData["Exist"] = "مقصد مورد نظر تکراری میباشد";
@@ -45,7 +58,7 @@ namespace Delivery_App.Pages.Destination
             }
 
             if (ModelState.IsValid)
-            {
+            {         
                 await _destinationApplication.CreateAsync(command);
                 return RedirectToPage("./Index");
             }

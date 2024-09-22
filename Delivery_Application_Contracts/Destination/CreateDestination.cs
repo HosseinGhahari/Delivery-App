@@ -13,5 +13,6 @@ namespace Delivery_Application_Contracts.Destination
     {
         public string DestinationName { get; set; }
         public double Price { get; set; }
+        public string? UserId { get; set; }
     }
 }

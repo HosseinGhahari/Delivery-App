@@ -1,5 +1,7 @@
 ﻿using Delivery_Application_Contracts.Delivery;
+using Delivery_Domain.AuthAgg;
 using Delivery_Domain.DeliveryAgg;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,6 +9,7 @@ using System.Globalization;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.ConstrainedExecution;
+using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Runtime.InteropServices.JavaScript.JSType;
@@ -22,9 +25,11 @@ namespace Delivery_Application
     {
       
         private readonly IDeliveryRepository _deliveryRepository;
-        public DeliveryApplication(IDeliveryRepository deliveryRepository)
+        private readonly UserManager<User> _userManager;
+        public DeliveryApplication(IDeliveryRepository deliveryRepository , UserManager<User> usermanager)
         {
             _deliveryRepository = deliveryRepository;
+            _userManager = usermanager;
         }
 
 
@@ -51,12 +56,6 @@ namespace Delivery_Application
 
             delivery.Edit(command.IsPaid, command.DestinationId, command.DeliveryTime);
             await _deliveryRepository.SaveChangesAsync();
-        }
-
-        // Get All Delivery Values 
-        public async Task<List<DeliveryViewModel>> GetAllAsync()
-        {
-            return await _deliveryRepository.GetAllAsync();
         }
 
         // Retrieves the details of a destination for editing.
@@ -116,9 +115,12 @@ namespace Delivery_Application
             await _deliveryRepository.SaveChangesAsync();
         }
 
-        public async Task<List<DeliveryViewModel>> SearchAsync(string command)
+        public async Task<List<DeliveryViewModel>> SearchAsync(string command , string userId)
         {
-            return await _deliveryRepository.SearchAsync(command);
+           if(string.IsNullOrWhiteSpace(userId))
+                throw new UnauthorizedAccessException("User is not authenticated.");
+
+            return await _deliveryRepository.SearchAsync(command , userId);
         }
 
     }

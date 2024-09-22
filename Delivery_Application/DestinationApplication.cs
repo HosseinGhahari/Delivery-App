@@ -1,5 +1,7 @@
 ﻿using Delivery_Application_Contracts.Destination;
+using Delivery_Domain.AuthAgg;
 using Delivery_Domain.DestinationAgg;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,7 +34,7 @@ namespace Delivery_Application
             if (await _destinationRepository.ExistAsync(command.DestinationName))
                 throw new Exception("Destination Already Exists");
 
-            var destination = new Destination(command.DestinationName, command.Price);
+            var destination = new Destination(command.DestinationName, command.Price , command.UserId);
             await _destinationRepository.CreateAsync(destination);
             await _destinationRepository.SaveChangesAsync();
         }
@@ -55,9 +57,12 @@ namespace Delivery_Application
 
 
         // Retrieves all destinations from the repository.
-        public async Task<List<DestinationViewModel>> GetAllAsync()
+        public async Task<List<DestinationViewModel>> GetAllAsync(string userId)
         {
-            return await _destinationRepository.GetAllAsync();
+            if(string.IsNullOrWhiteSpace(userId))
+                throw new UnauthorizedAccessException("User is not authenticated.");
+
+            return await _destinationRepository.GetAllAsync(userId);
         }
 
 

@@ -32,7 +32,7 @@ namespace Delivery_App.Pages.Auth
             
             var result = await _userApplication.RegisterAsync(RegisterUser);
             if (result.IsSucceeded)
-                return RedirectToPage("/Auth/Login");
+                return RedirectToPage("/Account/Login");
             else
                 TempData["ErrorMessage"] = result.Message;
 

@@ -23,6 +23,7 @@ namespace Delivery_Infrastructure.Mapping
             builder.HasKey(x => x.Id);
             builder.Property(x => x.DestinationName).HasMaxLength(200).IsRequired();
             builder.Property(x => x.Price).IsRequired();
+            builder.Property(x => x.UserId);
 
             builder
                 .HasMany(x => x.Deliveries)

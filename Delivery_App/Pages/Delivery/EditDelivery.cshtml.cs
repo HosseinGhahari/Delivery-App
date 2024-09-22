@@ -1,7 +1,9 @@
 ﻿using Delivery_Application_Contracts.Delivery;
 using Delivery_Application_Contracts.Destination;
+using Delivery_Domain.AuthAgg;
 using Delivery_Domain.DeliveryAgg;
 using Delivery_Infrastructure.DateConversionService;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -42,16 +44,19 @@ namespace Delivery_App.Pages.Delivery
         private readonly IDestinationApplication _destinationApplication;
         private readonly IDeliveryRepository _deliveryRepository;
         private readonly IDateConversionService _deliveryConversionService;
+        private readonly UserManager<User> _userManager;
 
-        public EditDeliveryModel(IDeliveryApplication deliveryApplication 
-            , IDestinationApplication destinationApplication ,
+        public EditDeliveryModel(IDeliveryApplication deliveryApplication
+            , IDestinationApplication destinationApplication,
             IDeliveryRepository deliveryRepository
-            ,IDateConversionService dateConversionService) : base(deliveryApplication)
+            , IDateConversionService dateConversionService,
+            UserManager<User> userManager) : base(deliveryApplication)
         {
             _deliveryApplication = deliveryApplication;
             _destinationApplication = destinationApplication;
             _deliveryRepository = deliveryRepository;
             _deliveryConversionService = dateConversionService;
+            _userManager = userManager;
         }
 
 
@@ -71,7 +76,11 @@ namespace Delivery_App.Pages.Delivery
 
             TempData["CommandId"] = command.Id;
 
-            var destinationsData = await _destinationApplication.GetAllAsync(); // Ensure this method is async in the Application layer
+            var userid = _userManager.GetUserId(User);
+            if (string.IsNullOrWhiteSpace(userid))
+                Unauthorized();
+
+            var destinationsData = await _destinationApplication.GetAllAsync(userid); // Ensure this method is async in the Application layer
             destinations = new SelectList(destinationsData.Select(x => new
             {
                 x.Id,

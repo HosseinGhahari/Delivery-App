@@ -9,6 +9,15 @@
 It includes fields for the destination name and price, 
 a hidden field for the destination id, and a submit button.
 The form data is bound to the Command object in the model. -->
+<div class="col-12 mb-4">
+    @if (TempData["Exist"] != null || TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["Exist"]
+            @TempData["Error"]
+        </div>
+    }
+</div>
 
 <form method="post">
     <div class="row">
@@ -22,7 +31,7 @@ The form data is bound to the Command object in the model. -->
             <input class="form-control" asp-for="@Model.Command.Price" type="text" />
             <span class="alert-danger"></span>
         </div>
-        <input type="hidden" asp-for="@Model.Command.Id"/>
+        <input type="hidden" asp-for="@Model.Command.Id" />
         <div class="col-md-12">
             <button type="submit" class="btn btn-success">ویرایش</button>
         </div>

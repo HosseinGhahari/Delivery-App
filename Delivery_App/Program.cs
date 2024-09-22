@@ -18,22 +18,22 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddRazorPages(option =>
 {
-    option.Conventions.AuthorizeFolder("/");
-    option.Conventions.AllowAnonymousToPage("/Auth/Welcome");
-    option.Conventions.AllowAnonymousToPage("/Auth/Register");
-    option.Conventions.AllowAnonymousToPage("/Auth/Login");
+    option.Conventions.AuthorizeFolder("/Account");
+    option.Conventions.AllowAnonymousToPage("/Account/Welcome");
+    option.Conventions.AllowAnonymousToPage("/Account/Register");
+    option.Conventions.AllowAnonymousToPage("/Account/Login");
 });
 
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/Auth/Login";
-        options.LogoutPath = "/Auth/Welcome"; 
-        options.AccessDeniedPath = "/Auth/AccessDenied";
+        options.LoginPath = "/Account/Welcome";
+        options.LogoutPath = "/Account/Welcome"; 
+        options.AccessDeniedPath = "/Account/AccessDenied";
         options.Cookie.IsEssential = true;
         options.Cookie.HttpOnly = true;
-        options.SlidingExpiration = false;
-        options.ExpireTimeSpan = TimeSpan.FromMinutes(1);
+        options.SlidingExpiration = true;
+        options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
     });
 
 builder.Services.AddTransient<IDestinationRepository,DestinationRepository>();
@@ -68,12 +68,10 @@ using(var scope = app.Services.CreateScope())
     context.Database.Migrate();
 }
 
-
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
@@ -87,15 +85,5 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapRazorPages();
-
-app.MapGet("/", context =>
-{
-    if (context.User.Identity != null && context.User.Identity.IsAuthenticated)
-        context.Response.Redirect("/Index");
-    else
-        context.Response.Redirect("/Auth/Welcome");
-
-    return Task.CompletedTask;
-});
 
 app.Run();

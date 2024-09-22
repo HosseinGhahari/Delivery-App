@@ -19,12 +19,19 @@ namespace Delivery_Domain.DestinationAgg
         public int Id { get; set; }
         public string DestinationName { get; set; }
         public double Price { get; set; }
+        public string? UserId { get; set; }
         public List<Delivery> Deliveries { get; set; }
 
-        public Destination(string destinationName, double price)
+        public Destination() 
+        {
+            Deliveries = new List<Delivery>();
+        }
+
+        public Destination(string destinationName, double price , string userid)
         {
             DestinationName = destinationName;
             Price = price;
+            UserId = userid;
             Deliveries = new List<Delivery>();
         }
 

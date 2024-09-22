@@ -1,8 +1,10 @@
 ﻿using Delivery_Application_Contracts.Delivery;
 using Delivery_Application_Contracts.Destination;
+using Delivery_Domain.AuthAgg;
 using Delivery_Domain.DeliveryAgg;
 using Delivery_Domain.DestinationAgg;
 using Delivery_Infrastructure.DateConversionService;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -35,15 +37,18 @@ namespace Delivery_App.Pages.Delivery
         private readonly IDestinationApplication _destinationApplication;
         private readonly IDeliveryRepository _deliveryRepository;
         private readonly IDateConversionService _deliveryConversionService;
-        public CreateDeliveryModel(IDeliveryApplication deliveryApplication 
-            ,IDestinationApplication destinationApplication
-            ,IDeliveryRepository deliveryRepository
-            ,IDateConversionService dateConversionService) : base()    
+        private readonly UserManager<User> _userManager;
+        public CreateDeliveryModel(IDeliveryApplication deliveryApplication
+            , IDestinationApplication destinationApplication
+            , IDeliveryRepository deliveryRepository
+            , IDateConversionService dateConversionService,
+              UserManager<User> userManager) : base()
         {
             _deliveryApplication = deliveryApplication;
             _destinationApplication = destinationApplication;
             _deliveryRepository = deliveryRepository;
             _deliveryConversionService = dateConversionService;
+            _userManager = userManager;
         }
 
 
@@ -56,7 +61,11 @@ namespace Delivery_App.Pages.Delivery
         // Also Convert the current date and time to a Persian date string
         public async Task OnGetAsync()
         {
-            var destinationsList = await _destinationApplication.GetAllAsync();
+            var userid = _userManager.GetUserId(User);
+            if(string.IsNullOrWhiteSpace(userid))
+               Unauthorized();
+
+            var destinationsList = await _destinationApplication.GetAllAsync(userid);
             destinations = new SelectList(destinationsList
                 .Select(x => new
                 {

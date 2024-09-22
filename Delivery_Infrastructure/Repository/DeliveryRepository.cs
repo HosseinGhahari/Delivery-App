@@ -37,31 +37,6 @@ namespace Delivery_Infrastructure.Repository
             await SaveChangesAsync();
         }
 
-        // This method retrieves all data and converts the date to Persian date. 
-        // We perform a projection to get all the data. However, we have a date
-        // conversion operation in this process. To make the query work, we first
-        // retrieve the data without performing the date conversion. 
-        // Once we have our data, then we proceed with the date conversion.
-        public async Task<List<DeliveryViewModel>> GetAllAsync()
-        {
-            var deliveries = await _context.Delivery
-                .Include(x => x.Destination)
-                .Where(x => !x.IsRemoved)
-                .ToListAsync();
-
-            var query = deliveries.Select(x => new DeliveryViewModel
-            {
-                Id = x.Id,
-                DeliveryTime = x.DeliveryTime,
-                PersianDeliveryTime = _dateConversionService.ToPersiandate(x.DeliveryTime),
-                IsPaid = x.IsPaid,
-                Price = x.Destination.Price,
-                Destination = x.Destination.DestinationName,
-            });
-
-            return query.OrderByDescending(x => x.Id).ToList();
-        }
-
         // This method is designed to retrieve all the 'Delivery'
         // records from the database where the 'IsPaid' property
         // is false and the 'IsRemoved' property is also false. 
@@ -133,11 +108,11 @@ namespace Delivery_Infrastructure.Repository
         // If the search string is a valid Persian date, it filters by date.
         // If not, it assumes the search string is a destination name and filters by that.
         // It returns a list of 'DeliveryViewModel' objects based on the filtered deliveries.
-        public async Task<List<DeliveryViewModel>> SearchAsync(string search)
-    {
+        public async Task<List<DeliveryViewModel>> SearchAsync(string search , string userId)
+        {
         var deliveries = _context.Delivery
             .Include(x => x.Destination)
-            .Where(x => !x.IsRemoved);
+            .Where(x => !x.IsRemoved && x.UserId == userId);
 
         if (!string.IsNullOrWhiteSpace(search))
         {

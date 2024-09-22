@@ -1,4 +1,6 @@
 ﻿using Delivery_Application_Contracts.Destination;
+using Delivery_Domain.AuthAgg;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -17,9 +19,12 @@ namespace Delivery_App.Pages.Destination
         // that basepage and display it
 
         private readonly IDestinationApplication _destinationApplication;
-        public EditDestinationModel(IDestinationApplication destinationApplication) : base()
+        private readonly UserManager<User> _userManager;
+
+        public EditDestinationModel(IDestinationApplication destinationApplication, UserManager<User> userManager) : base()
         {
             _destinationApplication = destinationApplication;
+            _userManager = userManager;
         }
 
         // This is the method that gets called when a GET request is
@@ -44,15 +49,22 @@ namespace Delivery_App.Pages.Destination
         // the destination, it redirects to the Index page.
         public async Task<IActionResult> OnPostAsync(EditDestination command)
         {
-            if (!ModelState.IsValid)
+            var userId = _userManager.GetUserId(User);
+            if (string.IsNullOrWhiteSpace(userId))
             {
-                return Page(); 
+                TempData["Error"] = "کاربر احراز هویت نشده است.";
+                return RedirectToPage("/Account/Login");
+            }
+            command.UserId = userId;
+            ModelState.Remove("UserId");
+
+            if (ModelState.IsValid)
+            {
+                await _destinationApplication.EditAsync(command);
+                return RedirectToPage("./Index");
             }
 
-            await _destinationApplication.EditAsync(command);
-            return RedirectToPage("./Index");
+            return Page();
         }
-
-
     }
 }

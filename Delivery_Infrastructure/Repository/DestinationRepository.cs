@@ -66,14 +66,15 @@ namespace Delivery_Infrastructure.Repository
 
 
         //This method get all Destination objects from database
-        public async Task<List<DestinationViewModel>> GetAllAsync()
+        public async Task<List<DestinationViewModel>> GetAllAsync(string userId)
         {
             return await _context.Destination
-                .Select(x => new DestinationViewModel
+                .Where(x => x.UserId == userId)
+                .Select(dest => new DestinationViewModel 
                 {
-                    Id = x.Id,
-                    DestinationName = x.DestinationName,
-                    Price = x.Price,
+                    Id = dest.Id,
+                    DestinationName = dest.DestinationName,
+                    Price = dest.Price,
                 })
                 .ToListAsync();
         }

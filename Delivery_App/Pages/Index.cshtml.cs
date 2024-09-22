@@ -1,10 +1,14 @@
 ﻿using Delivery_Application_Contracts.Delivery;
 using Delivery_Application_Contracts.User;
+using Delivery_Domain.AuthAgg;
 using Delivery_Domain.DeliveryAgg;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Security.Claims;
 using System.Text.RegularExpressions;
 
 namespace Delivery_App.Pages
@@ -35,28 +39,49 @@ namespace Delivery_App.Pages
 
         private readonly IDeliveryApplication _deliveryApplication;
         private readonly IUserApplication _userApplication;
-        public IndexModel(IDeliveryApplication deliveryApplication , IUserApplication userApplication ) : base( deliveryApplication )
+        private readonly UserManager<User> _userManager;
+        public IndexModel(IDeliveryApplication deliveryApplication, IUserApplication userApplication,
+            UserManager<User> userManager) : base(deliveryApplication)
         {
             _deliveryApplication = deliveryApplication;
             _userApplication = userApplication;
+            _userManager = userManager;
         }
 
 
-        // The OnGet method manages pagination for delivery records.
-        // It calculates the total count, determines the records for
-        // the current page, and assigns them to the Deliveries property.
-        public async Task OnGetAsync(int p = 1, int s = 20)
+        // The OnGet method Check if the user is authenticated
+        // manages pagination for delivery records. It calculates
+        // the total count, determines the records for the current
+        // page, and assigns them to the Deliveries property.
+        public async Task<IActionResult> OnGetAsync(int p = 1, int s = 20 )
         {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToPage("/Account/Welcome");
+            }
+
+            var userId = _userManager.GetUserId(User);
+            if(string.IsNullOrWhiteSpace(userId))
+                return Unauthorized();
+
             PageSize = s;
             CurrentPage = p;
 
-            var allDeliveries = await _deliveryApplication.SearchAsync(Search);
+            if (string.IsNullOrEmpty(Search))
+            {
+                Search = string.Empty;
+            }
+
+            var allDeliveries = await _deliveryApplication.SearchAsync(Search , userId);
             TotalDeliveries = allDeliveries.Count;
 
             int skipCount = (CurrentPage - 1) * PageSize;
             Deliveries = allDeliveries.Skip(skipCount).Take(PageSize).OrderByDescending(x => x.Id).ToList();
+
             await InitializePricesAsync();
             ViewData["Search"] = Search;
+
+            return Page();
         }
 
 
@@ -85,7 +110,7 @@ namespace Delivery_App.Pages
             {
                 await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
                 Response.Cookies.Delete(".AspNetCore.Identity.Application");
-                return RedirectToPage("/Auth/Welcome");
+                return RedirectToPage("/Account/Welcome");
             }
 
             return RedirectToPage("/Error");

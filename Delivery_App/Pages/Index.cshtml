@@ -30,20 +30,23 @@
                     <th>@item.Destination</th>
                     <th>@item.Price</th>
                     <th>@item.PersianDeliveryTime</th>
-                    @if(@item.IsPaid == true)
+                    @if (@item.IsPaid == true)
                     {
-                    <th class="alert-success">پرداخت شد</th>
+                        <th class="alert-success">پرداخت شد</th>
                     }
                     else
                     {
-                    <th class="alert-danger">پرداخت نشد</th>
+                        <th class="alert-danger">پرداخت نشد</th>
                     }
                     <th><a asp-page="./Delivery/EditDelivery" asp-route-id="@item.Id">ویرایش</a></th>
-                    <th><a class="link-danger" asp-page="./Index" asp-page-handler="RemoveAsync" asp-route-id="@item.Id">حذف</a></th>
+                    <th>
+                        <a asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id" class="link-danger">حذف</a>
+                    </th>
                 </tr>
             }
         </tbody>
     </table>
+
 
     <!--
            The 'paging' tag helper generates a pagination control. It uses model
