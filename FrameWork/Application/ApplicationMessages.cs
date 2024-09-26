@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace FrameWork.Application
 {
+    // This class contains constant messages used throughout the application for user feedback.
+    // It covers various scenarios like login, logout, registration, and error handling messages.
     public class ApplicationMessages
     {
         public const string UserNameExist = "نام کاربری از قبل وجود دارد";

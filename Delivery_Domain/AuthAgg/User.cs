@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Delivery_Domain.AuthAgg
 {
+    // This class extends IdentityUser to add 'CustomField', 'IsRemoved', 
+    // and a collection of 'Deliveries'. It supports soft delete via the 
+    // 'Remove' method and allows updating 'CustomField' while keeping 
+    // the logic encapsulated.
     public class User : IdentityUser
     {
         public string CustomField { get; private set; }

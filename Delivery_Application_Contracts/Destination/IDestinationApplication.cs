@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Net.Mime.MediaTypeNames;
+﻿using System.Linq.Expressions;
 
 
 namespace Delivery_Application_Contracts.Destination
@@ -17,7 +12,7 @@ namespace Delivery_Application_Contracts.Destination
     {
         Task CreateAsync(CreateDestination command);
         Task EditAsync(EditDestination command);
-        Task<bool> ExistAsync(string name);
+        Task<bool> ExistAsync(string name,int? id);
         Task<List<DestinationViewModel>> GetAllAsync(string userId);
         Task<EditDestination> GetEditDetailsAsync(int id);
     }

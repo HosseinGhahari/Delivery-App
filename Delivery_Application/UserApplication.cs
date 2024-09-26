@@ -11,6 +11,10 @@ using System.Threading.Tasks;
 
 namespace Delivery_Application
 {
+    // This class implements the IUserApplication interface, providing 
+    // user-related application services. It uses UserManager and SignInManager 
+    // from ASP.NET Core Identity to handle user registration and authentication. 
+    // The constructor initializes these managers via dependency injection.
     public class UserApplication : IUserApplication
     {
         private readonly UserManager<User> _userManager;
@@ -22,6 +26,11 @@ namespace Delivery_Application
             _signInManager = signInManager;
         }
 
+        // This asynchronous method manages user registration using the RegisterUser DTO. 
+        // It checks for existing usernames and verifies that the password and confirm 
+        // password match. If validations pass, it creates a new User and attempts to 
+        // register it using UserManager, returning an OperationResult with success or 
+        // failure messages based on the registration outcome.
         public async Task<OpreationResult> RegisterAsync(RegisterUser command)
         {
             OpreationResult opreation = new OpreationResult();
@@ -47,6 +56,11 @@ namespace Delivery_Application
             return opreation;
         }
 
+        // This asynchronous method handles user login using the LoginUser DTO. 
+        // It retrieves the user by username and checks if the password is correct. 
+        // If the user is found and the password matches, it signs in the user using 
+        // SignInManager and returns an OperationResult indicating success or failure 
+        // with appropriate messages based on the login outcome.
         public async Task<OpreationResult> LoginAsync(LoginUser command)
         {
             OpreationResult opreation = new OpreationResult();
@@ -61,10 +75,12 @@ namespace Delivery_Application
 
             await _signInManager.SignInAsync(user, password);   
 
-            return opreation.Succeeded(ApplicationMessages.LoginSucceeded);
-            
+            return opreation.Succeeded(ApplicationMessages.LoginSucceeded);        
         }
 
+        // This asynchronous method handles user logout. It returns an OperationResult 
+        // indicating success with a message for successful logout. The actual logout 
+        // process should typically be implemented with SignInManager but is not shown here.
         public async Task<OpreationResult> LogOutAsync()
         {
             OpreationResult operation = new OpreationResult();

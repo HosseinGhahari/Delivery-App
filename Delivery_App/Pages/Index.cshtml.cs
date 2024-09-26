@@ -48,11 +48,10 @@ namespace Delivery_App.Pages
             _userManager = userManager;
         }
 
-
-        // The OnGet method Check if the user is authenticated
-        // manages pagination for delivery records. It calculates
-        // the total count, determines the records for the current
-        // page, and assigns them to the Deliveries property.
+        // This method handles the GET request for the page,
+        // ensuring the user is authenticated. It retrieves the user's
+        // ID, initializes pagination parameters,and fetches deliveries
+        // based on the search criteria before returning the page.
         public async Task<IActionResult> OnGetAsync(int p = 1, int s = 20 )
         {
             if (!User.Identity.IsAuthenticated)
@@ -103,6 +102,9 @@ namespace Delivery_App.Pages
             return RedirectToPage("./Index");
         }
 
+        // This method handles the POST request for logging out the user.
+        // It attempts to log out the user through the application layer and signs out 
+        // the authentication cookie if successful, then redirects to the welcome page.
         public async Task<IActionResult> OnPostLogoutAsync()
         {
             var result = await _userApplication.LogOutAsync();

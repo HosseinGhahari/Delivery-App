@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -31,7 +32,7 @@ namespace Delivery_Application
         // Finally, saves the changes to the repository.
         public async Task CreateAsync(CreateDestination command)
         {
-            if (await _destinationRepository.ExistAsync(command.DestinationName))
+            if (await _destinationRepository.ExistAsync(x => x.DestinationName == command.DestinationName))
                 throw new Exception("Destination Already Exists");
 
             var destination = new Destination(command.DestinationName, command.Price , command.UserId);
@@ -46,15 +47,6 @@ namespace Delivery_Application
         {
             return await _destinationRepository.GetEditDetailsAsync(id);
         }
-
-
-        // Checks if a destination with the given name exists in
-        // the repository Returns true if it exists, false otherwise.
-        public async Task<bool> ExistAsync(string name)
-        {
-            return await _destinationRepository.ExistAsync(name);
-        }
-
 
         // Retrieves all destinations from the repository.
         public async Task<List<DestinationViewModel>> GetAllAsync(string userId)
@@ -77,9 +69,16 @@ namespace Delivery_Application
             if (destination == null)
                 throw new Exception("Destination not found");
 
+            if (await _destinationRepository.ExistAsync(x => x.DestinationName == command.DestinationName && x.Id != command.Id))
+                throw new Exception("Desination Already Exist");
+
             destination.Edit(command.DestinationName, command.Price);
             await _destinationRepository.SaveChangesAsync();
         }
 
+        public async Task<bool> ExistAsync(string name , int? id)
+        {
+            return await _destinationRepository.ExistAsync(x => x.DestinationName == name && x.Id != id);
+        }
     }
 }

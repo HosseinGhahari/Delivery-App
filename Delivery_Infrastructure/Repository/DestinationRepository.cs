@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -59,11 +60,10 @@ namespace Delivery_Infrastructure.Repository
 
         // This method is utilized to verify whether a given
         // 'destinationName' exists in the database.
-        public async Task<bool> ExistAsync(string name)
+        public async Task<bool> ExistAsync(Expression<Func<Destination, bool>> expression)
         {
-            return await _context.Destination.AnyAsync(x => x.DestinationName == name);
+            return await _context.Destination.AnyAsync(expression);
         }
-
 
         //This method get all Destination objects from database
         public async Task<List<DestinationViewModel>> GetAllAsync(string userId)
@@ -85,6 +85,7 @@ namespace Delivery_Infrastructure.Repository
         {
             await _context.SaveChangesAsync();
         }
+
 
     }
 }

@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 
 namespace Delivery_Infrastructure.Mapping
 {
+    // This class configures the 'User' entity to map to the 'AspNetUsers' table 
+    // in the database. It sets constraints for 'UserName' and 'PasswordHash' 
+    // with a max length of 256 and makes them required. It also defines a one-to-many 
+    // relationship between 'User' and 'Deliveries' with 'UserId' as the foreign key.
     public class UserMapping : IEntityTypeConfiguration<User>
     {
         public void Configure(EntityTypeBuilder<User> builder)

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -15,7 +16,7 @@ namespace Delivery_Domain.DestinationAgg
     {
         Task<Destination> GetAsync(int id);
         Task CreateAsync(Destination destination);
-        Task<bool> ExistAsync(string name);
+        Task<bool> ExistAsync(Expression<Func<Destination,bool>> expression);
         Task<List<DestinationViewModel>> GetAllAsync(string userId);
         Task<EditDestination> GetEditDetailsAsync(int id);
         Task SaveChangesAsync();

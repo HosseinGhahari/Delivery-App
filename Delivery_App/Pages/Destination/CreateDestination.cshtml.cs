@@ -51,7 +51,7 @@ namespace Delivery_App.Pages.Destination
             command.UserId = userId;
             ModelState.Remove("UserId");
 
-            if (await _destinationApplication.ExistAsync(command.DestinationName))
+            if (await _destinationApplication.ExistAsync(command.DestinationName,null))
             {
                 TempData["Exist"] = "مقصد مورد نظر تکراری میباشد";
                 return RedirectToPage();

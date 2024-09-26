@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace FrameWork.Application
 {
+    // This class handles operation results, indicating success or failure.
+    // It provides methods to mark an operation as succeeded or failed,
+    // along with an accompanying message.
     public class OpreationResult
     {
         public bool IsSucceeded { get; set; }
