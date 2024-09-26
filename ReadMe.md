@@ -6,7 +6,7 @@
 I’ve created a handy app to manage my operations and finances. 
 It’s a fun blend of work <br> learning, and practical application!</p>
 
-<p>✅ "I've developed a delivery app using ASP.NET Core Razor Pages <br> with ASP.NET Core Identity for authentication and Onion Architecture for clean,<br> maintainable code. This approach has significantly improved <br> both code organization and readability. As I continue to gain experience, <br> I'm consistently refining and enhancing the application."
+<p>✅ "I've developed a delivery app using ASP.NET Core Razor Pages with ASP.NET Core Identity <br> for authentication and Onion Architecture for clean, maintainable code. This approach <br> has significantly improved both code organization and readability. As I continue to gain experience,<br> I'm consistently refining and enhancing the application."
 </p>
 
 <p>✅ - Please Make Sure You Have Installed Sql Server On Your Machine 🖥</p>
