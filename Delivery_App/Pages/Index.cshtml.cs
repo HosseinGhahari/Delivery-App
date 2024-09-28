@@ -23,6 +23,8 @@ namespace Delivery_App.Pages
         // here we easily Injecting DeliveryApplication interface
         // to fetch all database records and display them in the view.
         public List<DeliveryViewModel> Deliveries { get; set; }
+        // property to show username on index
+        public string UserName { get; set; }
 
         // This 'Search' property is used to hold the search term provided
         // by the user for search operations in the application. 
@@ -58,6 +60,10 @@ namespace Delivery_App.Pages
             {
                 return RedirectToPage("/Account/Welcome");
             }
+
+            UserName = _userManager.GetUserName(User);
+            ViewData["UserName"] = UserName;
+            
 
             var userId = _userManager.GetUserId(User);
             if(string.IsNullOrWhiteSpace(userId))
