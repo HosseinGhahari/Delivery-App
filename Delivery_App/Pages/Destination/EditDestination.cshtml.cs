@@ -1,4 +1,5 @@
-﻿using Delivery_Application_Contracts.Destination;
+﻿using Delivery_Application_Contracts.Delivery;
+using Delivery_Application_Contracts.Destination;
 using Delivery_Domain.AuthAgg;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -21,16 +22,16 @@ namespace Delivery_App.Pages.Destination
         private readonly IDestinationApplication _destinationApplication;
         private readonly UserManager<User> _userManager;
 
-        public EditDestinationModel(IDestinationApplication destinationApplication, UserManager<User> userManager) : base()
+        public EditDestinationModel(IDestinationApplication destinationApplication,
+            IDeliveryApplication deliveryApplication, UserManager<User> userManager) : base(deliveryApplication,userManager)
         {
             _destinationApplication = destinationApplication;
             _userManager = userManager;
         }
 
-        // This is the method that gets called when a GET request is
-        // made to the EditDestination page. It takes an id as a parameter,
-        // which is the id of the destination to be edited. It retrieves the
-        // details of the destination to be edited and assigns it to the Command object.
+        // Fetches destination details for editing based on the provided ID.
+        // Redirects to a NotFound page if the destination does not exist.
+        // Retrieves the current user's name and delivery prices using base class methods.
         public async Task<IActionResult> OnGetAsync(int id)
         {
             Command = await _destinationApplication.GetEditDetailsAsync(id);
@@ -38,6 +39,9 @@ namespace Delivery_App.Pages.Destination
             {
                 return RedirectToPage("./NotFound"); 
             }
+
+            await base.OnGetUserNameAsync();
+            await base.OnGetPricesAsync();
             return Page();
         }
 

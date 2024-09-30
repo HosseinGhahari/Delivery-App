@@ -1,0 +1,24 @@
+﻿@page
+@model Delivery_App.Pages.AccountManagement.IndexModel
+@{
+}
+
+<div class="text-center">
+    <h1 class="display-4">مدیریت کاربر</h1>
+    <table class="table table-responsive table-bordered table-striped" dir="rtl">
+        <thead>
+            <tr>
+                <td>نام کاربری</td>
+                <td>عملیات</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr>
+                <th>@Model.Users.UserName</th>
+                <th><a asp-page="./EditUser" asp-route-id="">ویرایش</a></th>
+            </tr>
+
+        </tbody>
+    </table>
+</div>

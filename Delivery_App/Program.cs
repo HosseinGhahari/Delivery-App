@@ -43,6 +43,7 @@ builder.Services.AddTransient<IDeliveryApplication,DeliveryApplication>();
 builder.Services.AddTransient<IDateConversionService,DateConversionService>();
 builder.Services.AddTransient<IUserApplication, UserApplication>();
 
+
 builder.Services.AddIdentity<User, IdentityRole>(option =>
 {
     option.Password.RequiredLength = 5;
@@ -56,6 +57,8 @@ builder.Services.AddIdentity<User, IdentityRole>(option =>
 builder.Services.AddDbContext<DeliveryContext>(options =>
 options.UseSqlServer(builder.Configuration
 .GetConnectionString("Delivery_App")));
+
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -76,6 +79,7 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
 app.UseStaticFiles();
 
 app.UseRouting();

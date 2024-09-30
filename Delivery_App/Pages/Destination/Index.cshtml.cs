@@ -1,3 +1,4 @@
+using Delivery_Application_Contracts.Delivery;
 using Delivery_Application_Contracts.Destination;
 using Delivery_Domain.AuthAgg;
 using Microsoft.AspNetCore.Identity;
@@ -15,15 +16,10 @@ namespace Delivery_App.Pages.Destination
     {
         public List<DestinationViewModel> Destinations;
 
-        // here we inject our destinationapplication and we inherit the 
-        // constructor from the base() because we don't have any dependency
-        // for destination in our basePageModel so we use parameterless
-        // constructor to take data (PaidPrice & NotPaidPrice) from
-        // that basepage and display it
         private readonly IDestinationApplication _destinationApplication;
         private readonly UserManager<User> _userManager;
-        public IndexModel(IDestinationApplication destinationApplication,
-            UserManager<User> userManager) : base()
+        public IndexModel(IDestinationApplication destinationApplication, IDeliveryApplication deliveryApplication,
+            UserManager<User> userManager) : base(deliveryApplication,userManager)
         {
             _destinationApplication = destinationApplication;
             _userManager = userManager;
@@ -35,6 +31,8 @@ namespace Delivery_App.Pages.Destination
                Unauthorized();
 
             Destinations = await _destinationApplication.GetAllAsync(userId);
+            await base.OnGetUserNameAsync();
+            await base.OnGetPricesAsync();
         }
     }
 }

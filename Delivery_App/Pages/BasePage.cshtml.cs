@@ -1,6 +1,8 @@
 using Delivery_App.UtilityClass;
 using Delivery_Application_Contracts.Delivery;
 using Delivery_Application_Contracts.Destination;
+using Delivery_Domain.AuthAgg;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -22,18 +24,35 @@ namespace Delivery_App.Pages
         [ViewData]
         public string NotPaidPrice { get; set; }
 
+        public string UserName { get; set; }
+
         // This is a constructor that takes an IDeliveryApplication object as a parameter.
         // It initializes the _deliveryApplication field and sets the PaidPrice and NotPaidPrice properties.
         // It also sets the static PriceHolder's PaidPrice and NotPaidPrice properties.
         // Also to show the prices in pages we convert it to string for better display format
 
         private readonly IDeliveryApplication _deliveryApplication;
-        public BasePageModel(IDeliveryApplication deliveryApplication)
+        private readonly UserManager<User> _userManager;
+        public BasePageModel(IDeliveryApplication deliveryApplication, UserManager<User> userManager)
         {
             _deliveryApplication = deliveryApplication;
-
+            _userManager = userManager;
         }
-        public async Task InitializePricesAsync()
+
+        // The parameterless constructor is used to initialize PaidPrice and NotPaidPrice
+        // with the values from the static PriceHolder class. This is necessary because
+        // other pages that inherit from BasePageModel may use this constructor, and we
+        // need to ensure that the prices are set even when the _deliveryApplication
+        // dependency is not provided.
+        public BasePageModel()
+        {
+            PaidPrice = PriceHolder.PaidPrice;
+            NotPaidPrice = PriceHolder.NotPaidPrice;
+        }
+
+        // OnGetPricesAsync fetches paid and unpaid prices using _deliveryApplication,
+        // converts them to string for display, and updates the static PriceHolder for shared access.
+        public async Task OnGetPricesAsync()
         {
             double PPrice = await _deliveryApplication.GetPaidPriceAsync();
             PaidPrice = Convert.ToString(PPrice.Toman());
@@ -43,17 +62,26 @@ namespace Delivery_App.Pages
 
             PriceHolder.PaidPrice = PaidPrice;
             PriceHolder.NotPaidPrice = NotPaidPrice;
-        }
-        // The parameterless constructor is used to initialize PaidPrice and NotPaidPrice
-        // with the values from the static PriceHolder class. This is necessary because
-        // other pages that inherit from BasePageModel may use this constructor, and we
-        // need to ensure that the prices are set even when the _deliveryApplication
-        // dependency is not provided.
 
-        public BasePageModel() 
+        }
+
+
+        // OnGetUserNameAsync checks if the user is authenticated,
+        // fetches the username using _userManager, and stores
+        // it in both UserName and ViewData for display.
+        public async Task OnGetUserNameAsync()
         {
-            PaidPrice = PriceHolder.PaidPrice;
-            NotPaidPrice = PriceHolder.NotPaidPrice;
+            if (!User.Identity.IsAuthenticated)
+            {
+                RedirectToPage("/Account/Welcome");
+            }
+
+            var currentUser = await _userManager.GetUserAsync(User);
+            if (currentUser != null)
+            {
+                UserName = currentUser.UserName;
+                ViewData["UserName"] = UserName;
+            }
         }
 
     }

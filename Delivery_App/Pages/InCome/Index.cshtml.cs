@@ -18,8 +18,7 @@ namespace Delivery_App.Pages.InCome
         // in this method we fill our List with our data
         public async Task OnGetAsync()
         {
-            InCome = await _deliveryApplication.GetInComeAsync();
-           
+            InCome = await _deliveryApplication.GetInComeAsync();        
         }
     }
 }

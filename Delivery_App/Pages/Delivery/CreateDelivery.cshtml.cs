@@ -42,7 +42,7 @@ namespace Delivery_App.Pages.Delivery
             , IDestinationApplication destinationApplication
             , IDeliveryRepository deliveryRepository
             , IDateConversionService dateConversionService,
-              UserManager<User> userManager) : base()
+              UserManager<User> userManager) : base(deliveryApplication,userManager)
         {
             _deliveryApplication = deliveryApplication;
             _destinationApplication = destinationApplication;
@@ -75,6 +75,9 @@ namespace Delivery_App.Pages.Delivery
 
             date = DateTime.Now;
             persiantime = _deliveryConversionService.ToPersiandate(date);
+
+            await base.OnGetUserNameAsync();
+            await base.OnGetPricesAsync();
         }
 
         // It takes a CreateDelivery object and a boolean

@@ -23,8 +23,8 @@ namespace Delivery_App.Pages
         // here we easily Injecting DeliveryApplication interface
         // to fetch all database records and display them in the view.
         public List<DeliveryViewModel> Deliveries { get; set; }
-        // property to show username on index
-        public string UserName { get; set; }
+/*        // property to show username on index
+        public string UserName { get; set; }*/
 
         // This 'Search' property is used to hold the search term provided
         // by the user for search operations in the application. 
@@ -43,7 +43,7 @@ namespace Delivery_App.Pages
         private readonly IUserApplication _userApplication;
         private readonly UserManager<User> _userManager;
         public IndexModel(IDeliveryApplication deliveryApplication, IUserApplication userApplication,
-            UserManager<User> userManager) : base(deliveryApplication)
+            UserManager<User> userManager) : base(deliveryApplication,userManager)
         {
             _deliveryApplication = deliveryApplication;
             _userApplication = userApplication;
@@ -61,9 +61,7 @@ namespace Delivery_App.Pages
                 return RedirectToPage("/Account/Welcome");
             }
 
-            UserName = _userManager.GetUserName(User);
-            ViewData["UserName"] = UserName;
-            
+            await base.OnGetUserNameAsync();
 
             var userId = _userManager.GetUserId(User);
             if(string.IsNullOrWhiteSpace(userId))
@@ -83,7 +81,7 @@ namespace Delivery_App.Pages
             int skipCount = (CurrentPage - 1) * PageSize;
             Deliveries = allDeliveries.Skip(skipCount).Take(PageSize).OrderByDescending(x => x.Id).ToList();
 
-            await InitializePricesAsync();
+            await OnGetPricesAsync();
             ViewData["Search"] = Search;
 
             return Page();

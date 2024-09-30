@@ -50,7 +50,7 @@ namespace Delivery_App.Pages.Delivery
             , IDestinationApplication destinationApplication,
             IDeliveryRepository deliveryRepository
             , IDateConversionService dateConversionService,
-            UserManager<User> userManager) : base(deliveryApplication)
+            UserManager<User> userManager) : base(deliveryApplication,userManager)
         {
             _deliveryApplication = deliveryApplication;
             _destinationApplication = destinationApplication;
@@ -99,6 +99,8 @@ namespace Delivery_App.Pages.Delivery
                 return RedirectToPage(new { id = TempData["CommandId"] });
             }
 
+            await base.OnGetUserNameAsync();
+            await base.OnGetPricesAsync();
             return Page(); // Return the page result
         }
 

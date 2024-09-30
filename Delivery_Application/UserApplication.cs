@@ -19,11 +19,13 @@ namespace Delivery_Application
     {
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signInManager;
+        private readonly IHttpContextAccessor _HttpContextAccessor;
 
-        public UserApplication(UserManager<User> userManager, SignInManager<User> signInManager)
+        public UserApplication(UserManager<User> userManager, SignInManager<User> signInManager, IHttpContextAccessor httpContextAccessor)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _HttpContextAccessor = httpContextAccessor;
         }
 
         // This asynchronous method manages user registration using the RegisterUser DTO. 
@@ -85,6 +87,22 @@ namespace Delivery_Application
         {
             OpreationResult operation = new OpreationResult();
             return operation.Succeeded(ApplicationMessages.LogOutSucceeded);
+        }
+
+        // Asynchronously retrieves the current user's information from the user manager.
+        // Returns a UsersViewModel containing the username, or null if the user is not authenticated.
+        public async Task<UsersViewModel> GetUsers()
+        {
+            OpreationResult opreation = new OpreationResult();
+
+            var user = await _userManager.GetUserAsync(_HttpContextAccessor.HttpContext.User);
+            if (user == null)
+                return null;
+
+            return new UsersViewModel
+            {
+                UserName = user.UserName,
+            };
         }
     }
 }

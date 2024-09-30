@@ -1,4 +1,5 @@
-﻿using Delivery_Application_Contracts.Destination;
+﻿using Delivery_Application_Contracts.Delivery;
+using Delivery_Application_Contracts.Destination;
 using Delivery_Domain.AuthAgg;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -20,12 +21,20 @@ namespace Delivery_App.Pages.Destination
 
         private readonly IDestinationApplication _destinationApplication;
         private readonly UserManager<User> _userManager;
-        public CreateDestinationModel(IDestinationApplication destinationApplication, UserManager<User> userManager) : base()
+        public CreateDestinationModel(IDestinationApplication destinationApplication,
+            IDeliveryApplication deliveryApplication, UserManager<User> userManager) : base(deliveryApplication,userManager)
         {
             _destinationApplication = destinationApplication;
             _userManager = userManager;
         }
 
+        // Calls base methods to retrieve the current
+        // user's name and delivery prices on page load.
+        public async Task OnGet()
+        {
+            await base.OnGetUserNameAsync();
+            await base.OnGetPricesAsync();
+        }
 
 
         // this post method It takes a CreateDestination command object
