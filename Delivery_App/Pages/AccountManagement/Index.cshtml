@@ -16,7 +16,7 @@
 
             <tr>
                 <th>@Model.Users.UserName</th>
-                <th><a asp-page="./EditUser" asp-route-id="">ویرایش</a></th>
+                <th><a asp-page="/AccountManagement/EditUser" asp-route-id="@Model.Users.Id">ویرایش</a></th>
             </tr>
 
         </tbody>

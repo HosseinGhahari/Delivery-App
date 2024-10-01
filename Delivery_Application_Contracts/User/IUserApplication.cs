@@ -16,5 +16,6 @@ namespace Delivery_Application_Contracts.User
         Task<OpreationResult> LoginAsync(LoginUser command);
         Task<OpreationResult> LogOutAsync();
         Task<UsersViewModel> GetUsers();
+        Task<OpreationResult> EditUser(EditUser command);
     }
 }

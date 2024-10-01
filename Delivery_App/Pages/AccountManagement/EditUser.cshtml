@@ -1,0 +1,38 @@
+﻿@page
+@model Delivery_App.Pages.AccountManagement.EditUserModel
+@{
+}
+
+
+<div class="col-12 mb-4">
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+</div>
+
+<form method="post">
+    <div class="row">
+        <div class="col-md-12 form-group mb-3">
+            <label asp-for="@Model.Command.UserName">نام کاربری جدید</label>
+            <input class="form-control" asp-for="@Model.Command.UserName" type="text" />
+            <span class="alert-danger"></span>
+        </div>
+        <div class="col-md-12 form-group mb-3">
+            <label asp-for="@Model.Command.Password">رمز عبور جدید</label>
+            <input class="form-control" asp-for="@Model.Command.Password" type="text" />
+            <span class="alert-danger"></span>
+        </div>
+        <div class="col-md-12 form-group mb-3">
+            <label asp-for="@Model.Command.ConfirmPassword">تکرار رمز عبور جدید</label>
+            <input class="form-control" asp-for="@Model.Command.ConfirmPassword" type="text" />
+            <span class="alert-danger"></span>
+        </div>
+        <input type="hidden" asp-for="@Model.Command.Id" />
+        <div class="col-md-12">
+            <button type="submit" class="btn btn-success">ثبت</button>
+        </div>
+    </div>
+</form>

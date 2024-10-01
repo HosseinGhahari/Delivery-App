@@ -101,8 +101,36 @@ namespace Delivery_Application
 
             return new UsersViewModel
             {
+                Id = user.Id,
                 UserName = user.UserName,
             };
+        }
+
+        public async Task<OpreationResult> EditUser(EditUser command)
+        {
+            OpreationResult operation = new OpreationResult();
+
+            command.Id = _userManager.GetUserId(_HttpContextAccessor.HttpContext.User);
+
+            var user = await _userManager.FindByIdAsync(command.Id);
+            if(user == null)
+                return operation.Failed(ApplicationMessages.NotFound);
+
+            var existingUser = await _userManager.FindByNameAsync(command.UserName);
+            if (existingUser != null && existingUser.Id != command.Id)
+                return operation.Failed(ApplicationMessages.UserNameExist);
+
+            user.UserName = command.UserName;
+            user.Email = command.UserName;
+
+            if (!string.IsNullOrEmpty(command.Password))
+            {
+                var passwordhasher = new PasswordHasher<IdentityUser>();
+                user.PasswordHash = passwordhasher.HashPassword(user,command.Password);
+            }
+
+            var result = await _userManager.UpdateAsync(user);
+            return operation.Succeeded(ApplicationMessages.UpdateUser);
         }
     }
 }

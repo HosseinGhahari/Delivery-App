@@ -26,13 +26,14 @@ namespace Delivery_App.Pages.AccountManagement
         // the current user's name and delivery prices by invoking base class methods.
         public async Task<IActionResult> OnGet()
         {
+            await base.OnGetUserNameAsync();
+            await base.OnGetPricesAsync();
+
             Users = await _userApplication.GetUsers();
             if (Users == null)
             {
                 return RedirectToPage("/Account/Login"); 
             }
-            await base.OnGetUserNameAsync();
-            await base.OnGetPricesAsync();
 
             return Page();
         }

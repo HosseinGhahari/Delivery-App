@@ -75,6 +75,7 @@
                             <div class="input-group m-auto" style="width: 200px;">
                                 <input type="search" class="form-control" name="Search"
                                        placeholder="جستجو" id="searchInput" value="@ViewData["Search"]" />
+
                             </div>
                         </form>
 
@@ -98,10 +99,19 @@
     </div>
 
     <footer class="border-top footer text-muted">
-        <div class="container fs-5">
-            کاربر <a class="text-primary text-decoration-none fs-5" asp-area="" asp-page="/AccountManagement/Index">@ViewData["UserName"]</a>
+        <div class="container d-flex justify-content-start align-items-center fs-5 text-end">
+            <div class="me-2">
+                کاربر <a class="text-primary text-decoration-none fs-5">( @ViewData["UserName"] )</a>
+            </div>
+            <span class="mx-2">|</span>
+            <div>
+                <a class="text-primary text-decoration-none fs-5" asp-area="" asp-page="/AccountManagement/Index">مدیریت</a>
+            </div>
         </div>
     </footer>
+
+
+
 
 
 

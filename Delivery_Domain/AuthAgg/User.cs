@@ -22,11 +22,6 @@ namespace Delivery_Domain.AuthAgg
             Deliveries = new List<Delivery>();
             IsRemoved = false;
         }
-        public void UpdateCustomField(string customField)
-        {
-            CustomField = customField;
-        }
-
         public void Remove()
         {
             IsRemoved = true;

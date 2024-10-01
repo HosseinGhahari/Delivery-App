@@ -6,11 +6,8 @@ using System.Threading.Tasks;
 
 namespace Delivery_Application_Contracts.User
 {
-    // Represents a view model for user information, containing properties 
-    // necessary for displaying user details, such as the username.
-    public class UsersViewModel
+    public class EditUser : RegisterUser
     {
         public string Id { get; set; }
-        public string UserName { get; set; }
     }
 }

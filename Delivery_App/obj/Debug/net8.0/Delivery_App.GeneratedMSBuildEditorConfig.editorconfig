@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App
 build_property._RazorSourceGeneratorDebug = 
 
+[C:/My Work/1 - Programming/3- C\# Learning/1-Practise And Learning/Asp.net core/Delivery_App/Delivery_App/Pages/AccountManagement/EditUser.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudE1hbmFnZW1lbnRcRWRpdFVzZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/My Work/1 - Programming/3- C\# Learning/1-Practise And Learning/Asp.net core/Delivery_App/Delivery_App/Pages/AccountManagement/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudE1hbmFnZW1lbnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
