@@ -9,7 +9,8 @@
         <thead>
             <tr>
                 <td>نام کاربری</td>
-                <td>عملیات</td>
+                <td>عملیات ویرایش</td>
+                <td>عملیات حذف</td>
             </tr>
         </thead>
         <tbody>
@@ -17,8 +18,15 @@
             <tr>
                 <th>@Model.Users.UserName</th>
                 <th><a asp-page="/AccountManagement/EditUser" asp-route-id="@Model.Users.Id">ویرایش</a></th>
+                <th>
+                <a asp-page-handler="RemoveUser" asp-route-id="@Model.Users.Id" class="link-danger"
+                        onclick="return confirm('آیا از حذف این کاربر مطمئن هستید؟');">
+                    حذف</a>
+                </th>
             </tr>
 
         </tbody>
     </table>
 </div>
+
+

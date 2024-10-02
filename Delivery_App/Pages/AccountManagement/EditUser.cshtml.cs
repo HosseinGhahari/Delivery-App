@@ -37,7 +37,7 @@ namespace Delivery_App.Pages.AccountManagement
             if (!ModelState.IsValid)
                 return Page();
 
-            var result = await _userApplication.EditUser(command);        
+            var result = await _userApplication.EditUserAsync(command);        
             if (result.IsSucceeded)
             {
                 return RedirectToPage("/Index"); 

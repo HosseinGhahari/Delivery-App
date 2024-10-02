@@ -135,7 +135,6 @@ C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\D
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.AssemblyInfoInputs.cache
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.AssemblyInfo.cs
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.csproj.CoreCompileInputs.cache
-C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.MvcApplicationPartsAssemblyInfo.cs
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.MvcApplicationPartsAssemblyInfo.cache
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.RazorAssemblyInfo.cache
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.RazorAssemblyInfo.cs
@@ -156,3 +155,4 @@ C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\D
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.pdb
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.genruntimeconfig.cache
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\ref\Delivery_App.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.MvcApplicationPartsAssemblyInfo.cs

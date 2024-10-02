@@ -26,12 +26,14 @@ namespace Delivery_Infrastructure.Mapping
             builder
                 .HasOne(x => x.Destination)
                 .WithMany(x => x.Deliveries)
-                .HasForeignKey(x => x.DestinationId);
+                .HasForeignKey(x => x.DestinationId)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder
                 .HasOne(x => x.User)
                 .WithMany(x => x.Deliveries)
-                .HasForeignKey(x => x.UserId);
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

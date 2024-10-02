@@ -53,20 +53,6 @@
                                 </button>
                             </form>
                         </li>
-                        <li class="nav-item align-content-center">
-                            <a> | </a>
-                        </li>
-                        <li class="nav-item">
-                            <form asp-page-handler="Logout" method="post">
-                                <button type="submit" class="nav-link text-dark
-                                        @{ if (ViewContext.RouteData.Values["page"].ToString() != "/Index") { <text>disabled-button</text> } }"
-                                        style="background: none; border: none; padding: 0; font-size: inherit; line-height: inherit; padding: 0.5rem 1rem; display: inline-block;"
-                                        @{ if (ViewContext.RouteData.Values["page"].ToString() != "/Index") { <text> disabled</text>; } }>
-                                    خروج
-                                </button>
-                            </form>
-                        </li>
-
 
 
 
@@ -107,11 +93,19 @@
             <div>
                 <a class="text-primary text-decoration-none fs-5" asp-area="" asp-page="/AccountManagement/Index">مدیریت</a>
             </div>
+            <span class="mx-2">|</span>
+            <div class="nav-item">
+                <form asp-page-handler="Logout" method="post">
+                    <button type="submit" class="nav-link text-danger
+                                        @{ if (ViewContext.RouteData.Values["page"].ToString() != "/Index") { <text>disabled-button</text> } }"
+                            style="background: none; border: none; padding: 0; font-size: inherit; line-height: inherit;  display: inline-block;"
+                            @{ if (ViewContext.RouteData.Values["page"].ToString() != "/Index") { <text> disabled</text>; } }>
+                        خروج
+                    </button>
+                </form>
+            </div>
         </div>
     </footer>
-
-
-
 
 
 

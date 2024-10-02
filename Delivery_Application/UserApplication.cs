@@ -59,15 +59,15 @@ namespace Delivery_Application
         }
 
         // This asynchronous method handles user login using the LoginUser DTO. 
-        // It retrieves the user by username and checks if the password is correct. 
-        // If the user is found and the password matches, it signs in the user using 
-        // SignInManager and returns an OperationResult indicating success or failure 
-        // with appropriate messages based on the login outcome.
+        // It retrieves the user by username and checks if the user is found. 
+        // If valid, it verifies the password and signs in the user using SignInManager, 
+        // returning an OperationResult with appropriate success or failure messages.
         public async Task<OpreationResult> LoginAsync(LoginUser command)
         {
             OpreationResult opreation = new OpreationResult();
 
             var user = await _userManager.FindByNameAsync(command.UserName);
+
             if (user == null) 
                 return opreation.Failed(ApplicationMessages.NotFound);
 
@@ -91,7 +91,7 @@ namespace Delivery_Application
 
         // Asynchronously retrieves the current user's information from the user manager.
         // Returns a UsersViewModel containing the username, or null if the user is not authenticated.
-        public async Task<UsersViewModel> GetUsers()
+        public async Task<UsersViewModel> GetUsersAsync()
         {
             OpreationResult opreation = new OpreationResult();
 
@@ -106,7 +106,7 @@ namespace Delivery_Application
             };
         }
 
-        public async Task<OpreationResult> EditUser(EditUser command)
+        public async Task<OpreationResult> EditUserAsync(EditUser command)
         {
             OpreationResult operation = new OpreationResult();
 
@@ -131,6 +131,21 @@ namespace Delivery_Application
 
             var result = await _userManager.UpdateAsync(user);
             return operation.Succeeded(ApplicationMessages.UpdateUser);
+        }
+
+        public async Task<OpreationResult> RemoveAsync(string userId)
+        {
+            OpreationResult operation = new OpreationResult();
+
+            var user = await _userManager.FindByIdAsync(userId);
+            if (user == null)
+                return operation.Failed(ApplicationMessages.NotFound);
+
+            var result = await _userManager.DeleteAsync(user);
+            if(result.Succeeded)
+                return operation.Succeeded(ApplicationMessages.UserRemoved);
+
+            return operation.Failed(ApplicationMessages.UserRemovedFailed);
         }
     }
 }

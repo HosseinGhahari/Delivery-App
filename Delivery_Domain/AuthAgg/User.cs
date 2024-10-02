@@ -15,16 +15,10 @@ namespace Delivery_Domain.AuthAgg
     public class User : IdentityUser
     {
         public string CustomField { get; private set; }
-        public bool IsRemoved { get; private set; } 
         public ICollection<Delivery> Deliveries { get; set; } 
         public User()
         {
             Deliveries = new List<Delivery>();
-            IsRemoved = false;
-        }
-        public void Remove()
-        {
-            IsRemoved = true;
         }
     }
 

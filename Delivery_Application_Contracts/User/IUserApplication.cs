@@ -14,8 +14,9 @@ namespace Delivery_Application_Contracts.User
     {
         Task<OpreationResult> RegisterAsync(RegisterUser command);
         Task<OpreationResult> LoginAsync(LoginUser command);
+        Task<OpreationResult> RemoveAsync(string userId);
         Task<OpreationResult> LogOutAsync();
-        Task<UsersViewModel> GetUsers();
-        Task<OpreationResult> EditUser(EditUser command);
+        Task<UsersViewModel> GetUsersAsync();
+        Task<OpreationResult> EditUserAsync(EditUser command);
     }
 }

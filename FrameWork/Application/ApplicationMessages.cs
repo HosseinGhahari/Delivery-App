@@ -18,5 +18,7 @@ namespace FrameWork.Application
         public const string LogOutSucceeded = "خروج با موفقیت انجام شد";
         public const string NotSamePassword = "رمز های عبور یکسان نمیباشد";
         public const string UpdateUser = "مشخصات کاربر بروزرسانی شد";
+        public const string UserRemoved = "کاربر با موفقیت حذف شد";
+        public const string UserRemovedFailed = "عملیات حذف کاربر با خطا مواجه شد";
     }
 }

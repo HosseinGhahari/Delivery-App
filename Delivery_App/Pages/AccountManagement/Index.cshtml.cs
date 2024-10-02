@@ -1,6 +1,8 @@
 using Delivery_Application_Contracts.Delivery;
 using Delivery_Application_Contracts.User;
 using Delivery_Domain.AuthAgg;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -29,13 +31,21 @@ namespace Delivery_App.Pages.AccountManagement
             await base.OnGetUserNameAsync();
             await base.OnGetPricesAsync();
 
-            Users = await _userApplication.GetUsers();
+            Users = await _userApplication.GetUsersAsync();
             if (Users == null)
             {
                 return RedirectToPage("/Account/Login"); 
             }
 
             return Page();
+        }
+
+        public async Task<IActionResult> OnGetRemoveUserAsync(string id)
+        {
+            await _userApplication.RemoveAsync(id);
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            Response.Cookies.Delete(".AspNetCore.Identity.Application");
+            return RedirectToPage("/Account/Welcome");
         }
     }
 }
