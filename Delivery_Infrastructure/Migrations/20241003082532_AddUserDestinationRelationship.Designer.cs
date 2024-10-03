@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Delivery_Infrastructure.Migrations
 {
     [DbContext(typeof(DeliveryContext))]
-    [Migration("20241002115841_AddedCascadeRemoveToTables")]
-    partial class AddedCascadeRemoveToTables
+    [Migration("20241003082532_AddUserDestinationRelationship")]
+    partial class AddUserDestinationRelationship
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -75,9 +75,12 @@ namespace Delivery_Infrastructure.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("UserId")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Destination", (string)null);
                 });
@@ -316,10 +319,21 @@ namespace Delivery_Infrastructure.Migrations
                     b.HasOne("Delivery_Domain.AuthAgg.User", "User")
                         .WithMany("Deliveries")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Destination");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Delivery_Domain.DestinationAgg.Destination", b =>
+                {
+                    b.HasOne("Delivery_Domain.AuthAgg.User", "User")
+                        .WithMany("Destinations")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("User");
                 });
@@ -383,6 +397,8 @@ namespace Delivery_Infrastructure.Migrations
             modelBuilder.Entity("Delivery_Domain.AuthAgg.User", b =>
                 {
                     b.Navigation("Deliveries");
+
+                    b.Navigation("Destinations");
                 });
 #pragma warning restore 612, 618
         }

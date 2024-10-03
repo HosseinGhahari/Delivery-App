@@ -1,4 +1,5 @@
 ﻿using Delivery_Domain.DeliveryAgg;
+using Delivery_Domain.DestinationAgg;
 using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,13 @@ namespace Delivery_Domain.AuthAgg
     public class User : IdentityUser
     {
         public string CustomField { get; private set; }
-        public ICollection<Delivery> Deliveries { get; set; } 
+
+        public ICollection<Delivery> Deliveries { get; set; }
+        public ICollection<Destination> Destinations { get; set; }
         public User()
         {
             Deliveries = new List<Delivery>();
+            Destinations = new List<Destination>();
         }
     }
 

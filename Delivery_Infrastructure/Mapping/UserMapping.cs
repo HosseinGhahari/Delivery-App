@@ -26,7 +26,13 @@ namespace Delivery_Infrastructure.Mapping
                 .HasMany(x => x.Deliveries)
                 .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
+
+            builder
+                .HasMany(x => x.Destinations)
+                .WithOne(x => x.User)
+                .HasForeignKey(x => x.UserId)
+                .OnDelete(DeleteBehavior.Cascade); 
         }
     }
 }

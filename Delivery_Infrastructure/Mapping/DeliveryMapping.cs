@@ -33,7 +33,7 @@ namespace Delivery_Infrastructure.Mapping
                 .HasOne(x => x.User)
                 .WithMany(x => x.Deliveries)
                 .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

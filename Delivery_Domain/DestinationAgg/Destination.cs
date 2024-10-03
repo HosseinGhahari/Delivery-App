@@ -1,4 +1,5 @@
-﻿using Delivery_Domain.DeliveryAgg;
+﻿using Delivery_Domain.AuthAgg;
+using Delivery_Domain.DeliveryAgg;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,8 @@ namespace Delivery_Domain.DestinationAgg
         public int Id { get; set; }
         public string DestinationName { get; set; }
         public double Price { get; set; }
-        public string? UserId { get; set; }
+        public string UserId { get; set; }
+        public User User { get; set; }
         public List<Delivery> Deliveries { get; set; }
 
         public Destination() 

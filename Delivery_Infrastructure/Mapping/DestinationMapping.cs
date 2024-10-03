@@ -23,12 +23,18 @@ namespace Delivery_Infrastructure.Mapping
             builder.HasKey(x => x.Id);
             builder.Property(x => x.DestinationName).HasMaxLength(200).IsRequired();
             builder.Property(x => x.Price).IsRequired();
-            builder.Property(x => x.UserId);
+            builder.Property(x => x.UserId).IsRequired();
+
+            builder.HasOne(x => x.User)
+                   .WithMany(x => x.Destinations)
+                   .HasForeignKey(x => x.UserId)
+                   .OnDelete(DeleteBehavior.Cascade);
 
             builder
                 .HasMany(x => x.Deliveries)
                 .WithOne(x => x.Destination)
-                .HasForeignKey(x => x.DestinationId);
+                .HasForeignKey(x => x.DestinationId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
