@@ -28,7 +28,14 @@
             {
                 <tr>
                     <th>@item.Destination</th>
-                    <th>@item.Price</th>
+                    @if(item.OptionalPrice.HasValue)
+                    {
+                        <th>@item.OptionalPrice</th>
+                    }
+                    else
+                    {
+                        <th>@item.Price</th>
+                    }
                     <th>@item.PersianDeliveryTime</th>
                     @if (@item.IsPaid == true)
                     {
@@ -43,7 +50,7 @@
                         <a asp-page="./Index" asp-page-handler="Remove" asp-route-id="@item.Id" class="link-danger">حذف</a>
                     </th>
                 </tr>
-            }
+             }
         </tbody>
     </table>
 

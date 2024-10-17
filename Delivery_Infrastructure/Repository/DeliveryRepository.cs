@@ -64,6 +64,7 @@ namespace Delivery_Infrastructure.Repository
                     IsPaid = x.IsPaid,
                     DestinationName = x.Destination.DestinationName,
                     DestinationId = x.DestinationId,
+                    OptionalPrice = x.OptionalPrice
                 })
                 .FirstOrDefaultAsync();
         }
@@ -82,26 +83,28 @@ namespace Delivery_Infrastructure.Repository
             return await _context.Delivery.FirstOrDefaultAsync(x => x.Id == id);
         }
 
-        // This method, GetPaidPrice(), is responsible for calculating
-        // and returning the total price of all deliveries that have
-        // been paid for and are not removed from the system.
+        // This method, GetPaidPriceAsync(), calculates and returns the total price 
+        // of all deliveries that have been paid and are not marked as removed.
+        // It sums the OptionalPrice if available; otherwise, it uses the price 
+        // from the associated destination for each delivery.
         public async Task<double> GetPaidPriceAsync()
         {
             return await _context.Delivery
                 .Include(x => x.Destination)
                 .Where(x => !x.IsRemoved && x.IsPaid)
-                .SumAsync(x => x.Destination.Price);
+                .SumAsync(x => x.OptionalPrice.HasValue ? x.OptionalPrice.Value : x.Destination.Price);
         }
 
-        // This method, GetNotPaidPrice(), is responsible for calculating
-        // and returning the total price of all deliveries that have not
-        // been paid for and are not removed from the system.
+        // This method, GetNotPaidPriceAsync(), calculates and returns the total price 
+        // of all deliveries that have not been paid and are not marked as removed.
+        // It sums the OptionalPrice if available; otherwise, it uses the price 
+        // from the associated destination for each delivery.
         public async Task<double> GetNotPaidPriceAsync()
         {
             return await _context.Delivery
                 .Include(x => x.Destination)
                 .Where(x => !x.IsRemoved && !x.IsPaid)
-                .SumAsync(x => x.Destination.Price);
+                .SumAsync(x => x.OptionalPrice.HasValue ? x.OptionalPrice.Value : x.Destination.Price);
         }
 
         // The 'Search' method filters deliveries based on a search string.
@@ -138,16 +141,15 @@ namespace Delivery_Infrastructure.Repository
             IsPaid = x.IsPaid,
             Price = x.Destination.Price,
             Destination = x.Destination.DestinationName,
+            OptionalPrice = x.OptionalPrice
         });
 
         return query.ToList();
     }
 
-        // This method calculates monthly income from paid deliveries
-        // that have not been removed.It projects delivery data to include
-        // Persian date strings and prices, groups them by the first day
-        // of the Persian month,and aggregates the total income for each
-        // month into a list of InComeViewModel objects.
+        // This method calculates the total income from paid, non-removed deliveries.
+        // It converts delivery dates to Persian, groups by the first day of the Persian month,
+        // and aggregates the total income for each month into a list of InComeViewModel objects.
         public async Task<List<InComeViewModel>> GetInComeAsync()
         {
             var deliveries = await _context.Delivery
@@ -157,7 +159,7 @@ namespace Delivery_Infrastructure.Repository
                 .Select(x => new
                 {
                     PersianDateString = _dateConversionService.ToPersiandate(x.DeliveryTime),
-                    Price = x.Destination.Price
+                    Price = x.OptionalPrice.HasValue ? x.OptionalPrice.Value : x.Destination.Price
                 })
                 .ToListAsync();
 

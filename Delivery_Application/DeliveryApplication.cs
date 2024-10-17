@@ -37,7 +37,7 @@ namespace Delivery_Application
         // adds it to the repository, and saves the changes
         public async Task CreateAsync(CreateDelivery command)
         {
-            var delivery = new Delivery(command.IsPaid, command.DestinationId, command.DeliveryTime , command.UserId);
+            var delivery = new Delivery(command.IsPaid, command.DestinationId, command.DeliveryTime , command.UserId , command.OptionalPrice);
             await _deliveryRepository.CreateAsync(delivery);
             await _deliveryRepository.SaveChangesAsync();
         }
@@ -54,7 +54,7 @@ namespace Delivery_Application
             if (delivery == null)
                 throw new Exception("Delivery not found");
 
-            delivery.Edit(command.IsPaid, command.DestinationId, command.DeliveryTime);
+            delivery.Edit(command.IsPaid, command.DestinationId, command.DeliveryTime , command.OptionalPrice);
             await _deliveryRepository.SaveChangesAsync();
         }
 

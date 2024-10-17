@@ -12,6 +12,6 @@ namespace Delivery_Application_Contracts.Delivery
     {
         public string FirstDayOfMonth { get; set; }
         public string LastDayOfMonth { get; set; }
-        public double InCome { get; set; }  
+        public double InCome { get; set; }
     }
 }

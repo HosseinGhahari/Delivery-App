@@ -31,9 +31,13 @@ POST method when the form is submitted.
             <input class="form-control" asp-for="@Model.persiantime" type="datetime" value="@Model.persiantime" maxlength="9" />
         </div>
         <div class="col-md-12 form-group  mb-3">
-             <label asp-for="@Model.command.DestinationName" class="mb-2">گروه</label>
+            <label asp-for="@Model.command.DestinationName" class="mb-2">گروه</label>
             <select asp-items="@Model.destinations" asp-for="@Model.command.DestinationId" class="form-control">
-            </select> 
+            </select>
+        </div>
+        <div class="col-md-12 form-group  mb-3">
+            <label for="categoryid" class="mb-2">قیمت انتخابی (اختیاری)</label>
+            <input class="form-control" asp-for="@Model.command.OptionalPrice" />
         </div>
         <div class="col-md-12 form-group mb-3">
             <label asp-for="@Model.command.IsPaid" class="m-2">پرداخت شد</label>

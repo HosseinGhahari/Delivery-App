@@ -14,6 +14,7 @@ namespace Delivery_Application_Contracts.Delivery
         public bool IsPaid { get; set; }
         public bool IsRemoved { get; set; }
         public int DestinationId { get; set; }
-        public string UserId { get; set; }  
+        public string UserId { get; set; }
+        public double? OptionalPrice { get; set; }
     }
 }
