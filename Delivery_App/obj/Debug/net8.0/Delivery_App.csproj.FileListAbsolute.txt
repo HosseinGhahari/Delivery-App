@@ -54,7 +54,6 @@ C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\D
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\System.Runtime.Caching.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\System.Security.Permissions.dll
-C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\System.Text.Json.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\System.Windows.Extensions.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
@@ -156,3 +155,8 @@ C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\D
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.genruntimeconfig.cache
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\ref\Delivery_App.dll
 C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\obj\Debug\net8.0\Delivery_App.MvcApplicationPartsAssemblyInfo.cs
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\My Work\1 - Programming\3- C# Learning\1-Practise And Learning\Asp.net core\Delivery_App\Delivery_App\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll

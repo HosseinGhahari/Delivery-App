@@ -54,16 +54,28 @@
                             </form>
                         </li>
 
+                        <!--handel the search opreation for deliveries or destinations-->
 
+                        @if (ViewData["SearchType"]?.ToString() == "Deliveries")
+                        {
+                            <form method="get" class="mx-auto" id="searchForm">
+                                <div class="input-group m-auto" style="width: 200px;">
+                                    <input type="search" class="form-control" name="DeliverySearch"
+                                           placeholder="جستجو" id="searchInput" value="@ViewData["DeliverySearch"]" />
+                                </div>
+                            </form>
+                        }
 
-                        <!--handel the search opreation-->
-                        <form method="get" class="mx-auto" id="searchForm">
-                            <div class="input-group m-auto" style="width: 200px;">
-                                <input type="search" class="form-control" name="Search"
-                                       placeholder="جستجو" id="searchInput" value="@ViewData["Search"]" />
+                        @if (ViewData["SearchType"]?.ToString() == "Destinations")
+                        {
+                            <form method="get" class="mx-auto" id="searchForm">
+                                <div class="input-group m-auto" style="width: 200px;">
+                                    <input type="search" class="form-control" name="DestinationSearch"
+                                           placeholder="جستجو" id="searchInput" value="@ViewData["DestinationSearch"]" />
+                                </div>
+                            </form>
+                        }
 
-                            </div>
-                        </form>
 
                     </ul>
 

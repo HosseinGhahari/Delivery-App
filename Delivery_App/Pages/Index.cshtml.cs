@@ -31,7 +31,7 @@ namespace Delivery_App.Pages
         // The 'SupportsGet' attribute indicates that this property
         // can also be populated from query string values in a HTTP GET request.
         [BindProperty(SupportsGet = true)]
-        public string Search { get; set; }
+        public string DeliverySearch { get; set; }
 
 
         // The reason that we inherit from base(deliveryApplication) is to
@@ -70,19 +70,20 @@ namespace Delivery_App.Pages
             PageSize = s;
             CurrentPage = p;
 
-            if (string.IsNullOrEmpty(Search))
+            if (string.IsNullOrEmpty(DeliverySearch))
             {
-                Search = string.Empty;
+                DeliverySearch = string.Empty;
             }
 
-            var allDeliveries = await _deliveryApplication.SearchAsync(Search , userId);
+            var allDeliveries = await _deliveryApplication.SearchAsync(DeliverySearch , userId);
             TotalDeliveries = allDeliveries.Count;
 
             int skipCount = (CurrentPage - 1) * PageSize;
             Deliveries = allDeliveries.Skip(skipCount).Take(PageSize).OrderByDescending(x => x.Id).ToList();
 
             await OnGetPricesAsync();
-            ViewData["Search"] = Search;
+            ViewData["SearchType"] = "Deliveries";
+            ViewData["DeliverySearch"] = DeliverySearch;
 
             return Page();
         }

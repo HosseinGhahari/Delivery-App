@@ -11,10 +11,14 @@ namespace Delivery_App.Pages.Destination
     // and also An instance of the IDestinationApplication interface
     // and the OnGet method is called when the page is accessed
     // It retrieves all destinations and assigns them to the Destinations list
-    // and show them on index view to user
+    // and show them on index view to user , also is able to do
+    // a search base on destinations name 
     public class IndexModel : BasePageModel
     {
         public List<DestinationViewModel> Destinations;
+
+        [BindProperty(SupportsGet = true)]
+        public string DestinationSearch { get; set; }
 
         private readonly IDestinationApplication _destinationApplication;
         private readonly UserManager<User> _userManager;
@@ -29,8 +33,11 @@ namespace Delivery_App.Pages.Destination
             var userId = _userManager.GetUserId(User);
             if (string.IsNullOrWhiteSpace(userId))
                Unauthorized();
+  
+            Destinations = await _destinationApplication.DestinationSearch(DestinationSearch,userId);
+            ViewData["DestinationSearch"] = DestinationSearch;
+            ViewData["SearchType"] = "Destinations";
 
-            Destinations = await _destinationApplication.GetAllAsync(userId);
             await base.OnGetUserNameAsync();
             await base.OnGetPricesAsync();
         }

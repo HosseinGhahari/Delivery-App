@@ -24,6 +24,12 @@ builder.Services.AddRazorPages(option =>
     option.Conventions.AllowAnonymousToPage("/Account/Login");
 });
 
+/*builder.Configuration
+    .SetBasePath(Directory.GetCurrentDirectory())
+    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: true)
+    .AddJsonFile($"appsettings.{builder.Environment.EnvironmentName}.json", optional: true);
+*/
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {

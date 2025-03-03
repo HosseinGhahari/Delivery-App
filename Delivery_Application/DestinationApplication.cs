@@ -76,9 +76,20 @@ namespace Delivery_Application
             await _destinationRepository.SaveChangesAsync();
         }
 
+        // Checks if a destination with the given name exists, excluding a specific ID if provided.
         public async Task<bool> ExistAsync(string name , int? id)
         {
             return await _destinationRepository.ExistAsync(x => x.DestinationName == name && x.Id != id);
+        }
+
+        // Retrieves a list of destinations based on a search command and user ID.
+        // Throws an exception if the user ID is missing, ensuring only authenticated users can search.
+        public async Task<List<DestinationViewModel>> DestinationSearch(string Command, string userId)
+        {
+            if (string.IsNullOrWhiteSpace(userId))
+                throw new UnauthorizedAccessException("User is not authenticated.");
+
+            return await _destinationRepository.DestinationSearchAsync(Command, userId);
         }
     }
 }

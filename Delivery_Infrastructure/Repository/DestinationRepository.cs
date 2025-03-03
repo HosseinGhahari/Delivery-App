@@ -86,6 +86,27 @@ namespace Delivery_Infrastructure.Repository
             await _context.SaveChangesAsync();
         }
 
+        // The method filters Destinations based on a search string.
+        // it assumes the search string is a destination name and filters by that.
+        // It returns a list of 'DestinationViewModel' objects based on the filtered deliveries.
+        public async Task<List<DestinationViewModel>> DestinationSearchAsync(string search, string userId)
+        {
+            var destinations = _context.Destination
+                .Where(x => x.UserId == userId);
 
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                destinations = destinations.Where(x => x.DestinationName.Contains(search));
+            }
+
+            var query = destinations.Select(x => new DestinationViewModel
+            {
+                DestinationName = x.DestinationName,
+                Price = x.Price,
+                
+            });
+
+            return query.ToList();
+        }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Linq.Expressions;
+﻿using System.Data;
+using System.Linq.Expressions;
 
 
 namespace Delivery_Application_Contracts.Destination
@@ -15,5 +16,6 @@ namespace Delivery_Application_Contracts.Destination
         Task<bool> ExistAsync(string name,int? id);
         Task<List<DestinationViewModel>> GetAllAsync(string userId);
         Task<EditDestination> GetEditDetailsAsync(int id);
+        Task <List<DestinationViewModel>> DestinationSearch(string Command, string userId);
     }
 }
