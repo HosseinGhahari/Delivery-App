@@ -20,7 +20,7 @@ namespace Delivery_Domain.DeliveryAgg
         Task<double> GetPaidPriceAsync();
         Task<double> GetNotPaidPriceAsync();
         Task SaveChangesAsync();
-        Task<List<DeliveryViewModel>> SearchAsync(string search , string userId);
+        Task<List<DeliveryViewModel>> GetDeliveries(string userId);
         Task<List<InComeViewModel>> GetInComeAsync();
     }
 

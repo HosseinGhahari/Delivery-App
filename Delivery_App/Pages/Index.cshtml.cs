@@ -26,13 +26,6 @@ namespace Delivery_App.Pages
 /*        // property to show username on index
         public string UserName { get; set; }*/
 
-        // This 'Search' property is used to hold the search term provided
-        // by the user for search operations in the application. 
-        // The 'SupportsGet' attribute indicates that this property
-        // can also be populated from query string values in a HTTP GET request.
-        [BindProperty(SupportsGet = true)]
-        public string DeliverySearch { get; set; }
-
 
         // The reason that we inherit from base(deliveryApplication) is to
         // ensure that the BasePageModel’s properties and methods, including
@@ -70,12 +63,7 @@ namespace Delivery_App.Pages
             PageSize = s;
             CurrentPage = p;
 
-            if (string.IsNullOrEmpty(DeliverySearch))
-            {
-                DeliverySearch = string.Empty;
-            }
-
-            var allDeliveries = await _deliveryApplication.SearchAsync(DeliverySearch , userId);
+            var allDeliveries = await _deliveryApplication.GetDeliveries(userId);
             TotalDeliveries = allDeliveries.Count;
 
             int skipCount = (CurrentPage - 1) * PageSize;
@@ -83,9 +71,31 @@ namespace Delivery_App.Pages
 
             await OnGetPricesAsync();
             ViewData["SearchType"] = "Deliveries";
-            ViewData["DeliverySearch"] = DeliverySearch;
 
             return Page();
+        }
+
+        public async Task<IActionResult> OnGetSearchAsync(string search)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized();
+            }
+
+            var userId = _userManager.GetUserId(User);
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                return Unauthorized();
+            }
+
+            var alldeliveries = await _deliveryApplication.GetDeliveries(userId);
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                alldeliveries = alldeliveries
+                    .Where(d => d.Destination.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+            return new JsonResult(alldeliveries);
         }
 
 

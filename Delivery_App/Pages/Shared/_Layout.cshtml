@@ -55,13 +55,13 @@
                         </li>
 
                         <!--handel the search opreation for deliveries or destinations-->
-
                         @if (ViewData["SearchType"]?.ToString() == "Deliveries")
                         {
                             <form method="get" class="mx-auto" id="searchForm">
                                 <div class="input-group m-auto" style="width: 200px;">
-                                    <input type="search" class="form-control" name="DeliverySearch"
-                                           placeholder="جستجو" id="searchInput" value="@ViewData["DeliverySearch"]" />
+                                    <input type="search" class="form-control" 
+                                           placeholder="جستجو" id="searchInput" name="DeliverySearch"
+                                           value="@ViewData["DeliverySearch"]" autocomplete="off" />
                                 </div>
                             </form>
                         }
@@ -71,10 +71,12 @@
                             <form method="get" class="mx-auto" id="searchForm">
                                 <div class="input-group m-auto" style="width: 200px;">
                                     <input type="search" class="form-control" name="DestinationSearch"
-                                           placeholder="جستجو" id="searchInput" value="@ViewData["DestinationSearch"]" />
+                                           placeholder="جستجو" id="searchInput" 
+                                           value="@ViewData["DestinationSearch"]" />
                                 </div>
                             </form>
                         }
+
 
 
                     </ul>
@@ -127,15 +129,6 @@
     <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
 
-    <!--enable enter key for search box when it's empty-->
-    <script>
-        document.getElementById('searchInput').addEventListener('keydown', function (e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                document.getElementById('searchForm').submit();
-            }
-        });
-    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>

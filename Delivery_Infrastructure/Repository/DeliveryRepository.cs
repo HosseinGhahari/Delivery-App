@@ -3,6 +3,7 @@ using Delivery_Domain.DeliveryAgg;
 using Delivery_Domain.DestinationAgg;
 using Delivery_Infrastructure.Context;
 using Delivery_Infrastructure.DateConversionService;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic;
 using System;
@@ -111,41 +112,26 @@ namespace Delivery_Infrastructure.Repository
         // If the search string is a valid Persian date, it filters by date.
         // If not, it assumes the search string is a destination name and filters by that.
         // It returns a list of 'DeliveryViewModel' objects based on the filtered deliveries.
-        public async Task<List<DeliveryViewModel>> SearchAsync(string search , string userId)
+        public async Task<List<DeliveryViewModel>> GetDeliveries(string userId)
         {
-        var deliveries = _context.Delivery
-            .Include(x => x.Destination)
-            .Where(x => !x.IsRemoved && x.UserId == userId);
+            var deliveries = await _context.Delivery
+                  .Include(x => x.Destination)
+                  .Where(x => !x.IsRemoved && x.UserId == userId)
+                  .OrderByDescending(d => d.Id)
+                  .ToListAsync();
 
-        if (!string.IsNullOrWhiteSpace(search))
-        {
-            DateTime? convertDate = _dateConversionService.toGregoriandateForSearch(search);
+            return deliveries.Select(x => new DeliveryViewModel
+            {
+                Id = x.Id,
+                DeliveryTime = x.DeliveryTime,
+                PersianDeliveryTime = _dateConversionService.ToPersiandate(x.DeliveryTime),
+                IsPaid = x.IsPaid,
+                Price = x.Destination.Price,
+                Destination = x.Destination.DestinationName,
+                OptionalPrice = x.OptionalPrice
 
-            if (convertDate != null)
-            {
-                deliveries = deliveries.Where(x => x.DeliveryTime == convertDate);
-            }
-            else
-            {
-                deliveries = deliveries.Where(x => x.Destination.DestinationName.Contains(search));
-            }
+            }).ToList();
         }
-
-        var deliveryList = await deliveries.ToListAsync();
-
-        var query = deliveryList.Select(x => new DeliveryViewModel
-        {
-            Id = x.Id,
-            DeliveryTime = x.DeliveryTime,
-            PersianDeliveryTime = _dateConversionService.ToPersiandate(x.DeliveryTime),
-            IsPaid = x.IsPaid,
-            Price = x.Destination.Price,
-            Destination = x.Destination.DestinationName,
-            OptionalPrice = x.OptionalPrice
-        });
-
-        return query.ToList();
-    }
 
         // This method calculates the total income from paid, non-removed deliveries.
         // It converts delivery dates to Persian, groups by the first day of the Persian month,

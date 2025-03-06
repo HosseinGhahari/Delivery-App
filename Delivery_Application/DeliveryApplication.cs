@@ -115,12 +115,12 @@ namespace Delivery_Application
             await _deliveryRepository.SaveChangesAsync();
         }
 
-        public async Task<List<DeliveryViewModel>> SearchAsync(string command , string userId)
+        public async Task<List<DeliveryViewModel>> GetDeliveries(string userId)
         {
            if(string.IsNullOrWhiteSpace(userId))
                 throw new UnauthorizedAccessException("User is not authenticated.");
 
-            return await _deliveryRepository.SearchAsync(command , userId);
+            return await _deliveryRepository.GetDeliveries(userId);
         }
 
     }

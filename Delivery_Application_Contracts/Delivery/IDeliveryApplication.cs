@@ -21,7 +21,7 @@ namespace Delivery_Application_Contracts.Delivery
         Task<double> GetPaidPriceAsync();
         Task<double> GetNotPaidPriceAsync();
         Task MarkAllAsPaidAsync();
-        Task<List<DeliveryViewModel>> SearchAsync(string command , string userId);
+        Task<List<DeliveryViewModel>> GetDeliveries(string userId);
         Task<List<InComeViewModel>> GetInComeAsync();
     }
 }
