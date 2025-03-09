@@ -115,6 +115,10 @@ namespace Delivery_Application
             await _deliveryRepository.SaveChangesAsync();
         }
 
+        // This method retrieves a list of deliveries for a given user.
+        // It first checks if the provided user ID is valid.
+        // If the user ID is null or empty, it throws an UnauthorizedAccessException.
+        // Otherwise, it fetches the deliveries from the repository and returns them asynchronously.
         public async Task<List<DeliveryViewModel>> GetDeliveries(string userId)
         {
            if(string.IsNullOrWhiteSpace(userId))

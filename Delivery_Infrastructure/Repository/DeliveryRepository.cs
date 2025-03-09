@@ -108,10 +108,10 @@ namespace Delivery_Infrastructure.Repository
                 .SumAsync(x => x.OptionalPrice.HasValue ? x.OptionalPrice.Value : x.Destination.Price);
         }
 
-        // The 'Search' method filters deliveries based on a search string.
-        // If the search string is a valid Persian date, it filters by date.
-        // If not, it assumes the search string is a destination name and filters by that.
-        // It returns a list of 'DeliveryViewModel' objects based on the filtered deliveries.
+        // Retrieves a list of deliveries for a specific user, excluding
+        // removed deliveries.The results are ordered by the most recent deliveries
+        // first.Each delivery is mapped to a 'DeliveryViewModel', converting the
+        // delivery date to Persian format.
         public async Task<List<DeliveryViewModel>> GetDeliveries(string userId)
         {
             var deliveries = await _context.Delivery

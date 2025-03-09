@@ -75,6 +75,11 @@ namespace Delivery_App.Pages
             return Page();
         }
 
+        // This method handles search requests sent via AJAX from the frontend.
+        // It retrieves all deliveries for the logged-in user and filters them based
+        // on the search query. The results are returned as a JSON response
+        // to update the UI dynamically.
+
         public async Task<IActionResult> OnGetSearchAsync(string search)
         {
             if (!User.Identity.IsAuthenticated)

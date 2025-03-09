@@ -1,4 +1,5 @@
 ﻿document.addEventListener("DOMContentLoaded", function () {
+
     const searchInput = document.getElementById("searchInput");
     const tableBody = document.querySelector("tbody"); // Select the table body
 
