@@ -14,8 +14,7 @@ namespace Delivery_Application_Contracts.Destination
         Task CreateAsync(CreateDestination command);
         Task EditAsync(EditDestination command);
         Task<bool> ExistAsync(string name,int? id);
-        Task<List<DestinationViewModel>> GetAllAsync(string userId);
+        Task<List<DestinationViewModel>> GetDestinationsAsync(string userId);
         Task<EditDestination> GetEditDetailsAsync(int id);
-        Task <List<DestinationViewModel>> DestinationSearch(string Command, string userId);
     }
 }

@@ -59,8 +59,9 @@
                         {
                             <form method="get" class="mx-auto" id="searchForm">
                                 <div class="input-group m-auto" style="width: 200px;">
-                                    <input type="search" class="form-control" 
-                                           placeholder="جستجو" id="searchInput" name="DeliverySearch"
+                                    <input type="search" class="form-control" name="Deliveries"
+                                           placeholder="جستجو" id="searchInput"  
+                                           data-search-type="Delivery"
                                            value="@ViewData["DeliverySearch"]" autocomplete="off" />
                                 </div>
                             </form>
@@ -70,9 +71,10 @@
                         {
                             <form method="get" class="mx-auto" id="searchForm">
                                 <div class="input-group m-auto" style="width: 200px;">
-                                    <input type="search" class="form-control" name="DestinationSearch"
-                                           placeholder="جستجو" id="searchInput2" 
-                                           value="@ViewData["DestinationSearch"]" />
+                                    <input type="search" class="form-control" name="Destinations"
+                                           placeholder="جستجو" id="searchInput" 
+                                           data-search-type="Destination"
+                                           value="@ViewData["DestinationSearch"]" autocomplete="off" />
                                 </div>
                             </form>
                         }

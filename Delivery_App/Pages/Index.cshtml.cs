@@ -75,12 +75,12 @@ namespace Delivery_App.Pages
             return Page();
         }
 
-        // This method handles search requests sent via AJAX from the frontend.
+        // This API handles search requests sent via AJAX from the frontend.
         // It retrieves all deliveries for the logged-in user and filters them based
         // on the search query. The results are returned as a JSON response
         // to update the UI dynamically.
 
-        public async Task<IActionResult> OnGetSearchAsync(string search)
+        public async Task<IActionResult> OnGetDeliverySearchAsync(string search)
         {
             if (!User.Identity.IsAuthenticated)
             {
@@ -97,7 +97,8 @@ namespace Delivery_App.Pages
             if (!string.IsNullOrWhiteSpace(search))
             {
                 alldeliveries = alldeliveries
-                    .Where(d => d.Destination.Contains(search, StringComparison.OrdinalIgnoreCase))
+                    .Where(d => d.Destination
+                    .Contains(search, StringComparison.OrdinalIgnoreCase))
                     .ToList();
             }
             return new JsonResult(alldeliveries);

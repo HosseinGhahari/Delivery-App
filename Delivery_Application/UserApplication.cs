@@ -106,6 +106,8 @@ namespace Delivery_Application
             };
         }
 
+        // Updates user details based on the provided command. Checks for existing username,
+        // hashes the password if provided, and updates the user. Returns success or failure result.
         public async Task<OpreationResult> EditUserAsync(EditUser command)
         {
             OpreationResult operation = new OpreationResult();
@@ -133,6 +135,8 @@ namespace Delivery_Application
             return operation.Succeeded(ApplicationMessages.UpdateUser);
         }
 
+        // Removes the user by their ID. Returns success if the
+        // user is deleted, otherwise returns failure.
         public async Task<OpreationResult> RemoveAsync(string userId)
         {
             OpreationResult operation = new OpreationResult();

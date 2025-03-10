@@ -65,7 +65,7 @@ namespace Delivery_App.Pages.Delivery
             if(string.IsNullOrWhiteSpace(userid))
                Unauthorized();
 
-            var destinationsList = await _destinationApplication.GetAllAsync(userid);
+            var destinationsList = await _destinationApplication.GetDestinationsAsync(userid);
             destinations = new SelectList(destinationsList
                 .Select(x => new
                 {

@@ -17,9 +17,8 @@ namespace Delivery_Domain.DestinationAgg
         Task<Destination> GetAsync(int id);
         Task CreateAsync(Destination destination);
         Task<bool> ExistAsync(Expression<Func<Destination,bool>> expression);
-        Task<List<DestinationViewModel>> GetAllAsync(string userId);
+        Task<List<DestinationViewModel>> GetDestinationslAsync(string userId);
         Task<EditDestination> GetEditDetailsAsync(int id);
-        Task <List<DestinationViewModel>> DestinationSearchAsync(string search, string userId);
         Task SaveChangesAsync();
     }
 

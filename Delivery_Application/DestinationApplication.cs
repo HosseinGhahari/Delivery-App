@@ -49,12 +49,12 @@ namespace Delivery_Application
         }
 
         // Retrieves all destinations from the repository.
-        public async Task<List<DestinationViewModel>> GetAllAsync(string userId)
+        public async Task<List<DestinationViewModel>> GetDestinationsAsync(string userId)
         {
             if(string.IsNullOrWhiteSpace(userId))
                 throw new UnauthorizedAccessException("User is not authenticated.");
 
-            return await _destinationRepository.GetAllAsync(userId);
+            return await _destinationRepository.GetDestinationslAsync(userId);
         }
 
 
@@ -82,14 +82,5 @@ namespace Delivery_Application
             return await _destinationRepository.ExistAsync(x => x.DestinationName == name && x.Id != id);
         }
 
-        // Retrieves a list of destinations based on a search command and user ID.
-        // Throws an exception if the user ID is missing, ensuring only authenticated users can search.
-        public async Task<List<DestinationViewModel>> DestinationSearch(string Command, string userId)
-        {
-            if (string.IsNullOrWhiteSpace(userId))
-                throw new UnauthorizedAccessException("User is not authenticated.");
-
-            return await _destinationRepository.DestinationSearchAsync(Command, userId);
-        }
     }
 }

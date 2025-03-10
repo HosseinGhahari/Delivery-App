@@ -34,12 +34,36 @@ namespace Delivery_App.Pages.Destination
             if (string.IsNullOrWhiteSpace(userId))
                Unauthorized();
   
-            Destinations = await _destinationApplication.DestinationSearch(DestinationSearch,userId);
+            Destinations = await _destinationApplication.GetDestinationsAsync(userId);
             ViewData["DestinationSearch"] = DestinationSearch;
             ViewData["SearchType"] = "Destinations";
 
             await base.OnGetUserNameAsync();
             await base.OnGetPricesAsync();
+        }
+
+        public async Task<IActionResult> OnGetDestinationSearchAsync(string search)
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return Unauthorized();
+            }
+
+            var userId = _userManager.GetUserId(User);
+            if (string.IsNullOrWhiteSpace(userId))
+            {
+                return Unauthorized();
+            }
+
+            var allDestinations = await _destinationApplication.GetDestinationsAsync(userId);
+            if (!string.IsNullOrWhiteSpace(search))
+            {
+                allDestinations = allDestinations
+                    .Where(x => x.DestinationName
+                    .Contains(search, StringComparison.OrdinalIgnoreCase))
+                    .ToList();
+            }
+            return new JsonResult(allDestinations);
         }
     }
 }

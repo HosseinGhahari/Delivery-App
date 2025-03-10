@@ -80,7 +80,7 @@ namespace Delivery_App.Pages.Delivery
             if (string.IsNullOrWhiteSpace(userid))
                 Unauthorized();
 
-            var destinationsData = await _destinationApplication.GetAllAsync(userid); // Ensure this method is async in the Application layer
+            var destinationsData = await _destinationApplication.GetDestinationsAsync(userid); // Ensure this method is async in the Application layer
             destinations = new SelectList(destinationsData.Select(x => new
             {
                 x.Id,
